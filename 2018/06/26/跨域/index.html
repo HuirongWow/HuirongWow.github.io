@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="美好的前端学习在五一这天又一次开始！这次来看看跨域如何实现。这一天依旧是继续加油的马大侠~ 什么是跨域浏览器出于安全方面的考虑，不允许js跨域调用其他页面，于是出现了同源策略。在这里我们把域想成域名，比如有一个域名为china.net，另一个为china.com，这两者属于不同的域名，所以它们之间的页面也是不能相互调用的，这属于同源策略的一种。我们来看看同源策略具体分为几类：   不同域名 相同域">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨域">
+<meta property="og:url" content="http://yoursite.com/2018/06/26/跨域/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="美好的前端学习在五一这天又一次开始！这次来看看跨域如何实现。这一天依旧是继续加油的马大侠~ 什么是跨域浏览器出于安全方面的考虑，不允许js跨域调用其他页面，于是出现了同源策略。在这里我们把域想成域名，比如有一个域名为china.net，另一个为china.com，这两者属于不同的域名，所以它们之间的页面也是不能相互调用的，这属于同源策略的一种。我们来看看同源策略具体分为几类：   不同域名 相同域">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-28f425ac5e66aebf6c461bc34527b715_hd.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-bdfd1ffe8e2f3f57a86f3034daa8d205_hd.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-db4263dd2f672673ce263bcc0b9a7172_hd.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-b1e1dc8f24eac06b6c6b489c0ff6c62a_hd.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-a698eba837394fc45a256b424e64345e_hd.jpg">
+<meta property="og:updated_time" content="2018-06-25T21:34:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="跨域">
+<meta name="twitter:description" content="美好的前端学习在五一这天又一次开始！这次来看看跨域如何实现。这一天依旧是继续加油的马大侠~ 什么是跨域浏览器出于安全方面的考虑，不允许js跨域调用其他页面，于是出现了同源策略。在这里我们把域想成域名，比如有一个域名为china.net，另一个为china.com，这两者属于不同的域名，所以它们之间的页面也是不能相互调用的，这属于同源策略的一种。我们来看看同源策略具体分为几类：   不同域名 相同域">
+<meta name="twitter:image" content="https://pic3.zhimg.com/80/v2-28f425ac5e66aebf6c461bc34527b715_hd.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/26/跨域/"/>
+
+
+
+
+
+  <title>跨域 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript"
+  color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/HuirongWow"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/26/跨域/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="马慧荣">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">跨域</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-26T05:34:22+08:00">
+                2018-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>美好的前端学习在五一这天又一次开始！这次来看看跨域如何实现。<br>这一天依旧是继续加油的马大侠~</p>
+<h2 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h2><p>浏览器出于安全方面的考虑，不允许js跨域调用其他页面，于是出现了同源策略。在这里我们把域想成域名，比如有一个域名为china.net，另一个为china.com，这两者属于不同的域名，所以它们之间的页面也是不能相互调用的，这属于同源策略的一种。我们来看看同源策略具体分为几类：</p>
+<blockquote>
+<ul>
+<li>不同域名</li>
+<li>相同域名不同端口号</li>
+<li>同一个域名不同协议</li>
+<li>域名和域名对应的IP</li>
+<li>主域和子域</li>
+<li>子域和子域<br>以上情况只要出现了，那么就会产生跨域问题。如何解决跨域的问题：</li>
+</ul>
+</blockquote>
+<h2 id="跨域解决方案"><a href="#跨域解决方案" class="headerlink" title="跨域解决方案"></a>跨域解决方案</h2><h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>对于JSONP，有个易懂的解释:JSONP是数据格式json的一种“使用方式”，可以让网页从别的网页要数据。</p>
+<p>由于同源策略，页面之间的相互调用具有限制，但是HTML中的 <code>&lt;script&gt;</code> 标签并不遵书同源策略，我们可以利用这个特性，让网页可以得到从其他来源动态产生的JSONP数据，这种使用模式就是所谓的JSONP。用JSONP抓到的数据并不是JSON，而是任意的JavaScript，用JavaScript解释器运行而不是用JSON解析器解析。我们来看个例子：</p>
+<blockquote>
+<p>前端浏览器页面</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+function jsonpCallBack (res, req) {
+  console.log(res, req);
+}
+&lt;/script&gt;
+&lt;script type=&quot;text/JavaScript&quot; src=&quot;http://localhost/test/jsonp.php?callback=jsonpCallBack&amp;data=getJsonpData&quot;&gt;&lt;/script&gt;
+
+};
+</code></pre><blockquote>
+<p>另一个域名服务器请求接口</p>
+</blockquote>
+<pre><code>&lt;?php
+  /*后端获取请求字段数据，并生成返回内容*/
+  $data = $_GET[&quot;data&quot;];
+  $callback = $_GET[&quot;callback&quot;];
+  echo $callback.&quot;(&apos;success&apos;, &apos;&quot;.$data.&quot;&apos;)&quot;;
+?&gt;
+</code></pre><blockquote>
+<p>测试结果如下：<br><img src="https://pic3.zhimg.com/80/v2-28f425ac5e66aebf6c461bc34527b715_hd.jpg" alt="JSONP"><br>这种方案要注意的是，它只支持GET这一种HTTP请求类型，还有尤为重要的是其他域要有可靠性，保证安全。当然有时我们还可以通过一个方法来动态生成需要的JSONP.</p>
+</blockquote>
+<h3 id="跨域资源共享CORS"><a href="#跨域资源共享CORS" class="headerlink" title="跨域资源共享CORS"></a>跨域资源共享CORS</h3><p>CORS，是JSONP模式的现代升级版，不同的是，他除了GET这种HTTP请求方式，还支持其它的HTTP请求。浏览器CORS请求分成两种：</p>
+<blockquote>
+<ul>
+<li>简单请求</li>
+<li>非简单请求（协商模型/预检请求）</li>
+</ul>
+</blockquote>
+<p>如何区分请求具体属于哪一种呢？看下面的总结：</p>
+<blockquote>
+<ul>
+<li>请求方式<br>GET<br>HEAD<br>POST</li>
+<li>HTTP的头信息字段<br>Accept<br>Accept-Language<br>Cntent-Language<br>Last-Event-ID<br>Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain，其中’text/plain’默认支持，其他两种则需要预检请求和服务器协商。</li>
+</ul>
+</blockquote>
+<p>满足以上两大点的即为简单请求，否则为非简单请求。具体请求处理的不同 大家可以去查阅下MDN HTTP访问控制(CORS) ，那里有详细的解析及用法。</p>
+<h3 id="document-domain-iframe-适用于主域名相同的情况"><a href="#document-domain-iframe-适用于主域名相同的情况" class="headerlink" title="document.domain+iframe(适用于主域名相同的情况)"></a>document.domain+iframe(适用于主域名相同的情况)</h3><p>从同源策略可知，浏览器认为主域和子域，子域和子域，它们属于不同的域，那么如果我们需要让主域和子域之间可以进行通信，我们需要修改document.domain，把它们改成相同的domain</p>
+<p>我们来看一个例子：<br>在域名为<a href="http://server.example.com中的a.html：" target="_blank" rel="noopener">http://server.example.com中的a.html：</a></p>
+<pre><code>document.domain = &apos;example.com&apos;;
+var $iframe = document.createElement(&apos;iframe&apos;);
+$iframe.src = &apos;server.child.example.com/b.html&apos;;
+$iframe.style.display = &apos;none&apos;;
+document.body.appendChild($iframe);
+$iframe.onload = function(){
+    var doc = $iframe.contentDocument || $iframe.contentWindow.document;
+    //在这里操作doc，也就是操作b.html
+    $iframe.onload = null;
+};
+</code></pre><p>在域名为<a href="http://server.child.example.com中的b.html：" target="_blank" rel="noopener">http://server.child.example.com中的b.html：</a></p>
+<pre><code>document.domain = &apos;example.com&apos;
+</code></pre><p>这种形式方便贵方便但是也有其他方面带来的隐患：</p>
+<blockquote>
+<ul>
+<li>当一个站点受到攻击后，另一个站点会引起安全漏洞</li>
+<li>若页面同时引入多个Iframe，想要操作所有iframe，domain需要全部设置成一样的。</li>
+</ul>
+</blockquote>
+<h3 id="window-name-iframe"><a href="#window-name-iframe" class="headerlink" title="window.name + iframe"></a>window.name + iframe</h3><blockquote>
+<ul>
+<li>window对象的name属性是一个很特别的属性，它可以在不同页面甚至不同域名加载后依旧存在。使用步骤如下：</li>
+<li>首先在A页面中利用iframe加载其他域的B页面</li>
+<li>如有需要传给A页面的数据，在B页面中赋给window.name</li>
+<li>在A页面中修改iframe的地址，把地址变成同一个域下的地址</li>
+<li>现在，就可以获取到iframe中页面B的window.name属性</li>
+</ul>
+</blockquote>
+<p>我们来看一个示例：</p>
+<blockquote>
+<ul>
+<li>首先我们在域名为<a href="http://127.0.0.1下建好页面B，在B页面的" target="_blank" rel="noopener">http://127.0.0.1下建好页面B，在B页面的</a> <code>&lt;script&gt;</code> 标签中将需要传递的数据赋给window.name</li>
+</ul>
+</blockquote>
+<pre><code>window.name = &apos;页面B中传递给页面A的数据&apos;;
+</code></pre><blockquote>
+<ul>
+<li>然后回到域名为<a href="http://127.0.0.1:9000的A页面，在这里我们需要做的一件事情就是，利用iframe加载页面B，并且将其域名进行修改，变成和A一样的域名。" target="_blank" rel="noopener">http://127.0.0.1:9000的A页面，在这里我们需要做的一件事情就是，利用iframe加载页面B，并且将其域名进行修改，变成和A一样的域名。</a></li>
+</ul>
+</blockquote>
+<pre><code>function proxy (url, callback) {
+    var flag = true,
+        $iframe = document.createElement(&apos;iframe&apos;),
+        loadCallBack = function () {
+            if (flag) {
+                // 这里我们还得在域名为 http://127.0.0.1:9000 建立一个tmp.html文件当做缓存界面
+                $iframe.contentWindow.location = &apos;http://127.0.0.1:9000/tmp.html&apos;;
+                flag = false;
+            }
+            // 修改localtion后，每次触发onload事件会重置src，相当于重新载入页面，然后继续触发onload。
+            // 这里是针对该问题做的处理
+            else {
+                callback($iframe.contentWindow.name);
+                $iframe.contentWindow.close();
+                document.body.removeChild($iframe);
+                $iframe.src = &apos;&apos;;
+                $iframe = null;
+            }
+        };
+
+    $iframe.src = url;
+    $iframe.style.display = &apos;none&apos;;
+    // 事件绑定兼容简单处理
+    // IE 支持iframe的onload事件，不过是隐形的，需要通过attachEvent来注册
+    if ($iframe.attachEvent) {
+        $iframe.attachEvent(&apos;onload&apos;, loadCallBack);
+    }
+    else {
+        $iframe.onload = loadCallBack;
+    }
+
+    document.body.appendChild($iframe);
+}
+proxy(&apos;http://127.0.0.1/bop/test.html&apos;, function(data){
+    console.log(data);
+});
+</code></pre><blockquote>
+<ul>
+<li>测试结果如图：<br><img src="https://pic3.zhimg.com/80/v2-bdfd1ffe8e2f3f57a86f3034daa8d205_hd.jpg" alt="window.name+iframe"></li>
+</ul>
+</blockquote>
+<h3 id="HTML5中的postMessage（适用于两个iframe或两个页面之间）"><a href="#HTML5中的postMessage（适用于两个iframe或两个页面之间）" class="headerlink" title="HTML5中的postMessage（适用于两个iframe或两个页面之间）"></a>HTML5中的postMessage（适用于两个iframe或两个页面之间）</h3><blockquote>
+<p>postMessage隶属于html5，但是它支持IE8+和其他的浏览器，即可以实现同域传递，也可以实现跨域传递。它包括发送消息postMessage和接受消息message功能</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>postMessage的调用语法如下：<br>  otherWindow.postMessage(message, targetOrigin, [transfer]);</li>
+<li>otherWindow:其他窗口的一个引用，比如iframe的contentWindow属性、执行window.open返回的窗口对象、或者是命名过或数值索引的window.frames</li>
+<li>message：将要发送到其他window的数据，类型为string或者Object</li>
+<li>targetOrign： 通过窗口的origin属性来指定哪些窗口能接受到消息事件，其值可以是字符串”*”（表示无限制）或者一个URL。</li>
+<li>transfer(可选):一串和message同时传递的Transferable对象。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>接收message的属性有：</li>
+<li>data:从其他window中传递过来的数据</li>
+<li>origin：调用postMessage时消息发送方窗口的origin</li>
+<li>source：对发送消息的窗口对象的引用</li>
+<li>示例如下：域名<a href="http://127.0.0.1:9000页面A通过iframe嵌入了http://127.0.0.1页面B，接下来页面A将通过postMessage对页面B进行数据传递，页面B将通过message属性接收页面A的数据" target="_blank" rel="noopener">http://127.0.0.1:9000页面A通过iframe嵌入了http://127.0.0.1页面B，接下来页面A将通过postMessage对页面B进行数据传递，页面B将通过message属性接收页面A的数据</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>页面A发送消息代码 </li>
+</ul>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;页面A&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;hello jsonp&lt;/h1&gt;
+    &lt;iframe src=&quot;http://127.0.0.1/b.html&quot; id=&quot;iframe&quot;&gt;&lt;/iframe&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script&gt;
+window.onload = function() {  
+    var $iframe = document.getElementById(&apos;iframe&apos;);  
+    var targetOrigin = &quot;http://127.0.0.1&quot;;  
+    $iframe.contentWindow.postMessage(&apos;postMessage发送消息&apos;, targetOrigin);  
+}; 
+&lt;/script&gt;
+</code></pre><blockquote>
+<ul>
+<li>页面B接收消息代码</li>
+</ul>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;页面B&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;hello jsonp&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script&gt;
+var onmessage = function (event) {
+  var data = event.data;     //消息
+  var origin = event.origin; //消息来源地址
+  var source = event.source; //源Window对象
+  if(origin === &quot;http://127.0.0.1:9000&quot;){
+    console.log(data, origin, source);
+  }
+};
+// 事件兼容简单处理
+if (window.addEventListener) {
+  window.addEventListener(&apos;message&apos;, onmessage, false);
+}
+else if (window.attachEvent) {
+  window.attachEvent(&apos;onmessage&apos;, onmessage);
+}
+else {
+  window.onmessage = onmessage;
+}
+&lt;/script&gt;
+</code></pre><blockquote>
+<ul>
+<li>运行结果如下：<br><img src="https://pic3.zhimg.com/80/v2-db4263dd2f672673ce263bcc0b9a7172_hd.jpg" alt="postMessage"></li>
+</ul>
+</blockquote>
+<h3 id="location-hash-iframe-适用于两个iframe之间"><a href="#location-hash-iframe-适用于两个iframe之间" class="headerlink" title="location.hash + iframe(适用于两个iframe之间)"></a>location.hash + iframe(适用于两个iframe之间)</h3><blockquote>
+<ul>
+<li>对于location.hash，先看一张图：<br><img src="https://pic4.zhimg.com/80/v2-b1e1dc8f24eac06b6c6b489c0ff6c62a_hd.jpg" alt="location.hash+iframe"></li>
+<li>location.hash可以用来获取或者设置页面的标签值，如127.0.0.1:9000/#…,它的<strong>location.hash</strong>值则为“#hello”。它一般用于浏览器锚点定位，HTTP请求中却不会携带hash，所以这部分的修改不会产生HTTP请求，但是会产生浏览器历史记录，这对我们进行跨域通信给予了帮助。我们可以通过修改URL的hash部分来进行双向通信。<br>示例如下：域名<a href="http://127.0.0.1:9000页面A通过iframe嵌入了http://127.0.0.1页面B，接下来页面A和页面B将通过location.hash进行双向通信。" target="_blank" rel="noopener">http://127.0.0.1:9000页面A通过iframe嵌入了http://127.0.0.1页面B，接下来页面A和页面B将通过location.hash进行双向通信。</a></li>
+<li>页面A代码</li>
+</ul>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;页面A&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;iframe src=&quot;http://127.0.0.1/bop/test.html#locationHash&quot; id=&quot;ifr&quot;&gt;&lt;/iframe&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><blockquote>
+<ul>
+<li>页面B代码</li>
+</ul>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;页面B&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;hello localtionHash&lt;/h2&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script&gt;
+try {
+    parent.location.hash = &apos;data&apos;;
+} catch (e) {
+    // ie、chrome的安全机制无法修改parent.location.hash，所以要借助于父窗口域名下的一个代理iframe
+    var $ifrproxy = document.createElement(&apos;iframe&apos;);
+    $ifrproxy.style.display = &apos;none&apos;;
+    // 注意proxy.html必须是域名为 http://127.0.0.1:9000 下的页面
+    $ifrproxy.src = &quot;http://127.0.0.1:9000/proxy.html#locationHashChange&quot;;
+    document.body.appendChild($ifrproxy);
+}
+&lt;/script&gt;
+</code></pre><blockquote>
+<ul>
+<li>代理页代码</li>
+</ul>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Proxy页面&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;script&gt;
+// 因为parent.parent和自身属于同一个域，所以可以改变其location.hash的值
+parent.parent.location.hash = self.location.hash.substring(1);
+&lt;/script&gt;
+&lt;/html&gt;
+</code></pre><blockquote>
+<ul>
+<li>运行结果如图<br><img src="https://pic4.zhimg.com/80/v2-a698eba837394fc45a256b424e64345e_hd.jpg" alt="lacation.hash+iframe"></li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/26/Vue学习第三弹/" rel="next" title="Vue学习第三弹">
+                <i class="fa fa-chevron-left"></i> Vue学习第三弹
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/06/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar1.gif"
+                alt="马慧荣" />
+            
+              <p class="site-author-name" itemprop="name">马慧荣</p>
+              <p class="site-description motion-element" itemprop="description">引而不发，一击必中</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HuirongWow" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是跨域"><span class="nav-number">1.</span> <span class="nav-text">什么是跨域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域解决方案"><span class="nav-number">2.</span> <span class="nav-text">跨域解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP"><span class="nav-number">3.</span> <span class="nav-text">JSONP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域资源共享CORS"><span class="nav-number">3.1.</span> <span class="nav-text">跨域资源共享CORS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#document-domain-iframe-适用于主域名相同的情况"><span class="nav-number">3.2.</span> <span class="nav-text">document.domain+iframe(适用于主域名相同的情况)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window-name-iframe"><span class="nav-number">3.3.</span> <span class="nav-text">window.name + iframe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5中的postMessage（适用于两个iframe或两个页面之间）"><span class="nav-number">3.4.</span> <span class="nav-text">HTML5中的postMessage（适用于两个iframe或两个页面之间）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location-hash-iframe-适用于两个iframe之间"><span class="nav-number">3.5.</span> <span class="nav-text">location.hash + iframe(适用于两个iframe之间)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">马慧荣</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+    </span>
+  </div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
