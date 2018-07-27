@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="在这段时间，我接触到了国际化,以前对国际化的概念，也就是一个映射表，由json来翻译相对应的词汇。从这里可以看出，我是只考虑到了语言翻译这部分。但是最近接触后发现，国际化除了词汇的翻译之外还有许多需要考虑。比如，如何确定用户打开页面的初始语言？首次打开是将所有语言加载好还是用户选择语言时再下载相应的语言包？ 所以这次我思考总结了以下几点：    什么是国际化，国际化的目的是什么 国际化的流程和步">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对国际化的一些理解和思考">
+<meta property="og:url" content="http://yoursite.com/2018/07/26/对国际化的一些理解和思考/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在这段时间，我接触到了国际化,以前对国际化的概念，也就是一个映射表，由json来翻译相对应的词汇。从这里可以看出，我是只考虑到了语言翻译这部分。但是最近接触后发现，国际化除了词汇的翻译之外还有许多需要考虑。比如，如何确定用户打开页面的初始语言？首次打开是将所有语言加载好还是用户选择语言时再下载相应的语言包？ 所以这次我思考总结了以下几点：    什么是国际化，国际化的目的是什么 国际化的流程和步">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-26T11:06:54.409Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对国际化的一些理解和思考">
+<meta name="twitter:description" content="在这段时间，我接触到了国际化,以前对国际化的概念，也就是一个映射表，由json来翻译相对应的词汇。从这里可以看出，我是只考虑到了语言翻译这部分。但是最近接触后发现，国际化除了词汇的翻译之外还有许多需要考虑。比如，如何确定用户打开页面的初始语言？首次打开是将所有语言加载好还是用户选择语言时再下载相应的语言包？ 所以这次我思考总结了以下几点：    什么是国际化，国际化的目的是什么 国际化的流程和步">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/26/对国际化的一些理解和思考/"/>
+
+
+
+
+
+  <title>对国际化的一些理解和思考 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript"
+  color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/HuirongWow"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/对国际化的一些理解和思考/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="马慧荣">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">对国际化的一些理解和思考</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-26T19:06:54+08:00">
+                2018-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<p>在这段时间，我接触到了国际化,以前对国际化的概念，也就是一个映射表，由json来翻译相对应的词汇。从这里可以看出，我是只考虑到了语言翻译这部分。但是最近接触后发现，国际化除了词汇的翻译之外还有许多需要考虑。比如，如何确定用户打开页面的初始语言？首次打开是将所有语言加载好还是用户选择语言时再下载相应的语言包？ 所以这次我思考总结了以下几点： </p>
+<blockquote>
+<ul>
+<li>什么是国际化，国际化的目的是什么</li>
+<li>国际化的流程和步骤</li>
+<li>国际化的探索脑图</li>
+</ul>
+</blockquote>
+<p>需要声明的是：这篇文章有很多地方查阅参考了阿里淘宝团队对国际化的一篇技术文章，原地址<a href="http://taobaofed.org/blog/2016/03/21/internationalization/" target="_blank" rel="noopener">淘宝前端国际化方案探索</a></p>
+<hr>
+<h2 id="什么是-国际化"><a href="#什么是-国际化" class="headerlink" title="什么是 国际化"></a>什么是 国际化</h2><p>我理解，国际化是一个企业，为了将网页内容展示给外国客户群体而采用的一种技术。由于部分企业的目标客户除了在国内的，还有国外的。客户使用的语言不同，企业为了让所有客户都能看懂网站内容，需要对现有网站上的语句或词语进行翻译，同时获取用户使用的语言信息来确定展现的语言，支持不同语言展示网页内容，而实现这个目标的技术就被称作国际化。 所以，理解国际化，就是理解国际化的目的是什么。任何客户打开网页，觉得这个网站是自己国家开发的，语言内容通顺准确，那就是成功的国际化。由此可见，翻译网站内容，以及以何种方法实现多语言的友好展现，是国际化考虑的重点。</p>
+<p>那我们现在来看看实现国际化的一个流程是什么吧~</p>
+<h2 id="国际化的流程和步骤"><a href="#国际化的流程和步骤" class="headerlink" title="国际化的流程和步骤"></a>国际化的流程和步骤</h2><h3 id="1-阿里大佬看法：获取用户地域或语言信息"><a href="#1-阿里大佬看法：获取用户地域或语言信息" class="headerlink" title="1. 阿里大佬看法：获取用户地域或语言信息"></a>1. 阿里大佬看法：获取用户地域或语言信息</h3><p>设想，从用户打开一个国际化的页面，到相应语言的网页展现在他眼前，作为开发者的我们要做的第一步是什么呢？自然是尝试了解这位用户用的是什么语言，我们怎么去获取呢？阿里淘宝团队采用的方案是获取用户所属的地区，拿到用户采用的相关语言和习惯后进行下一步处理，获取用户语言习惯的方法有两种：</p>
+<blockquote>
+<ul>
+<li>入口URL附带信息（附带参数）</li>
+<li>根据IP判断</li>
+</ul>
+</blockquote>
+<p>根据阿里大佬的说法，第一种方法适用于引导页跳转，使用范围比较小，初次访问的判断方法最好是根据IP粗略定位，至于为什么定位呢？因为IP的话会有一些误差~</p>
+<h3 id="2-我自己的看法：获取用户浏览器语言属性"><a href="#2-我自己的看法：获取用户浏览器语言属性" class="headerlink" title="2. 我自己的看法：获取用户浏览器语言属性"></a>2. 我自己的看法：获取用户浏览器语言属性</h3><p>其实可以通过用户使用的浏览器语言来进行判断。从逻辑上讲，用户平日使用的浏览器的语言可以代表用户的语言习惯。所以优先获取到用户浏览器语言，以浏览器语言为标准来加载网页内容的逻辑是正确的。但是又有问题了：</p>
+<blockquote>
+<ul>
+<li>不同浏览器的情况不同，有的浏览器不支持language属性，有的浏览器的属性格式不同，我们无法直接通过浏览器来确认用户语言习惯。</li>
+</ul>
+</blockquote>
+<p>所以这时候要考虑无法通过浏览器获取相关信息的情况，怎么解决呢？</p>
+<blockquote>
+<ul>
+<li>通过获取系统语言来确定</li>
+</ul>
+</blockquote>
+<p>其实在这块，不仅仅只依靠语言的获取为用户提供国际化服务，因为我们还可以做<strong>吊顶</strong>来让用户自行选择语言。</p>
+<h3 id="3-记录Cookie并提供切换语言、地区的功能"><a href="#3-记录Cookie并提供切换语言、地区的功能" class="headerlink" title="3. 记录Cookie并提供切换语言、地区的功能"></a>3. 记录Cookie并提供切换语言、地区的功能</h3><p>在获取到用户语言习惯之后，可以新建cookie存储重要的信息，具体比如：</p>
+<blockquote>
+<ul>
+<li>语言</li>
+<li>地区</li>
+<li>货币币种</li>
+</ul>
+</blockquote>
+<p>然后这几个信息，组合在一起可以确定一个唯一的信息。那么对于这个Cookie的命名，从一开始也是要考虑数据规范，这是一个，一开始就容易忽略的问题。那么我们看看，这个问题涉及到哪些呢？如果忽略了，可能会出现什么后果呢？</p>
+<blockquote>
+<ul>
+<li>地区的划分是按照国家划分还是通过维度划分呢？香港是表示为HK还是ZH呢？</li>
+<li>语言如何表示？比如中文的话，用chinese还是zh-cn？而且中国有繁体和简体，如何区分中文的繁体和简体呢？</li>
+</ul>
+</blockquote>
+<p>这些看似细节的东西如果不在一开始就加以区分，没有一套规范和列表，在后期涉及的语言非常多的时候会后患无穷，就像GBK和UTF-8的问题一样。</p>
+<p>在记录了这些信息并确认好规范之后，只要大家都在集团的域名下，就可以共享这些信息，方便之后对国际化的处理。</p>
+<h3 id="4-针对特殊区域进行国际化处理"><a href="#4-针对特殊区域进行国际化处理" class="headerlink" title="4.针对特殊区域进行国际化处理"></a>4.针对特殊区域进行国际化处理</h3><p>在获取到一些关键信息之后，我们就可以开始国际化的处理工作了，归类以后，国际化处理的工作主要可以分为两类：</p>
+<blockquote>
+<ul>
+<li>内容文案处理</li>
+<li>对应样式修改</li>
+</ul>
+</blockquote>
+<h4 id="1）内容文案处理"><a href="#1）内容文案处理" class="headerlink" title="1）内容文案处理"></a>1）内容文案处理</h4><blockquote>
+<ul>
+<li>静态文案修改    只需要建立相应的映射表，一般是json键值对。</li>
+<li>动态文案比较麻烦 比如说，价格，不同国家货币单位不同，如何兼顾不同国家不同货币符号，并且准确兼顾价值替换，也是一个不小的挑战。</li>
+<li>我遇到的一个问题，当动态文案与静态文案相结合时如何处理？我目前接触的国际化的处理方式是：将js代码中涉及的静态字符串，在另一个文件中进行声明，得以让js中的静态字符串也得到多语言的翻译，当然，这静态字符串也得事先放在键值对中翻译好。</li>
+</ul>
+</blockquote>
+<h4 id="2）交互样式处理"><a href="#2）交互样式处理" class="headerlink" title="2）交互样式处理"></a>2）交互样式处理</h4><p>即使是像亚马逊这样，在各个国家有专门运营团队的公司，我们在国内打开亚马逊时也能感觉到它与其他网站的不同，可见交互样式的处理并不是我们想的那么简单。</p>
+<p>首先，我们得想想如何根据不同国家显示不同的样式？<br>第一个想法自然是，给body绑定不同标签。但是这样做，可复用性会很低，因为这不可以跨端，是将页面将浏览器强行绑定了。当你碰到一个没有body的页面，就会失去效果。</p>
+<p>如果用这种方式的话，就要考虑两个问题：</p>
+<blockquote>
+<ul>
+<li>不根据语言类别定义class，而是通过语系和语言习惯定义class。这样做的目的是避免代码冗余，试想英语和德语都是字母语言，他们的语言习惯xing相似，就可以共用一套class</li>
+<li>考虑样式适配。比如中文翻译成英语，字符串的长度一定会有所增长，那么原本适合中文的样式，在英文环境下是否会被打乱或者串行。在这种情况下，最开始写样式的时候就要考虑样式适配性。</li>
+</ul>
+</blockquote>
+<h3 id="5-服务器的部署"><a href="#5-服务器的部署" class="headerlink" title="5.服务器的部署"></a>5.服务器的部署</h3><p>关于服务器的部署，因为我还没有接触过，所以下面的部分大多是阿里大佬的理解，作为学习的目的，我把它放在我的博客里~</p>
+<p>在国内，网速有些时候也会不稳定，所以将所有服务器都放在国内是不现实的<br>，这个时候务必要进行国际化服务器部署，来保证访问的通畅和基本的网速需求。</p>
+<p>虽说是国际化服务器部署，但是一些核心的数据还是要放在国内的超远距离的链接，数据沟通，应用部署，都会带来非常多的挑战。<br>当然这个层次的知识需要丰富的经验以及庞大的知识库来讲解，是一个非常大的问题，我希望以后我也能有这样的机会~</p>
+<h3 id="6-国际化开发方式对比"><a href="#6-国际化开发方式对比" class="headerlink" title="6.国际化开发方式对比"></a>6.国际化开发方式对比</h3><p>其实开发国际化的流程我们了解了，但是选择何种方式来为用户展现相应的语言，这也是一个选择。<br>是以物理文件方式存储，一开始打包准备在项目里，用户切换语言执行相关物理文件，还是提供相应的语言包，当用户点击相应语言时下载相应语言包展现相应语言呢？<br>两种方式方式都各有优缺点。物理文件可以被SEO捕捉，而语言包方式不能。并且语言包是需要一定时间下载的，用户等待时间也是一个很大的成本。<br>但是一开始准备好语言文件，文件的大小肯定是要比下载语言包方式快的。如果是一个有着复杂大量文档内容的网站，我认为是不适合物理文件方式的额。</p>
+<p>我现在接触到的国际化，就是采用的物理文件的方式~<br>至于选用哪种方式开发，还是要根据项目需求来选择最适合自己的方案。</p>
+<h3 id="6-甘特图"><a href="#6-甘特图" class="headerlink" title="6. 甘特图"></a>6. <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#9-甘特图" target="_blank" rel="noopener">甘特图</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">title 国际化开发流程</span><br><span class="line">section 准备工作</span><br><span class="line">    语言习惯信息获取       :a1, 2016-06-22, 9d</span><br><span class="line">    cookie创建             :after a1, 7d</span><br><span class="line">    建立规范及共享         : 8d</span><br><span class="line">section 国际化处理</span><br><span class="line">    静态文案处理      :2016-07-05, 7d</span><br><span class="line">    动态文案处理      :2016-07-08, 7d</span><br><span class="line">    交互样式处理      :2016-07-15, 7d  </span><br><span class="line">section 国外服务器部署</span><br><span class="line">    规划及风险预测: 8d</span><br><span class="line">    部署: 3d</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是我对国际化的理解，主要是最近接触了国际化，引发的一些思考。希望以后能有能力自己把控一套实用的国际化出来，因为我认为做出一套面面俱到的国际化对把控人的能力要求也是比较高的。<br>随着全球经济的互通，网络的发展，物联网区块链的崛起，国际化已然是技术的又一个重点~还是要关注的</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/25/欢迎使用 Cmd Markdown 编辑阅读器/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/27/SEO接触和思考/" rel="prev" title="SEO接触和思考">
+                SEO接触和思考 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar1.gif"
+                alt="马慧荣" />
+            
+              <p class="site-author-name" itemprop="name">马慧荣</p>
+              <p class="site-description motion-element" itemprop="description">引而不发，一击必中</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HuirongWow" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-国际化"><span class="nav-number">1.</span> <span class="nav-text">什么是 国际化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#国际化的流程和步骤"><span class="nav-number">2.</span> <span class="nav-text">国际化的流程和步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-阿里大佬看法：获取用户地域或语言信息"><span class="nav-number">2.1.</span> <span class="nav-text">1. 阿里大佬看法：获取用户地域或语言信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-我自己的看法：获取用户浏览器语言属性"><span class="nav-number">2.2.</span> <span class="nav-text">2. 我自己的看法：获取用户浏览器语言属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-记录Cookie并提供切换语言、地区的功能"><span class="nav-number">2.3.</span> <span class="nav-text">3. 记录Cookie并提供切换语言、地区的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-针对特殊区域进行国际化处理"><span class="nav-number">2.4.</span> <span class="nav-text">4.针对特殊区域进行国际化处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）内容文案处理"><span class="nav-number">2.4.1.</span> <span class="nav-text">1）内容文案处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）交互样式处理"><span class="nav-number">2.4.2.</span> <span class="nav-text">2）交互样式处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-服务器的部署"><span class="nav-number">2.5.</span> <span class="nav-text">5.服务器的部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-国际化开发方式对比"><span class="nav-number">2.6.</span> <span class="nav-text">6.国际化开发方式对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-甘特图"><span class="nav-number">2.7.</span> <span class="nav-text">6. 甘特图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">马慧荣</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+    </span>
+  </div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

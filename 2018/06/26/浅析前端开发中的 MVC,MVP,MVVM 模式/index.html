@@ -88,12 +88,12 @@
 
 
 
-<meta name="description" content="最近看到掘金上一篇对前端软件架构设计模式总结的非常好的文章，通读全篇之后非常的有收获哦！开心！在这里总结一下，一些要点之类的~这一天依旧是继续加油的马大侠~ 前语MVC,MVP,MVVM都是常见的软件架构设计模式，它们通过分离关注点来改进代码的组织方式，一种架构模式往往使用了多种设计模式。 想要了解MVC,MVP,MVVM，就得知道他们的相同点和不同点。不同的部分是C(Controller),P(">
+<meta name="description" content="以前在学校，听说过国际化这个词，简而言之，就是你打开一个国外的网站，认为他是国内开发的，那就是一个合格的国际化。 在学校只是简单了解到，国际化会依据有不同的语言产生不同的映射表，但是真正的国际化是一个复杂的项目，需要考虑很多细节，耗费不少人力，比如如何判断应该呈现哪种语言，比如不同语言习惯思想不同如何兼顾，这些都需要考虑很多。这些也是我真正接触到国际化才注意到的。 实习也快半个月了，国际化仍旧让我">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端开发中的MVC&#x2F;MVP&#x2F;MVVM模式">
+<meta property="og:title" content="对于国际化的一些看法和思考">
 <meta property="og:url" content="http://yoursite.com/2018/06/26/浅析前端开发中的 MVC,MVP,MVVM 模式/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="最近看到掘金上一篇对前端软件架构设计模式总结的非常好的文章，通读全篇之后非常的有收获哦！开心！在这里总结一下，一些要点之类的~这一天依旧是继续加油的马大侠~ 前语MVC,MVP,MVVM都是常见的软件架构设计模式，它们通过分离关注点来改进代码的组织方式，一种架构模式往往使用了多种设计模式。 想要了解MVC,MVP,MVVM，就得知道他们的相同点和不同点。不同的部分是C(Controller),P(">
+<meta property="og:description" content="以前在学校，听说过国际化这个词，简而言之，就是你打开一个国外的网站，认为他是国内开发的，那就是一个合格的国际化。 在学校只是简单了解到，国际化会依据有不同的语言产生不同的映射表，但是真正的国际化是一个复杂的项目，需要考虑很多细节，耗费不少人力，比如如何判断应该呈现哪种语言，比如不同语言习惯思想不同如何兼顾，这些都需要考虑很多。这些也是我真正接触到国际化才注意到的。 实习也快半个月了，国际化仍旧让我">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://lc-mhke0kuv.cn-n1.lcfile.com/4badd8fe694272d5a430.png">
 <meta property="og:image" content="https://lc-mhke0kuv.cn-n1.lcfile.com/9da7ababda36b88a5dd7.png">
@@ -101,10 +101,10 @@
 <meta property="og:image" content="https://lc-mhke0kuv.cn-n1.lcfile.com/1fba28fee8c9c5eeb021.png">
 <meta property="og:image" content="https://lc-mhke0kuv.cn-n1.lcfile.com/c507025c2f9a5c9e0c44.png">
 <meta property="og:image" content="https://lc-mhke0kuv.cn-n1.lcfile.com/eeb9bbbdf001b43d6002.png">
-<meta property="og:updated_time" content="2018-06-25T21:34:22.000Z">
+<meta property="og:updated_time" content="2018-07-19T15:24:56.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端开发中的MVC&#x2F;MVP&#x2F;MVVM模式">
-<meta name="twitter:description" content="最近看到掘金上一篇对前端软件架构设计模式总结的非常好的文章，通读全篇之后非常的有收获哦！开心！在这里总结一下，一些要点之类的~这一天依旧是继续加油的马大侠~ 前语MVC,MVP,MVVM都是常见的软件架构设计模式，它们通过分离关注点来改进代码的组织方式，一种架构模式往往使用了多种设计模式。 想要了解MVC,MVP,MVVM，就得知道他们的相同点和不同点。不同的部分是C(Controller),P(">
+<meta name="twitter:title" content="对于国际化的一些看法和思考">
+<meta name="twitter:description" content="以前在学校，听说过国际化这个词，简而言之，就是你打开一个国外的网站，认为他是国内开发的，那就是一个合格的国际化。 在学校只是简单了解到，国际化会依据有不同的语言产生不同的映射表，但是真正的国际化是一个复杂的项目，需要考虑很多细节，耗费不少人力，比如如何判断应该呈现哪种语言，比如不同语言习惯思想不同如何兼顾，这些都需要考虑很多。这些也是我真正接触到国际化才注意到的。 实习也快半个月了，国际化仍旧让我">
 <meta name="twitter:image" content="https://lc-mhke0kuv.cn-n1.lcfile.com/4badd8fe694272d5a430.png">
 
 
@@ -141,7 +141,7 @@
 
 
 
-  <title>前端开发中的MVC/MVP/MVVM模式 | Hexo</title>
+  <title>对于国际化的一些看法和思考 | Hexo</title>
   
 
 
@@ -299,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端开发中的MVC/MVP/MVVM模式</h1>
+          <h1 class="post-title" itemprop="name headline">对于国际化的一些看法和思考</h1>
         
 
         <div class="post-meta">
@@ -349,10 +349,14 @@
       
 
       
-        <p>最近看到掘金上一篇对前端软件架构设计模式总结的非常好的文章，通读全篇之后非常的有收获哦！开心！在这里总结一下，一些要点之类的~<br>这一天依旧是继续加油的马大侠~</p>
-<h2 id="前语"><a href="#前语" class="headerlink" title="前语"></a>前语</h2><p>MVC,MVP,MVVM都是常见的软件架构设计模式，它们通过分离关注点来改进代码的组织方式，一种架构模式往往使用了多种设计模式。</p>
-<p>想要了解MVC,MVP,MVVM，就得知道他们的相同点和不同点。不同的部分是C(Controller),P(Prensenter),VM(View-Model),相同的部分是MV(Model-View)。</p>
-<h3 id="Model-amp-View"><a href="#Model-amp-View" class="headerlink" title="Model&amp;View"></a>Model&amp;View</h3><p>先来看一个例子，这里有一个可以对数值进行加减操作的组件：上面显示数值，然后两个按钮可以对数值进行加减操作，而操作后的数值会更新显示。<br><img src="https://lc-mhke0kuv.cn-n1.lcfile.com/4badd8fe694272d5a430.png" alt="example"></p>
+        <p>以前在学校，听说过国际化这个词，简而言之，就是你打开一个国外的网站，认为他是国内开发的，那就是一个合格的国际化。</p>
+<p>在学校只是简单了解到，国际化会依据有不同的语言产生不同的映射表，但是真正的国际化是一个复杂的项目，需要考虑很多细节，耗费不少人力，比如如何判断应该呈现哪种语言，比如不同语言习惯思想不同如何兼顾，这些都需要考虑很多。这些也是我真正接触到国际化才注意到的。</p>
+<p>实习也快半个月了，国际化仍旧让我觉得很神奇，这里只记录个人对国际化简单的看法～</p>
+<p>这一天依旧是继续加油的马大侠~</p>
+<h2 id="国际化的目的"><a href="#国际化的目的" class="headerlink" title="国际化的目的"></a>国际化的目的</h2><p>国际化的目的，就像开头所写的一样，就是让各个地区的人打开网站，感觉就像是自己地区开发的网站一样，主要在于语言的切换。</p>
+<p>当一个企业，目标客户跨越多个国家的时候，国际化就非常有必要了，以淘宝为例，阿里的大佬也曾发文谈过对国际化的看法，中间也遇见了很多问题的，那篇文章也让我对国际化有了更深的了解。</p>
+<p>那么实现国际化是怎么个思想呢？我们得看看国际化的流程。</p>
+<h2 id="国际化流程"><a href="#国际化流程" class="headerlink" title="国际化流程"></a>国际化流程</h2><p>先来看一个例子，这里有一个可以对数值进行加减操作的组件：上面显示数值，然后两个按钮可以对数值进行加减操作，而操作后的数值会更新显示。<br><img src="https://lc-mhke0kuv.cn-n1.lcfile.com/4badd8fe694272d5a430.png" alt="example"></p>
 <p>依照这个例子，尝试用JavaScript实现简单的具有MVC/MVP/MVVM模式的Web应用。</p>
 <blockquote>
 <ul>
@@ -699,8 +703,8 @@ foo.name = &apos;angular&apos; // “监听成功：vue --&gt; angular”
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/26/markdown基础语法/" rel="next" title="markdown基本使用介绍：以MaHua为例">
-                <i class="fa fa-chevron-left"></i> markdown基本使用介绍：以MaHua为例
+              <a href="/2018/06/26/跨域/" rel="next" title="跨域">
+                <i class="fa fa-chevron-left"></i> 跨域
               </a>
             
           </div>
@@ -709,8 +713,8 @@ foo.name = &apos;angular&apos; // “监听成功：vue --&gt; angular”
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/26/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/26/原理深究之事件循环和异步流程控制/" rel="prev" title="原理深究之事件循环和异步流程控制">
+                原理深究之事件循环和异步流程控制 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -792,7 +796,7 @@ foo.name = &apos;angular&apos; // “监听成功：vue --&gt; angular”
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -846,7 +850,7 @@ foo.name = &apos;angular&apos; // “监听成功：vue --&gt; angular”
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前语"><span class="nav-number">1.</span> <span class="nav-text">前语</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-amp-View"><span class="nav-number">1.1.</span> <span class="nav-text">Model&amp;View</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC"><span class="nav-number">2.</span> <span class="nav-text">MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model"><span class="nav-number">2.1.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View"><span class="nav-number">2.2.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller"><span class="nav-number">2.3.</span> <span class="nav-text">Controller</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP"><span class="nav-number">3.</span> <span class="nav-text">MVP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-1"><span class="nav-number">3.1.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View-1"><span class="nav-number">3.2.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Presenter"><span class="nav-number">3.3.</span> <span class="nav-text">Presenter</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVVM"><span class="nav-number">4.</span> <span class="nav-text">MVVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-2"><span class="nav-number">4.1.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View-2"><span class="nav-number">4.2.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ViewModel"><span class="nav-number">4.3.</span> <span class="nav-text">ViewModel</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据绑定"><span class="nav-number">5.</span> <span class="nav-text">数据绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据劫持"><span class="nav-number">5.1.</span> <span class="nav-text">数据劫持</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最后依旧尊重版权"><span class="nav-number">6.1.</span> <span class="nav-text">最后依旧尊重版权</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#国际化的目的"><span class="nav-number">1.</span> <span class="nav-text">国际化的目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#国际化流程"><span class="nav-number">2.</span> <span class="nav-text">国际化流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC"><span class="nav-number">3.</span> <span class="nav-text">MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model"><span class="nav-number">3.1.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View"><span class="nav-number">3.2.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller"><span class="nav-number">3.3.</span> <span class="nav-text">Controller</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP"><span class="nav-number">4.</span> <span class="nav-text">MVP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-1"><span class="nav-number">4.1.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View-1"><span class="nav-number">4.2.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Presenter"><span class="nav-number">4.3.</span> <span class="nav-text">Presenter</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVVM"><span class="nav-number">5.</span> <span class="nav-text">MVVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-2"><span class="nav-number">5.1.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View-2"><span class="nav-number">5.2.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ViewModel"><span class="nav-number">5.3.</span> <span class="nav-text">ViewModel</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据绑定"><span class="nav-number">6.</span> <span class="nav-text">数据绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据劫持"><span class="nav-number">6.1.</span> <span class="nav-text">数据劫持</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最后依旧尊重版权"><span class="nav-number">7.1.</span> <span class="nav-text">最后依旧尊重版权</span></a></li></ol></li></ol></div>
             
 
           </div>
