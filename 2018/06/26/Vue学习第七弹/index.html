@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="这一章是对前端路由知识点的一个总结。 Vue-router什么是路由？  路由就是根据不同的地址跳到不同的页面 应用场景：单页面应用   前端路由与传统路由的比较  传统路由切换的时候，所有资源都需要重新请求一次 前端路由，单页面公用一些资源，只需要请求需要请求的页面   使用前端路由  安装：npm install vue-router –save 在入口文件里引入，注册   vue-route">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue学习第七弹">
+<meta property="og:url" content="http://yoursite.com/2018/06/26/Vue学习第七弹/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这一章是对前端路由知识点的一个总结。 Vue-router什么是路由？  路由就是根据不同的地址跳到不同的页面 应用场景：单页面应用   前端路由与传统路由的比较  传统路由切换的时候，所有资源都需要重新请求一次 前端路由，单页面公用一些资源，只需要请求需要请求的页面   使用前端路由  安装：npm install vue-router –save 在入口文件里引入，注册   vue-route">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/router.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/map.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/router-link.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/canshu.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/zhuru.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/canshupipei.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/ziluyou.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/ziluyou1.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/chuancan.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/namelink.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/linktoli.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/bianchen.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/shitu1.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/shitu2.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/images/chongdx.png">
+<meta property="og:updated_time" content="2018-06-25T21:34:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue学习第七弹">
+<meta name="twitter:description" content="这一章是对前端路由知识点的一个总结。 Vue-router什么是路由？  路由就是根据不同的地址跳到不同的页面 应用场景：单页面应用   前端路由与传统路由的比较  传统路由切换的时候，所有资源都需要重新请求一次 前端路由，单页面公用一些资源，只需要请求需要请求的页面   使用前端路由  安装：npm install vue-router –save 在入口文件里引入，注册   vue-route">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/26/images/router.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/26/Vue学习第七弹/">
+
+
+
+
+
+  <title>Vue学习第七弹 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/HuirongWow"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/26/Vue学习第七弹/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="马慧荣">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar1.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue学习第七弹</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-26T05:34:22+08:00">
+                2018-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这一章是对前端路由知识点的一个总结。</p>
+<h2 id="Vue-router"><a href="#Vue-router" class="headerlink" title="Vue-router"></a>Vue-router</h2><h3 id="什么是路由？"><a href="#什么是路由？" class="headerlink" title="什么是路由？"></a>什么是路由？</h3><blockquote>
+<ul>
+<li>路由就是根据不同的地址跳到不同的页面</li>
+<li>应用场景：单页面应用</li>
+</ul>
+</blockquote>
+<h3 id="前端路由与传统路由的比较"><a href="#前端路由与传统路由的比较" class="headerlink" title="前端路由与传统路由的比较"></a>前端路由与传统路由的比较</h3><blockquote>
+<ul>
+<li>传统路由切换的时候，所有资源都需要重新请求一次</li>
+<li>前端路由，单页面公用一些资源，只需要请求需要请求的页面</li>
+</ul>
+</blockquote>
+<h2 id="使用前端路由"><a href="#使用前端路由" class="headerlink" title="使用前端路由"></a>使用前端路由</h2><blockquote>
+<ul>
+<li>安装：npm install vue-router –save</li>
+<li>在入口文件里引入，注册</li>
+</ul>
+</blockquote>
+<h3 id="vue-router的关键点"><a href="#vue-router的关键点" class="headerlink" title="vue-router的关键点"></a>vue-router的关键点</h3><blockquote>
+<ul>
+<li>规定要有要有一份Map，规定什么地址访问什么页面/组件</li>
+<li><strong><router-view></router-view></strong>在哪个位置、区域显示</li>
+<li><strong><router-link></router-link></strong>在页面上如何跳转到下一个页面</li>
+</ul>
+</blockquote>
+<h3 id="实例化路由类，插到项目的根的Vue实例里"><a href="#实例化路由类，插到项目的根的Vue实例里" class="headerlink" title="实例化路由类，插到项目的根的Vue实例里"></a>实例化路由类，插到项目的根的Vue实例里</h3><blockquote>
+<ul>
+<li><img src="../images/router.png" alt="vue-router实例化"></li>
+<li>实例化router的时候，通过routes选项来进行设定，做一份映射表</li>
+<li>引入组件，在routes中有path和component两个属性，互相对应 </li>
+<li>配置好入口文件后，需要规定在哪里，通过<strong><router-view></router-view></strong>的放置地点来规定</li>
+<li>Vue处理非html5路由采用的方式：采用哈希#，可以接受前后的切换。在默认状态下加了哈希#，也就是说当前路由没有使用html5的history功能，通常是高级浏览器的话，可以在实例化时，routes中添加mode的history属性，来支持前后退的功能</li>
+<li><img src="../images/map.png" alt="vue-router配置映射表"></li>
+<li>在页面里的跳转：通过<strong><router-link :to="{path:'apple'}"></router-link></strong>来跳转到相应的地址</li>
+<li><img src="../images/router-link.png" alt="vue-router实现页面内的跳转"></li>
+</ul>
+</blockquote>
+<h3 id="路由的参数"><a href="#路由的参数" class="headerlink" title="路由的参数"></a>路由的参数</h3><blockquote>
+<ul>
+<li>前端路由允许传参，在实例化时设置参数</li>
+<li><img src="../images/canshu.png" alt="CSS阶段类名"></li>
+<li>设定参数后，如何在组件内部获取参数呢？</li>
+<li>路由接受了参数以后，会往每个组件的全局route对象里插入当前页面的参数params，所以可以通过<strong>this.$route.params</strong>来获取当前路由的参数</li>
+<li>需要注意的，由于在路由里设定了有参数的路由，所以这是一个特定的匹配，加入输入的路由后面没有参数的话，就不会到想去的那个路由页面</li>
+<li>由于<strong>this.$route.params</strong>已经被注入了，所以自动成为组件的一个属性，可以在模板里直接访问<strong>$route.params.color</strong></li>
+<li><img src="../images/zhuru.png" alt="路由参数注入"></li>
+<li>路由参数的灵活使用：带冒号的都是参数，不带的会进行字符串匹配</li>
+<li><img src="../images/canshupipei.png" alt="路由参数匹配"></li>
+</ul>
+</blockquote>
+<h3 id="路由嵌套"><a href="#路由嵌套" class="headerlink" title="路由嵌套"></a>路由嵌套</h3><blockquote>
+<ul>
+<li>就是自路由，同样配置映射表，只是在父级路由下配置children映射表</li>
+<li><img src="../images/ziluyou.png" alt="子路由映射配置"></li>
+<li>子路由组件渲染在哪里呢？它只会渲染到父级路由组件里面，不会插在根的<strong><router-view></router-view></strong>的位置。因为它只能找到父组件的那一层，所以我们需要在父组件相应位置放一个<strong><router-view></router-view></strong>,用以放置子路由组件。<strong><router-view></router-view></strong>所在地</li>
+<li><img src="../images/ziluyou1.png" alt="子路由父级内的view位置"></li>
+</ul>
+</blockquote>
+<h3 id="命名的路由视图、路由重定向"><a href="#命名的路由视图、路由重定向" class="headerlink" title="命名的路由视图、路由重定向"></a>命名的路由视图、路由重定向</h3><blockquote>
+<ul>
+<li><strong><router-link></router-link></strong>如果只是一个简单的跳转，我们可以采用<strong>to</strong>+地址，不需要用<strong>v-bind</strong>来绑定，类似于<strong>href</strong>，基于当前路径跳到指定路径</li>
+<li><strong>to</strong>可以将自定义的参数直接传过去。</li>
+<li><img src="../images/chuancan.png" alt="通过to传参数"></li>
+<li>具名路由：在设定路由的时候，设定name属性，在访问的时候，也通过name属性来访问。</li>
+<li><img src="../images/namelink.png" alt="具名路由"></li>
+<li>如何让将<strong><router-link></router-link></strong>变成<strong>li</strong>的样式呢？可以通过<strong>tag=”li”</strong>来指定</li>
+<li><img src="../images/linktoli.png" alt="将link标签化为li标签格式"></li>
+<li>通过<strong>v-bind</strong>动态的将路径作为组建的一个属性来进行绑定。</li>
+</ul>
+</blockquote>
+<h3 id="声明式导航和编程式导航"><a href="#声明式导航和编程式导航" class="headerlink" title="声明式导航和编程式导航"></a>声明式导航和编程式导航</h3><blockquote>
+<ul>
+<li>在组件<strong><template></template></strong>里通过<strong><router-link></router-link></strong>导航叫做声明式导航，实在模板里进行声明来导航</li>
+<li>我们在main.js里也可以进行编程式的导航，采用的最基本的方法是通过<strong>router.push()</strong>方法，指定到特殊页面。</li>
+<li><img src="../images/bianchen.png" alt="编程式导航的示例"></li>
+</ul>
+</blockquote>
+<h3 id="命名的路由和命名的视图"><a href="#命名的路由和命名的视图" class="headerlink" title="命名的路由和命名的视图"></a>命名的路由和命名的视图</h3><blockquote>
+<ul>
+<li>命名路由</li>
+<li>命名视图</li>
+<li><img src="../images/shitu1.png" alt="命名视图1"></li>
+<li><img src="../images/shitu2.png" alt="命名视图2"></li>
+</ul>
+</blockquote>
+<h3 id="路由重定向"><a href="#路由重定向" class="headerlink" title="路由重定向"></a>路由重定向</h3><blockquote>
+<ul>
+<li>当访问某个路径时，重定向到指定的路径</li>
+<li><img src="../images/chongdx.png" alt="路由重定向"></li>
+</ul>
+</blockquote>
+<h3 id="使用过渡制作路由跳转动画"><a href="#使用过渡制作路由跳转动画" class="headerlink" title="使用过渡制作路由跳转动画"></a>使用过渡制作路由跳转动画</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/26/Vue学习第六弹/" rel="next" title="Vue学习第六弹">
+                <i class="fa fa-chevron-left"></i> Vue学习第六弹
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/26/DNS劫持插入广告的原理及解决方法/" rel="prev" title="DNS劫持插入广告的原理及解决方法">
+                DNS劫持插入广告的原理及解决方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar1.gif" alt="马慧荣">
+            
+              <p class="site-author-name" itemprop="name">马慧荣</p>
+              <p class="site-description motion-element" itemprop="description">引而不发，一击必中</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HuirongWow" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-router"><span class="nav-number">1.</span> <span class="nav-text">Vue-router</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是路由？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是路由？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端路由与传统路由的比较"><span class="nav-number">1.2.</span> <span class="nav-text">前端路由与传统路由的比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用前端路由"><span class="nav-number">2.</span> <span class="nav-text">使用前端路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-router的关键点"><span class="nav-number">2.1.</span> <span class="nav-text">vue-router的关键点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例化路由类，插到项目的根的Vue实例里"><span class="nav-number">2.2.</span> <span class="nav-text">实例化路由类，插到项目的根的Vue实例里</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由的参数"><span class="nav-number">2.3.</span> <span class="nav-text">路由的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由嵌套"><span class="nav-number">2.4.</span> <span class="nav-text">路由嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命名的路由视图、路由重定向"><span class="nav-number">2.5.</span> <span class="nav-text">命名的路由视图、路由重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明式导航和编程式导航"><span class="nav-number">2.6.</span> <span class="nav-text">声明式导航和编程式导航</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命名的路由和命名的视图"><span class="nav-number">2.7.</span> <span class="nav-text">命名的路由和命名的视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由重定向"><span class="nav-number">2.8.</span> <span class="nav-text">路由重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用过渡制作路由跳转动画"><span class="nav-number">2.9.</span> <span class="nav-text">使用过渡制作路由跳转动画</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">马慧荣</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+    </span>
+  </div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
