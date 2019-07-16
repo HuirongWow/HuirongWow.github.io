@@ -6,10 +6,10 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -27,8 +27,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -47,7 +47,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -55,9 +55,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
@@ -75,13 +75,13 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
 
 
 
@@ -134,7 +134,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/26/跨域/">
+  <link rel="canonical" href="http://yoursite.com/2018/06/26/跨域/"/>
 
 
 
@@ -151,7 +151,8 @@
 
 
   
-  <script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  <script type="text/javascript"
+  color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
 </head>
 
@@ -171,7 +172,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Hexo</span>
         <span class="logo-line-after"><i></i></span>
@@ -201,7 +202,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -211,7 +212,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -221,7 +222,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -231,7 +232,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -241,7 +242,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -284,7 +285,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="马慧荣">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar1.gif">
     </span>
 
@@ -371,7 +372,8 @@ function jsonpCallBack (res, req) {
 &lt;/script&gt;
 &lt;script type=&quot;text/JavaScript&quot; src=&quot;http://localhost/test/jsonp.php?callback=jsonpCallBack&amp;data=getJsonpData&quot;&gt;&lt;/script&gt;
 
-};</code></pre><blockquote>
+};
+</code></pre><blockquote>
 <p>另一个域名服务器请求接口</p>
 </blockquote>
 <pre><code>&lt;?php
@@ -379,7 +381,8 @@ function jsonpCallBack (res, req) {
   $data = $_GET[&quot;data&quot;];
   $callback = $_GET[&quot;callback&quot;];
   echo $callback.&quot;(&apos;success&apos;, &apos;&quot;.$data.&quot;&apos;)&quot;;
-?&gt;</code></pre><blockquote>
+?&gt;
+</code></pre><blockquote>
 <p>测试结果如下：<br><img src="https://pic3.zhimg.com/80/v2-28f425ac5e66aebf6c461bc34527b715_hd.jpg" alt="JSONP"><br>这种方案要注意的是，它只支持GET这一种HTTP请求类型，还有尤为重要的是其他域要有可靠性，保证安全。当然有时我们还可以通过一个方法来动态生成需要的JSONP.</p>
 </blockquote>
 <h3 id="跨域资源共享CORS"><a href="#跨域资源共享CORS" class="headerlink" title="跨域资源共享CORS"></a>跨域资源共享CORS</h3><p>CORS，是JSONP模式的现代升级版，不同的是，他除了GET这种HTTP请求方式，还支持其它的HTTP请求。浏览器CORS请求分成两种：</p>
@@ -408,8 +411,10 @@ $iframe.onload = function(){
     var doc = $iframe.contentDocument || $iframe.contentWindow.document;
     //在这里操作doc，也就是操作b.html
     $iframe.onload = null;
-};</code></pre><p>在域名为<a href="http://server.child.example.com中的b.html：" target="_blank" rel="noopener">http://server.child.example.com中的b.html：</a></p>
-<pre><code>document.domain = &apos;example.com&apos;</code></pre><p>这种形式方便贵方便但是也有其他方面带来的隐患：</p>
+};
+</code></pre><p>在域名为<a href="http://server.child.example.com中的b.html：" target="_blank" rel="noopener">http://server.child.example.com中的b.html：</a></p>
+<pre><code>document.domain = &apos;example.com&apos;
+</code></pre><p>这种形式方便贵方便但是也有其他方面带来的隐患：</p>
 <blockquote>
 <ul>
 <li>当一个站点受到攻击后，另一个站点会引起安全漏洞</li>
@@ -431,7 +436,8 @@ $iframe.onload = function(){
 <li>首先我们在域名为<a href="http://127.0.0.1下建好页面B，在B页面的" target="_blank" rel="noopener">http://127.0.0.1下建好页面B，在B页面的</a> <code>&lt;script&gt;</code> 标签中将需要传递的数据赋给window.name</li>
 </ul>
 </blockquote>
-<pre><code>window.name = &apos;页面B中传递给页面A的数据&apos;;</code></pre><blockquote>
+<pre><code>window.name = &apos;页面B中传递给页面A的数据&apos;;
+</code></pre><blockquote>
 <ul>
 <li>然后回到域名为<a href="http://127.0.0.1:9000的A页面，在这里我们需要做的一件事情就是，利用iframe加载页面B，并且将其域名进行修改，变成和A一样的域名。" target="_blank" rel="noopener">http://127.0.0.1:9000的A页面，在这里我们需要做的一件事情就是，利用iframe加载页面B，并且将其域名进行修改，变成和A一样的域名。</a></li>
 </ul>
@@ -471,7 +477,8 @@ $iframe.onload = function(){
 }
 proxy(&apos;http://127.0.0.1/bop/test.html&apos;, function(data){
     console.log(data);
-});</code></pre><blockquote>
+});
+</code></pre><blockquote>
 <ul>
 <li>测试结果如图：<br><img src="https://pic3.zhimg.com/80/v2-bdfd1ffe8e2f3f57a86f3034daa8d205_hd.jpg" alt="window.name+iframe"></li>
 </ul>
@@ -519,7 +526,8 @@ window.onload = function() {
     var targetOrigin = &quot;http://127.0.0.1&quot;;  
     $iframe.contentWindow.postMessage(&apos;postMessage发送消息&apos;, targetOrigin);  
 }; 
-&lt;/script&gt;</code></pre><blockquote>
+&lt;/script&gt;
+</code></pre><blockquote>
 <ul>
 <li>页面B接收消息代码</li>
 </ul>
@@ -553,7 +561,8 @@ else if (window.attachEvent) {
 else {
   window.onmessage = onmessage;
 }
-&lt;/script&gt;</code></pre><blockquote>
+&lt;/script&gt;
+</code></pre><blockquote>
 <ul>
 <li>运行结果如下：<br><img src="https://pic3.zhimg.com/80/v2-db4263dd2f672673ce263bcc0b9a7172_hd.jpg" alt="postMessage"></li>
 </ul>
@@ -574,7 +583,8 @@ else {
 &lt;body&gt;
     &lt;iframe src=&quot;http://127.0.0.1/bop/test.html#locationHash&quot; id=&quot;ifr&quot;&gt;&lt;/iframe&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre><blockquote>
+&lt;/html&gt;
+</code></pre><blockquote>
 <ul>
 <li>页面B代码</li>
 </ul>
@@ -600,7 +610,8 @@ try {
     $ifrproxy.src = &quot;http://127.0.0.1:9000/proxy.html#locationHashChange&quot;;
     document.body.appendChild($ifrproxy);
 }
-&lt;/script&gt;</code></pre><blockquote>
+&lt;/script&gt;
+</code></pre><blockquote>
 <ul>
 <li>代理页代码</li>
 </ul>
@@ -618,7 +629,8 @@ try {
 // 因为parent.parent和自身属于同一个域，所以可以改变其location.hash的值
 parent.parent.location.hash = self.location.hash.substring(1);
 &lt;/script&gt;
-&lt;/html&gt;</code></pre><blockquote>
+&lt;/html&gt;
+</code></pre><blockquote>
 <ul>
 <li>运行结果如图<br><img src="https://pic4.zhimg.com/80/v2-a698eba837394fc45a256b424e64345e_hd.jpg" alt="lacation.hash+iframe"></li>
 </ul>
@@ -657,8 +669,8 @@ parent.parent.location.hash = self.location.hash.substring(1);
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/26/原理深究之事件循环和异步流程控制/" rel="prev" title="原理深究之事件循环和异步流程控制">
-                原理深究之事件循环和异步流程控制 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/26/浅析前端开发中的 MVC,MVP,MVVM 模式/" rel="prev" title="前端开发中的MVC/MVP/MVVM模式">
+                前端开发中的MVC/MVP/MVVM模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -725,7 +737,9 @@ parent.parent.location.hash = self.location.hash.substring(1);
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar1.gif" alt="马慧荣">
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar1.gif"
+                alt="马慧荣" />
             
               <p class="site-author-name" itemprop="name">马慧荣</p>
               <p class="site-description motion-element" itemprop="description">引而不发，一击必中</p>

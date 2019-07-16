@@ -6,10 +6,10 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -27,8 +27,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -47,7 +47,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -55,9 +55,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
@@ -75,13 +75,13 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
 
 
 
@@ -134,7 +134,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/26/ES6核心语法/">
+  <link rel="canonical" href="http://yoursite.com/2018/06/26/ES6核心语法/"/>
 
 
 
@@ -151,7 +151,8 @@
 
 
   
-  <script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  <script type="text/javascript"
+  color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
 </head>
 
@@ -171,7 +172,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Hexo</span>
         <span class="logo-line-after"><i></i></span>
@@ -201,7 +202,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -211,7 +212,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -221,7 +222,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -231,7 +232,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -241,7 +242,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -284,7 +285,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="马慧荣">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar1.gif">
     </span>
 
@@ -353,7 +354,8 @@
 <p>虽然现在，ES6全部特性并不能在所有浏览器上都被兼容，但是厉害的程序员们都已经用上它啦，他也的确非常强大哦！所以，哪怕是为了读懂别人的代码，也应该懂得ES6的一些核心的语法啦。</p>
 <p>正式说ES6之前先了解一下Babel，它的作用就是把ES6代码转为ES5代码，从而在现有的环境执行，是一个ES6转码器。大家可以选择自己习惯的工具来使用Babel，具体的过程可以去官网查看：<br><img src="https://segmentfault.com/img/remote/1460000008695818" alt="Babel"></p>
 <h2 id="最常用的ES6特性"><a href="#最常用的ES6特性" class="headerlink" title="最常用的ES6特性"></a>最常用的ES6特性</h2><p>先来个小汇总：</p>
-<pre><code>let，const，class,extends,super,arrow functions,template string,destructuring,default,rest arguments</code></pre><p>以上就是ES6的最常用的语法，我们接下来用一个一个例子来理解他们：</p>
+<pre><code>let，const，class,extends,super,arrow functions,template string,destructuring,default,rest arguments
+</code></pre><p>以上就是ES6的最常用的语法，我们接下来用一个一个例子来理解他们：</p>
 <h3 id="let-const"><a href="#let-const" class="headerlink" title="let,const"></a>let,const</h3><h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><p>Model层用来存储业务的数据，一旦数据发生变化，模型将通知有关的视图。</p>
 <pre><code>myapp.Model = function() {
 var val = 0;
@@ -383,7 +385,8 @@ this.notify = function() {
         views[i].render(self);
     }
 };
-};</code></pre><p>Model和View之间使用了观察者模式，View事先在此Model上注册，进而观察Model，以便更新在Model上发生改变的数据。</p>
+};
+</code></pre><p>Model和View之间使用了观察者模式，View事先在此Model上注册，进而观察Model，以便更新在Model上发生改变的数据。</p>
 <h3 id="View"><a href="#View" class="headerlink" title="View"></a>View</h3><blockquote>
 <ul>
 <li>view和controller之间使用了策略模式，这里view引入了controller的实例来实现特定的响应策略，比如这个例子中的click事件：</li>
@@ -406,7 +409,8 @@ this.notify = function() {
     /*  绑定事件  */
     $incBtn.click(controller.increase);
     $decBtn.click(controller.decrease);
-};</code></pre><p>如果要实现不同的响应的策略，只需要用不同的controller实例替换即可。</p>
+};
+</code></pre><p>如果要实现不同的响应的策略，只需要用不同的controller实例替换即可。</p>
 <h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><blockquote>
 <ul>
 <li>控制器是模型和视图之间的纽带，MVC将响应机制封装在controller对象中，当用户和你的应用产生交互时，控制器中的事件触发器就开始工作了。</li>
@@ -436,12 +440,14 @@ this.notify = function() {
         model.sub(1);
         model.notify();
     };
-};</code></pre><p>在这里我们实例化View并向对应的Model实例注册，当Model要发生变化的时候，就去通知View做更新，这里用到了观察者模式。</p>
+};
+</code></pre><p>在这里我们实例化View并向对应的Model实例注册，当Model要发生变化的时候，就去通知View做更新，这里用到了观察者模式。</p>
 <p>当我们执行应用的时候，使用Controller做初始化：</p>
 <pre><code>(function() {
     var controller = new myapp.Controller();
     controller.init();
-})();</code></pre><p>可以明显感觉到，MVC模式的业务逻辑主要集中在Controller中，但其实前端的View已经具备了独自处理事件的能力，当每个事件都要流经Controller时，这层就会变得十分的臃肿。另外View层和Controller层的联系过于紧密，当其他的View想复用Controller的时候，会很不方便。那么，如果想要多个View共用一个Controller该怎么办呢？这里就到了：MVP模式</p>
+})();
+</code></pre><p>可以明显感觉到，MVC模式的业务逻辑主要集中在Controller中，但其实前端的View已经具备了独自处理事件的能力，当每个事件都要流经Controller时，这层就会变得十分的臃肿。另外View层和Controller层的联系过于紧密，当其他的View想复用Controller的时候，会很不方便。那么，如果想要多个View共用一个Controller该怎么办呢？这里就到了：MVP模式</p>
 <h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2><blockquote>
 <p>MVP是MVC的改良，和MVC的相同之处在于：Controller/Presenter负责业务逻辑，Model负责管理数据，View显示。<br><img src="https://lc-mhke0kuv.cn-n1.lcfile.com/7e6efa438bda9cb0073d.png" alt="MVP"><br>虽然在MVC里，View是可以直接访问Model的，但是MVP中的View并不能直接使用Model，而是通过为Presenter提供接口，让Presenter去更新Model，再通过观察者模式更新View。<br>与MVC相比，MVP通过解耦View和Model，完全分离视图和模型使职责划分更加清晰；由于View不依赖Model，可以将View抽离出来做成组件，它只需要提供一系列接口提供给上层操作。</p>
 </blockquote>
@@ -459,7 +465,8 @@ this.notify = function() {
     this.getVal = function() {
         return val;
     };
-};</code></pre><p>Model层依然是主要与业务相关的数据和对应处理数据的方法。</p>
+};
+</code></pre><p>Model层依然是主要与业务相关的数据和对应处理数据的方法。</p>
 <h3 id="View-1"><a href="#View-1" class="headerlink" title="View"></a>View</h3><pre><code>myapp.View = function() {
     var $num = $(&apos;#num&apos;),
         $incBtn = $(&apos;#increase&apos;),
@@ -475,7 +482,8 @@ this.notify = function() {
         $incBtn.click(presenter.increase);
         $decBtn.click(presenter.decrease);
     };
-};</code></pre><p>MVP定义了Presenter和View之间的接口，用户对View的操作都转移到了Presenter。比如这里可以让View暴露setter接口以便Presenter调用，待Presenter通知Model更新后，Presenter调用View提供的接口更新视图。</p>
+};
+</code></pre><p>MVP定义了Presenter和View之间的接口，用户对View的操作都转移到了Presenter。比如这里可以让View暴露setter接口以便Presenter调用，待Presenter通知Model更新后，Presenter调用View提供的接口更新视图。</p>
 <h3 id="Presenter"><a href="#Presenter" class="headerlink" title="Presenter"></a>Presenter</h3><pre><code>myapp.Presenter = function(view) {
     var _model = new myapp.Model();
     var _view = view;
@@ -491,7 +499,8 @@ this.notify = function() {
         _model.sub(1);
         _view.render(_model);
     };
-};</code></pre><blockquote>
+};
+</code></pre><blockquote>
 <p>Presenter作为View和Model之间的“中间人”，除了基本的业务逻辑之外，还有大量代码需要对View到Model和从Model到View的数据进行“手动同步”，这样Presenter显得很重，维护起来会比较困难，而且由于没有数据绑定，如果Presenter对视图渲染的需求增多，它不得不过多关注特定的视图，一旦视图需求发生改变，Presenter也需要改动。</p>
 </blockquote>
 <blockquote>
@@ -500,7 +509,8 @@ this.notify = function() {
 <pre><code>(function() {
     var view = new myapp.View();
     view.init();
-})();</code></pre><h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><p><img src="https://lc-mhke0kuv.cn-n1.lcfile.com/1fba28fee8c9c5eeb021.png" alt="MVVM"></p>
+})();
+</code></pre><h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><p><img src="https://lc-mhke0kuv.cn-n1.lcfile.com/1fba28fee8c9c5eeb021.png" alt="MVVM"></p>
 <blockquote>
 <ul>
 <li>MVVM把View和Model的同步逻辑自动化了。以前Presenter负责的View和Model同步不在手动的进行操作，而是交给框架所提供的数据绑定进行负责，只需要告诉它View显示的数据对应的是Model那一部分即可。</li>
@@ -510,7 +520,8 @@ this.notify = function() {
 <h3 id="Model-2"><a href="#Model-2" class="headerlink" title="Model"></a>Model</h3><p>在MVVM中，我们可以把Model称为数据层，因为它仅仅关注数据本身，不关心任何行为（格式化数据由View负责），这里可以把它理解为一个类似于json的数据对象。</p>
 <pre><code>var data = {
     val: 0
-};</code></pre><h3 id="View-2"><a href="#View-2" class="headerlink" title="View"></a>View</h3><p>和MVC/MVP不同的是MVVM中的View通过模板语法来声明式的将数据渲染进DOM，ViewModel对Model进行更新的时候，会通过数据绑定更新到View。写法如下：</p>
+};
+</code></pre><h3 id="View-2"><a href="#View-2" class="headerlink" title="View"></a>View</h3><p>和MVC/MVP不同的是MVVM中的View通过模板语法来声明式的将数据渲染进DOM，ViewModel对Model进行更新的时候，会通过数据绑定更新到View。写法如下：</p>
 <pre><code>&lt;div id=&quot;myapp&quot;&gt;
     &lt;div&gt;
         &lt;span&gt;{{ val }}rmb&lt;/span&gt;
@@ -519,7 +530,8 @@ this.notify = function() {
         &lt;button v-on:click=&quot;sub(1)&quot;&gt;-&lt;/button&gt;
         &lt;button v-on:click=&quot;add(1)&quot;&gt;+&lt;/button&gt;
     &lt;/div&gt;
-&lt;/div&gt;</code></pre><h3 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a>ViewModel</h3><blockquote>
+&lt;/div&gt;
+</code></pre><h3 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a>ViewModel</h3><blockquote>
 <p>ViewModel大致上就是MVC的Controller和MVP的Presenter了，也是整个模式的重点，业务逻辑也主要集中在这里，其中的一大核心就是数据绑定。与MVP不同的是，没有了View为Presente提供的接口，之前由Presente负责的View和Model之间的数据同步交给了ViewModel中的数据绑定进行处理，当Model发生变化，ViewModel就会自动更新；ViewModel变化，Model也会更新。</p>
 </blockquote>
 <pre><code>new Vue({
@@ -537,7 +549,8 @@ this.notify = function() {
             }
         }
     }
-});</code></pre><blockquote>
+});
+</code></pre><blockquote>
 <p>整体来看，比MVC/MVP精简了很多，不仅仅简化了业务与界面的依赖，还解决了数据频繁更新的问题。因为在MVVM中，View不知道Model的存在，ViewModel和Model也觉察不到View，这种低耦合模式可以使开发过程更加容易，提高应用的可重用性。</p>
 </blockquote>
 <h2 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h2><p><img src="https://lc-mhke0kuv.cn-n1.lcfile.com/c507025c2f9a5c9e0c44.png" alt="数据绑定原理"></p>
@@ -599,7 +612,8 @@ function defineReactive(obj, key, value) {
 }
 
 observe(foo)
-foo.name = &apos;angular&apos; // “监听成功：vue --&gt; angular”</code></pre><blockquote>
+foo.name = &apos;angular&apos; // “监听成功：vue --&gt; angular”
+</code></pre><blockquote>
 <ul>
 <li>上面完成了对数据对象的监听，接下来还需要在监听到变化后去通知订阅者，这需要实现一个消息订阅器<strong>Dep</strong>，Watcher通过<strong>Dep</strong>添加订阅者，当数据改变便触发<strong>Dep.notify()</strong>,Watcher调用自己的<strong>update（）</strong>方法完成视图更新。</li>
 </ul>
@@ -638,8 +652,8 @@ foo.name = &apos;angular&apos; // “监听成功：vue --&gt; angular”</code>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/26/原理深究之事件循环和异步流程控制/" rel="next" title="原理深究之事件循环和异步流程控制">
-                <i class="fa fa-chevron-left"></i> 原理深究之事件循环和异步流程控制
+              <a href="/2018/06/26/浅析前端开发中的 MVC,MVP,MVVM 模式/" rel="next" title="前端开发中的MVC/MVP/MVVM模式">
+                <i class="fa fa-chevron-left"></i> 前端开发中的MVC/MVP/MVVM模式
               </a>
             
           </div>
@@ -716,7 +730,9 @@ foo.name = &apos;angular&apos; // “监听成功：vue --&gt; angular”</code>
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar1.gif" alt="马慧荣">
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar1.gif"
+                alt="马慧荣" />
             
               <p class="site-author-name" itemprop="name">马慧荣</p>
               <p class="site-description motion-element" itemprop="description">引而不发，一击必中</p>

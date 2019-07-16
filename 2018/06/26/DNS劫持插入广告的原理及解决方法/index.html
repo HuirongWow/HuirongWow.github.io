@@ -6,10 +6,10 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -27,8 +27,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -47,7 +47,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -55,9 +55,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
@@ -75,13 +75,13 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
 
 
 
@@ -132,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/26/DNS劫持插入广告的原理及解决方法/">
+  <link rel="canonical" href="http://yoursite.com/2018/06/26/DNS劫持插入广告的原理及解决方法/"/>
 
 
 
@@ -149,7 +149,8 @@
 
 
   
-  <script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  <script type="text/javascript"
+  color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
 </head>
 
@@ -169,7 +170,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Hexo</span>
         <span class="logo-line-after"><i></i></span>
@@ -199,7 +200,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -209,7 +210,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -219,7 +220,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -229,7 +230,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -239,7 +240,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -282,7 +283,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="马慧荣">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar1.gif">
     </span>
 
@@ -391,13 +392,15 @@
 <li>无论是iframe还是div，这些HTML广告代码都有相同的特征。首先来看iframe格式，这些iframe在页面文档中的位置一定都是 body 元素的直接子元素，用CSS 选择器可以这样表示：</li>
 </ul>
 </blockquote>
-<pre><code>body &gt; iframe{....}</code></pre><blockquote>
+<pre><code>body &gt; iframe{....}
+</code></pre><blockquote>
 <p>以我个人的经验，一般正常的页面里很少有使用iframe的，即使有，也很少有将iframe直接放到body元素下的。所以，对于这些流氓宽带商非法嵌入的iframe，我们可以通过下面的CSS进行屏蔽：</p>
 </blockquote>
 <pre><code>body &gt; iframe{
     opacity:0;
     display:none;
-}</code></pre><blockquote>
+}
+</code></pre><blockquote>
 <p>把这段代码放入页面里，这非法嵌入的广告iframe，虽然存在，但完全看不见。</p>
 <ul>
 <li>第二种情况，就是div形式广告，这些div通常会被放在页面的最后，也就是页面里正常HTML元素的最后一个的后面，只要我能捕捉目标，就能消灭他们，隐藏就好：</li>
@@ -406,7 +409,8 @@
 <pre><code>div#last-div ~ div {
     display: none; 
     opacity:0;
-}</code></pre><blockquote>
+}
+</code></pre><blockquote>
 <ul>
 <li>还有一种方式，就是弃用http用https啦，不过代价有点大，有兴趣的可以看一下http和https的区别~</li>
 </ul>
@@ -516,7 +520,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar1.gif" alt="马慧荣">
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar1.gif"
+                alt="马慧荣" />
             
               <p class="site-author-name" itemprop="name">马慧荣</p>
               <p class="site-description motion-element" itemprop="description">引而不发，一击必中</p>

@@ -6,10 +6,10 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -27,8 +27,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -47,7 +47,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -55,9 +55,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
@@ -75,13 +75,13 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
 
 
 
@@ -136,7 +136,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/26/Vue学习第四弹/">
+  <link rel="canonical" href="http://yoursite.com/2018/06/26/Vue学习第四弹/"/>
 
 
 
@@ -153,7 +153,8 @@
 
 
   
-  <script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  <script type="text/javascript"
+  color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
 </head>
 
@@ -173,7 +174,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Hexo</span>
         <span class="logo-line-after"><i></i></span>
@@ -203,7 +204,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -213,7 +214,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -223,7 +224,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -233,7 +234,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -243,7 +244,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -286,7 +287,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="马慧荣">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar1.gif">
     </span>
 
@@ -356,8 +357,7 @@
 <li>一个项目里只有一个实例化对象，就是入口文件，中间的所有传递其实都是一份配置文件。Vue的所有子组件，包括子组件的子组件都是配置文件。我们用这种方式配合单文件组件，实现Vue的组件树结构。</li>
 </ul>
 <h2 id="如何在父组件里渲染子组件内容"><a href="#如何在父组件里渲染子组件内容" class="headerlink" title="如何在父组件里渲染子组件内容"></a>如何在父组件里渲染子组件内容</h2><ul>
-<li><p>用import模式将子组件的配置载入到父组件的JS里面</p>
-<ul>
+<li>用import模式将子组件的配置载入到父组件的JS里面<ul>
 <li>响应式-双向绑定：v-model</li>
 </ul>
 </li>
@@ -371,8 +371,7 @@
 <li>注意，任何往组件里传递的标签、组件属性也不支持大写，需要用-转换</li>
 </ul>
 </li>
-<li><p>模板引入，也可以通过is标签来引入，好处：可以使用动态组件、模板引入。</p>
-</li>
+<li>模板引入，也可以通过is标签来引入，好处：可以使用动态组件、模板引入。</li>
 </ul>
 <h2 id="Vue父子组件之间的通信"><a href="#Vue父子组件之间的通信" class="headerlink" title="Vue父子组件之间的通信"></a>Vue父子组件之间的通信</h2><ul>
 <li><p>父子组件遵循怎样的模式呢？</p>
@@ -381,22 +380,18 @@
 </li>
 <li><p>父组件向子组件传递信息通过props：在子组件必须声明props接收的数据，接收到的数据自动变为属性</p>
 </li>
-<li><p>props接受两种类型的值：1.数组（接受数组里列出的所有属性）2.对象：可以指定传值类型 </p>
-</li>
-<li><p>子组件向父组件传递信息用$emit</p>
-</li>
+<li>props接受两种类型的值：1.数组（接受数组里列出的所有属性）2.对象：可以指定传值类型 </li>
+<li>子组件向父组件传递信息用$emit</li>
 </ul>
 </li>
-<li><p>动态属性的传递</p>
-<ul>
+<li>动态属性的传递<ul>
 <li>使用v-bind就可以成就一个可以动态向子组件传递的属性，同时属性需要在子组件中声明一下，之后便实现了动态属性的传递</li>
 <li>子组件可以设要置接受的数据类型，假若父组件传过来的属性数据类型不匹配，则会触发报错</li>
 </ul>
 </li>
 <li><p>子组件如何通过触发事件向父组件传递信息</p>
 <ul>
-<li><p>子组件中有个button，点击事件可触发myevent事件，同时通过$emit传递了一个字符串参数，在父组件中通过v-on监听一个事件是否被触发，触发时执行相应方法，通过这个方法里接受子组件传过来的的字符串参数。</p>
-</li>
+<li>子组件中有个button，点击事件可触发myevent事件，同时通过$emit传递了一个字符串参数，在父组件中通过v-on监听一个事件是否被触发，触发时执行相应方法，通过这个方法里接受子组件传过来的的字符串参数。</li>
 <li><p>子组件：</p>
 <ul>
 <li><img src="../images/zichuan.png" alt="子传"></li>
@@ -413,14 +408,10 @@
 </li>
 <li><p>插槽功能</p>
 <ul>
-<li><p>其实也是父组件向子组件传递信息的一个方式，传递的信息是：模板</p>
-</li>
-<li><p>在子组件中通过slot标签实现功能，</p>
-</li>
-<li><p>可以为插槽设置默认值，当插槽没有内容，没有接受到要插进来的信息时，就显示默认值</p>
-</li>
-<li><p>slot也接受具名slot，可以给slot添加name属性，并添加默认值，如果没接收到对应的信息，则显示默认值。</p>
-</li>
+<li>其实也是父组件向子组件传递信息的一个方式，传递的信息是：模板</li>
+<li>在子组件中通过slot标签实现功能，</li>
+<li>可以为插槽设置默认值，当插槽没有内容，没有接受到要插进来的信息时，就显示默认值</li>
+<li>slot也接受具名slot，可以给slot添加name属性，并添加默认值，如果没接收到对应的信息，则显示默认值。</li>
 <li><p>父组件：</p>
 <ul>
 <li><img src="../images/fuchuan.png" alt="父传"></li>
@@ -543,7 +534,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar1.gif" alt="马慧荣">
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar1.gif"
+                alt="马慧荣" />
             
               <p class="site-author-name" itemprop="name">马慧荣</p>
               <p class="site-description motion-element" itemprop="description">引而不发，一击必中</p>
