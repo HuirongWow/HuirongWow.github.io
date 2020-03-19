@@ -96,9 +96,9 @@
 <meta property="og:description" content="很多站长都遇见过，自己的网页莫名奇妙的多了些垃圾广告的现象。这样的情况，既流失了访问量，又没有什么好处，让人觉得好郁闷呀，那么那些无良的商家是如何做到强行插入广告的呢？他们是通过劫持DNS来实现的！什么是DNS？什么是DNS劫持呀？你肯定会有许多疑惑，就让我们来看看吧！让我们来看看吧！ DNS是什么DNS 是洋文“Domain Name System”的缩写，直译过来就是“域名系统”。 DNS有什">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.maixj.net/wp-content/uploads/2015/10/dns.jpg">
-<meta property="og:image" content="http://www.webhek.com/wordpress/wp-content/uploads/2014/12/ad2.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczilfuf4qj30ly0f6n05.jpg">
 <meta property="og:image" content="http://www.webhek.com/wordpress/wp-content/uploads/2014/12/ad1.jpg">
-<meta property="og:updated_time" content="2020-03-19T12:27:02.073Z">
+<meta property="og:updated_time" content="2020-03-19T12:34:36.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DNS劫持插入广告的原理及解决方法">
 <meta name="twitter:description" content="很多站长都遇见过，自己的网页莫名奇妙的多了些垃圾广告的现象。这样的情况，既流失了访问量，又没有什么好处，让人觉得好郁闷呀，那么那些无良的商家是如何做到强行插入广告的呢？他们是通过劫持DNS来实现的！什么是DNS？什么是DNS劫持呀？你肯定会有许多疑惑，就让我们来看看吧！让我们来看看吧！ DNS是什么DNS 是洋文“Domain Name System”的缩写，直译过来就是“域名系统”。 DNS有什">
@@ -386,7 +386,7 @@
 </blockquote>
 <h3 id="我们来找个例子看一下吧。"><a href="#我们来找个例子看一下吧。" class="headerlink" title="我们来找个例子看一下吧。"></a>我们来找个例子看一下吧。</h3><blockquote>
 <ul>
-<li>这是一个被强行嵌入了广告的页面：<br><img src="http://www.webhek.com/wordpress/wp-content/uploads/2014/12/ad2.jpg" alt="html"></li>
+<li>这是一个被强行嵌入了广告的页面：<br><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczilfuf4qj30ly0f6n05.jpg" alt="html"></li>
 <li>使用浏览器调试工具，发现在页面尾部无端多出来一段iframe和嵌入有广告代码的div，。它是宽带商捕捉用户浏览的网页，擅自非法的这些页面上添加自己的广告服务代码。这些代码能给宽带商带来一笔额外的收入。<br><img src="http://www.webhek.com/wordpress/wp-content/uploads/2014/12/ad1.jpg" alt="pyc"></li>
 <li>我们如何阻止他们呢？其实我们发现，宽带商非法嵌入广告的方式通常是两种：<br>在页面尾部加入数个iframe，iframe里的内容是宽带商承揽的广告；<br>直接嵌入div</li>
 <li>无论是iframe还是div，这些HTML广告代码都有相同的特征。首先来看iframe格式，这些iframe在页面文档中的位置一定都是 body 元素的直接子元素，用CSS 选择器可以这样表示：</li>
