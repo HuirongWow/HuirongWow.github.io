@@ -90,7 +90,7 @@
 
 <meta name="description" content="##Docker是什么?用go开发，公司甚至因为这个还直接改名成Docker了 ##Docker和虚拟机方式的区别及优劣对比  虚拟机虚拟出一套硬件，直接搞了一套操作系统在上面运行，在系统上再运行所需要的应用进程。  容器内应用进程直接运行于宿主内核，容器内没有内核也没有硬件虚拟，更轻便。    ##Dockerd的概念 镜像（Image）##具体应用  长期趋势分析：通过对监控样本数据的持续收集">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Docker基础概念">
 <meta property="og:url" content="http://yoursite.com/2019/07/29/docker学习记录/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="##Docker是什么?用go开发，公司甚至因为这个还直接改名成Docker了 ##Docker和虚拟机方式的区别及优劣对比  虚拟机虚拟出一套硬件，直接搞了一套操作系统在上面运行，在系统上再运行所需要的应用进程。  容器内应用进程直接运行于宿主内核，容器内没有内核也没有硬件虚拟，更轻便。    ##Dockerd的概念 镜像（Image）##具体应用  长期趋势分析：通过对监控样本数据的持续收集">
@@ -98,9 +98,9 @@
 <meta property="og:image" content="https://yeasy.gitbooks.io/docker_practice/content/introduction/_images/virtualization.png">
 <meta property="og:image" content="https://yeasy.gitbooks.io/docker_practice/content/introduction/_images/docker.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/29/images/docker.png">
-<meta property="og:updated_time" content="2019-10-10T03:24:50.699Z">
+<meta property="og:updated_time" content="2020-03-19T12:27:38.840Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Docker基础概念">
 <meta name="twitter:description" content="##Docker是什么?用go开发，公司甚至因为这个还直接改名成Docker了 ##Docker和虚拟机方式的区别及优劣对比  虚拟机虚拟出一套硬件，直接搞了一套操作系统在上面运行，在系统上再运行所需要的应用进程。  容器内应用进程直接运行于宿主内核，容器内没有内核也没有硬件虚拟，更轻便。    ##Dockerd的概念 镜像（Image）##具体应用  长期趋势分析：通过对监控样本数据的持续收集">
 <meta name="twitter:image" content="https://yeasy.gitbooks.io/docker_practice/content/introduction/_images/virtualization.png">
 
@@ -138,7 +138,7 @@
 
 
 
-  <title> | Hexo</title>
+  <title>Docker基础概念 | Hexo</title>
   
 
 
@@ -296,7 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Docker基础概念</h1>
         
 
         <div class="post-meta">
@@ -395,6 +395,7 @@
 <li>PromQL是Prometheus自定义的一套强大的数据查询语言，除了使用监控指标作为查询关键字以为，还内置了大量的函数，帮助用户进一步对时序数据进行处理。例如使用rate()函数，可以计算在单位时间内样本数据的变化情况即增长率，因此通过该函数我们可以近似的通过CPU使用时间计算CPU的利用率</li>
 </ul>
 <h2 id="小tip"><a href="#小tip" class="headerlink" title="小tip"></a>小tip</h2><p>在Prometheus的架构设计中，Prometheus Server并不直接服务监控特定的目标，其主要任务负责数据的收集，存储并且对外提供数据查询支持。因此为了能够能够监控到某些东西，如主机的CPU使用率，我们需要使用到Exporter。Prometheus周期性的从Exporter暴露的HTTP服务地址（通常是/metrics）拉取监控样本数据。</p>
+<p><code>`</code></p>
 
       
     </div>
@@ -429,8 +430,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/19/蓝图/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/19/蓝图/" rel="prev" title="蓝图">
+                蓝图 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

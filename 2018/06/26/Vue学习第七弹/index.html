@@ -95,26 +95,26 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="这一章是对前端路由知识点的一个总结。 Vue-router什么是路由？  路由就是根据不同的地址跳到不同的页面 应用场景：单页面应用   前端路由与传统路由的比较  传统路由切换的时候，所有资源都需要重新请求一次 前端路由，单页面公用一些资源，只需要请求需要请求的页面   使用前端路由  安装：npm install vue-router –save 在入口文件里引入，注册   vue-route">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/router.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/map.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/router-link.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/canshu.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/zhuru.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/canshupipei.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/ziluyou.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/ziluyou1.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/chuancan.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/namelink.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/linktoli.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/bianchen.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/shitu1.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/26/images/shitu2.png">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9yt4s9j30j20etmym.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9wuhumj30k80dzmyi.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9za0clj30pz0aemyf.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczia1ia52j30ko0e1jsm.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczia12nruj30nm0hmjsv.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczia1y1yyj30oc0f3q4d.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczia3zonjj30og0esgmx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9xftenj30pk08d3zd.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczia03esnj30pd0b6ta4.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczia4sspij30pl0a70u0.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczia3dto9j30q30cr0u6.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczia2zuhvj30gj01n3yh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczia0njduj30nw04m3z0.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9y6sqdj30m60a0t9j.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/06/26/images/chongdx.png">
-<meta property="og:updated_time" content="2018-06-25T21:34:22.000Z">
+<meta property="og:updated_time" content="2020-03-19T12:23:49.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习第七弹">
 <meta name="twitter:description" content="这一章是对前端路由知识点的一个总结。 Vue-router什么是路由？  路由就是根据不同的地址跳到不同的页面 应用场景：单页面应用   前端路由与传统路由的比较  传统路由切换的时候，所有资源都需要重新请求一次 前端路由，单页面公用一些资源，只需要请求需要请求的页面   使用前端路由  安装：npm install vue-router –save 在入口文件里引入，注册   vue-route">
-<meta name="twitter:image" content="http://yoursite.com/2018/06/26/images/router.png">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9yt4s9j30j20etmym.jpg">
 
 
 
@@ -386,46 +386,46 @@
 </blockquote>
 <h3 id="实例化路由类，插到项目的根的Vue实例里"><a href="#实例化路由类，插到项目的根的Vue实例里" class="headerlink" title="实例化路由类，插到项目的根的Vue实例里"></a>实例化路由类，插到项目的根的Vue实例里</h3><blockquote>
 <ul>
-<li><img src="../images/router.png" alt="vue-router实例化"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9yt4s9j30j20etmym.jpg" alt="vue-router实例化"></li>
 <li>实例化router的时候，通过routes选项来进行设定，做一份映射表</li>
 <li>引入组件，在routes中有path和component两个属性，互相对应 </li>
 <li>配置好入口文件后，需要规定在哪里，通过<strong><router-view></router-view></strong>的放置地点来规定</li>
 <li>Vue处理非html5路由采用的方式：采用哈希#，可以接受前后的切换。在默认状态下加了哈希#，也就是说当前路由没有使用html5的history功能，通常是高级浏览器的话，可以在实例化时，routes中添加mode的history属性，来支持前后退的功能</li>
-<li><img src="../images/map.png" alt="vue-router配置映射表"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9wuhumj30k80dzmyi.jpg" alt="vue-router配置映射表"></li>
 <li>在页面里的跳转：通过<strong><router-link :to="{path:'apple'}"></router-link></strong>来跳转到相应的地址</li>
-<li><img src="../images/router-link.png" alt="vue-router实现页面内的跳转"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9za0clj30pz0aemyf.jpg" alt="vue-router实现页面内的跳转"></li>
 </ul>
 </blockquote>
 <h3 id="路由的参数"><a href="#路由的参数" class="headerlink" title="路由的参数"></a>路由的参数</h3><blockquote>
 <ul>
 <li>前端路由允许传参，在实例化时设置参数</li>
-<li><img src="../images/canshu.png" alt="CSS阶段类名"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia1ia52j30ko0e1jsm.jpg" alt="CSS阶段类名"></li>
 <li>设定参数后，如何在组件内部获取参数呢？</li>
 <li>路由接受了参数以后，会往每个组件的全局route对象里插入当前页面的参数params，所以可以通过<strong>this.$route.params</strong>来获取当前路由的参数</li>
 <li>需要注意的，由于在路由里设定了有参数的路由，所以这是一个特定的匹配，加入输入的路由后面没有参数的话，就不会到想去的那个路由页面</li>
 <li>由于<strong>this.$route.params</strong>已经被注入了，所以自动成为组件的一个属性，可以在模板里直接访问<strong>$route.params.color</strong></li>
-<li><img src="../images/zhuru.png" alt="路由参数注入"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia12nruj30nm0hmjsv.jpg" alt="路由参数注入"></li>
 <li>路由参数的灵活使用：带冒号的都是参数，不带的会进行字符串匹配</li>
-<li><img src="../images/canshupipei.png" alt="路由参数匹配"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia1y1yyj30oc0f3q4d.jpg" alt="路由参数匹配"></li>
 </ul>
 </blockquote>
 <h3 id="路由嵌套"><a href="#路由嵌套" class="headerlink" title="路由嵌套"></a>路由嵌套</h3><blockquote>
 <ul>
 <li>就是自路由，同样配置映射表，只是在父级路由下配置children映射表</li>
-<li><img src="../images/ziluyou.png" alt="子路由映射配置"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia3zonjj30og0esgmx.jpg" alt="子路由映射配置"></li>
 <li>子路由组件渲染在哪里呢？它只会渲染到父级路由组件里面，不会插在根的<strong><router-view></router-view></strong>的位置。因为它只能找到父组件的那一层，所以我们需要在父组件相应位置放一个<strong><router-view></router-view></strong>,用以放置子路由组件。<strong><router-view></router-view></strong>所在地</li>
-<li><img src="../images/ziluyou1.png" alt="子路由父级内的view位置"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9xftenj30pk08d3zd.jpg" alt="子路由父级内的view位置"></li>
 </ul>
 </blockquote>
 <h3 id="命名的路由视图、路由重定向"><a href="#命名的路由视图、路由重定向" class="headerlink" title="命名的路由视图、路由重定向"></a>命名的路由视图、路由重定向</h3><blockquote>
 <ul>
 <li><strong><router-link></router-link></strong>如果只是一个简单的跳转，我们可以采用<strong>to</strong>+地址，不需要用<strong>v-bind</strong>来绑定，类似于<strong>href</strong>，基于当前路径跳到指定路径</li>
 <li><strong>to</strong>可以将自定义的参数直接传过去。</li>
-<li><img src="../images/chuancan.png" alt="通过to传参数"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia03esnj30pd0b6ta4.jpg" alt="通过to传参数"></li>
 <li>具名路由：在设定路由的时候，设定name属性，在访问的时候，也通过name属性来访问。</li>
-<li><img src="../images/namelink.png" alt="具名路由"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia4sspij30pl0a70u0.jpg" alt="具名路由"></li>
 <li>如何让将<strong><router-link></router-link></strong>变成<strong>li</strong>的样式呢？可以通过<strong>tag=”li”</strong>来指定</li>
-<li><img src="../images/linktoli.png" alt="将link标签化为li标签格式"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia3dto9j30q30cr0u6.jpg" alt="将link标签化为li标签格式"></li>
 <li>通过<strong>v-bind</strong>动态的将路径作为组建的一个属性来进行绑定。</li>
 </ul>
 </blockquote>
@@ -433,15 +433,15 @@
 <ul>
 <li>在组件<strong><template></template></strong>里通过<strong><router-link></router-link></strong>导航叫做声明式导航，实在模板里进行声明来导航</li>
 <li>我们在main.js里也可以进行编程式的导航，采用的最基本的方法是通过<strong>router.push()</strong>方法，指定到特殊页面。</li>
-<li><img src="../images/bianchen.png" alt="编程式导航的示例"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia2zuhvj30gj01n3yh.jpg" alt="编程式导航的示例"></li>
 </ul>
 </blockquote>
 <h3 id="命名的路由和命名的视图"><a href="#命名的路由和命名的视图" class="headerlink" title="命名的路由和命名的视图"></a>命名的路由和命名的视图</h3><blockquote>
 <ul>
 <li>命名路由</li>
 <li>命名视图</li>
-<li><img src="../images/shitu1.png" alt="命名视图1"></li>
-<li><img src="../images/shitu2.png" alt="命名视图2"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia0njduj30nw04m3z0.jpg" alt="命名视图1"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9y6sqdj30m60a0t9j.jpg" alt="命名视图2"></li>
 </ul>
 </blockquote>
 <h3 id="路由重定向"><a href="#路由重定向" class="headerlink" title="路由重定向"></a>路由重定向</h3><blockquote>
@@ -484,8 +484,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/29/docker学习记录/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/29/docker学习记录/" rel="prev" title="Docker基础概念">
+                Docker基础概念 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
