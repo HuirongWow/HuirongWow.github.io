@@ -346,27 +346,18 @@
       
         
           
-            <p>##virtualenv<br>virtualenv 是一个创建隔绝的Python环境的工具。virtualenv创建一个包含所有必要的可执行文件的文件夹，用来使用Python工程所需的包。</p>
-<p>这个东西可能是为了解决py3和py2一些语法不兼容的问题，避免全局污染，就用虚拟环境将项目隔离开来。</p>
-<ul>
-<li>ext.py是干啥的</li>
-<li><p><em>init</em>.py是干啥的</p>
-<ul>
-<li><strong>init</strong>.py 文件的作用是将文件夹变为一个Python模块,Python 中的每个模块的包中，都有<strong>init</strong>.py 文件。 </li>
-<li>通常<strong>init</strong>.py 文件为空，但是我们还可以为它增加其他的功能。我们在导入一个包时，实际上是导入了它的<strong>init</strong>.py文件。这样我们可以在<strong>init</strong>.py文件中批量导入我们所需要的模块，而不再需要一个一个的导入。        </li>
-<li>注意这里访问<strong>init</strong>.py文件中的引用文件，需要加上包名。<br><strong>init</strong>.py中还有一个重要的变量，<strong>all</strong>, 它用来将模块全部导入。</li>
-<li><figure class="highlight plain"><figcaption><span>__init__.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">__all__ = [&apos;os&apos;, &apos;sys&apos;, &apos;re&apos;, &apos;urllib&apos;]</span><br><span class="line"># a.py</span><br><span class="line">from package import *</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这时就会把注册在<strong>init</strong>.py文件中<strong>all</strong>列表中的模块和包导入到当前文件中来。可以了解到，<strong>init</strong>.py主要控制包的导入行为。要想清楚理解<strong>init</strong>.py文件的作用，还需要详细了解一下import语句引用机制：</p>
-</li>
-<li>可以被import语句导入的对象是以下类型：<br>  模块文件（.py文件）<br>  C或C++扩展（已编译为共享库或DLL文件）<br>  包（包含多个模块）<br>  内建模块（使用C编写并已链接到Python解释器中）<br>  当导入模块时，解释器按照sys.path列表中的目录顺序来查找导入文件。</li>
-</ul>
-</li>
-</ul>
-<h1 id="蓝图"><a href="#蓝图" class="headerlink" title="蓝图"></a>蓝图</h1><pre><code>* # 创建蓝图时对其指定URL前缀蓝图有自己的目录，所有资源都在其目录下，蓝图的资源目录是创建Blueprint对象时传入的模块名__name__所在的位置所决定的，同时可以指定蓝图自己的模板目录和静态目录
-* # terminal=Blueprint(&apos;terminal&apos;, __name__,)
-</code></pre>
-          
+          ##virtualenvvirtualenv 是一个创建隔绝的Python环境的工具。virtualenv创建一个包含所有必要的可执行文件的文件夹，用来使用Python工程所需的包。
+这个东西可能是为了解决py3和py2一些语法不兼容的问题，避免全局污染，就用虚拟环境将项目隔离开来。
+
+ext.py
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/19/蓝图/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -484,57 +475,24 @@
       
         
           
-            <p>##Docker是什么?<br>用go开发，公司甚至因为这个还直接改名成Docker了</p>
-<p>##Docker和虚拟机方式的区别及优劣对比</p>
-<ul>
-<li>虚拟机虚拟出一套硬件，直接搞了一套操作系统在上面运行，在系统上再运行所需要的应用进程。</li>
-<li><img src="https://yeasy.gitbooks.io/docker_practice/content/introduction/_images/virtualization.png" alt="虚拟机"></li>
-<li>容器内应用进程直接运行于宿主内核，容器内没有内核也没有硬件虚拟，更轻便。</li>
-<li><img src="https://yeasy.gitbooks.io/docker_practice/content/introduction/_images/docker.png" alt="容器"></li>
-<li><img src="../images/docker.png" alt="容器和虚拟机的比对"></li>
-</ul>
-<p>##Dockerd的概念</p>
-<h3 id="镜像（Image）"><a href="#镜像（Image）" class="headerlink" title="镜像（Image）"></a>镜像（Image）</h3><p>##具体应用</p>
-<ul>
-<li>长期趋势分析：通过对监控样本数据的持续收集和统计，对监控指标进行长期趋势分析。例如，通过对磁盘空间增长率的判断，我们可以提前预测在未来什么时间节点上需要对资源进行扩容。</li>
-<li>对照分析：两个版本的系统运行资源使用情况的差异如何？在不同容量情况下系统的并发和负载变化如何？通过监控能够方便的对系统进行跟踪和比较。</li>
-<li>告警：当系统出现或者即将出现故障时，监控系统需要迅速反应并通知管理员，从而能够对问题进行快速的处理或者提前预防问题的发生，避免出现对业务的影响。</li>
-<li>故障分析与定位：当问题发生后，需要对问题进行调查和处理。通过对不同监控监控以及历史数据的分析，能够找到并解决根源问题。</li>
-<li>数据可视化：通过可视化仪表盘能够直接获取系统的运行状态、资源使用情况、以及服务运行状态等直观的信息。</li>
-</ul>
-<p>##Prometheus数据模型<br>它有个内置时序数据库，所有采集的监控数据以指标（metric）形式存在这个数据库里，所以可以根据查询请求产生临时时序作为返回结果</p>
-<ul>
-<li>指标名和标签<ul>
-<li>每条时序由指标名+一组标签（键值对）唯一标识，指标名有格式要求</li>
-<li>通过使用不同标签列表的集合对相同指标名形成特定度量维度实例</li>
-</ul>
-</li>
-<li>样本<ul>
-<li>时序中每个点称为一个样本（指标+时间戳+样本值）</li>
-</ul>
-</li>
-<li><code>&lt;metric name&gt;{&lt;label name&gt;=&lt;label value&gt;, ...}</code>指定指标名和指定标签集合的时间序列<ul>
-<li>例如，指标名称为 <code>api_http_requests_total</code>，标签为 <code>method=&quot;POST&quot; 和 handler=&quot;/messages&quot;</code> 的时间序列可以表示为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Metrics类型</span><br><span class="line"></span><br><span class="line">从存储上来讲所有的监控指标metric都是相同的，但是在不同的场景下这些metric又有一些细微的差异。 例如，在Node Exporter返回的样本中指标node_load1反应的是当前系统的负载状态，随着时间的变化这个指标返回的样本数据是在不断变化的。而指标node_cpu所获取到的样本数据却不同，它是一个持续增大的值，因为其反应的是CPU的累积使用时间，从理论上讲只要系统不关机，这个值是会无限变大的。</span><br><span class="line">为了能够帮助用户理解和区分这些不同监控指标之间的差异，Prometheus定义了4中不同的指标类型(metric type)：Counter（计数器）、Gauge（仪表盘）、Histogram（直方图）、Summary（摘要）。</span><br><span class="line">在Exporter返回的样本数据中，其注释中也包含了该样本的类型。例如：</span><br><span class="line">```HELP node_cpu Seconds the cpus spent in each mode.</span><br><span class="line">TYPE node_cpu counter</span><br><span class="line">node_cpu&#123;cpu=&quot;cpu0&quot;,mode=&quot;idle&quot;&#125; 362812.7890625</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="查询-PromQL"><a href="#查询-PromQL" class="headerlink" title="查询 PromQL"></a>查询 PromQL</h2><ul>
-<li>PromQL：一种功能表达式语言 <code>PromQL</code>，允许用户实时选择和汇聚时间序列数据。表达式的结果可以在浏览器中显示为图形，也可以显示为表格数据，或者由外部系统通过 <code>HTTP API</code> 调用。</li>
-<li>表达式由四部分组成：<ul>
-<li>瞬时向量（Instant vector） - 一组时间序列，每个时间序列包含单个样本，它们共享相同的时间戳。也就是说，表达式的返回值中只会包含该时间序列中的最新的一个样本值。而相应的这样的表达式称之为瞬时向量表达式。</li>
-<li>区间向量（Range vector） - 一组时间序列，每个时间序列包含一段时间范围内的样本数据。</li>
-<li>标量（Scalar） - 一个浮点型的数据值。</li>
-<li>字符串（String） - 一个简单的字符串值。</li>
-</ul>
-</li>
-<li>Prometheus UI是Prometheus内置的一个可视化管理界面，通过Prometheus UI用户能够轻松的了解Prometheus当前的配置，监控任务运行状态等。 通过Graph面板，用户还能直接使用PromQL实时查询监控数据</li>
-<li>Prometheus UI提供了快速验证PromQL以及临时可视化支持的能力，而在大多数场景下引入监控系统通常还需要构建可以长期使用的监控数据可视化面板（Dashboard）。这时用户可以考虑使用第三方的可视化工具如Grafana，Grafana是一个开源的可视化平台，并且提供了对Prometheus的完整支持。</li>
-<li>PromQL是Prometheus自定义的一套强大的数据查询语言，除了使用监控指标作为查询关键字以为，还内置了大量的函数，帮助用户进一步对时序数据进行处理。例如使用rate()函数，可以计算在单位时间内样本数据的变化情况即增长率，因此通过该函数我们可以近似的通过CPU使用时间计算CPU的利用率</li>
-</ul>
-<h2 id="小tip"><a href="#小tip" class="headerlink" title="小tip"></a>小tip</h2><p>在Prometheus的架构设计中，Prometheus Server并不直接服务监控特定的目标，其主要任务负责数据的收集，存储并且对外提供数据查询支持。因此为了能够能够监控到某些东西，如主机的CPU使用率，我们需要使用到Exporter。Prometheus周期性的从Exporter暴露的HTTP服务地址（通常是/metrics）拉取监控样本数据。</p>
+          ##Docker是什么?用go开发，公司甚至因为这个还直接改名成Docker了
+##Docker和虚拟机方式的区别及优劣对比
 
-          
+虚拟机虚拟出一套硬件，直接搞了一套操作系统在上面运行，在系统上再运行所需要的应用进程。
+
+容器内应用进程直接运行于宿主内核，容器内没有内核也没有硬件虚拟，更轻便。
+
+
+
+#
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/29/docker学习记录/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -652,94 +610,19 @@
       
         
           
-            <p>等待面试的过程中真是很焦虑，感觉任何时刻都有可能打电话过来开始面试，最难受的是感觉还有很多没有准备好，所以继续加油。<br>共勉</p>
-<h2 id="深入了解Vue组件"><a href="#深入了解Vue组件" class="headerlink" title="深入了解Vue组件"></a>深入了解Vue组件</h2><p><img src="../images/gen.png" alt="组件树"></p>
-<ul>
-<li>一个项目通常只有一个根组件，通过实例化一个Vue对象及里面的render方法去渲染根组件。</li>
-<li>一个项目里只有一个实例化对象，就是入口文件，中间的所有传递其实都是一份配置文件。Vue的所有子组件，包括子组件的子组件都是配置文件。我们用这种方式配合单文件组件，实现Vue的组件树结构。</li>
-</ul>
-<h2 id="如何在父组件里渲染子组件内容"><a href="#如何在父组件里渲染子组件内容" class="headerlink" title="如何在父组件里渲染子组件内容"></a>如何在父组件里渲染子组件内容</h2><ul>
-<li>用import模式将子组件的配置载入到父组件的JS里面<ul>
-<li>响应式-双向绑定：v-model</li>
-</ul>
-</li>
-<li><p>在父组件里注册子组件，通过components注册</p>
-<ul>
-<li><img src="../images/zhuce.png" alt="父组件中注册子组件"></li>
-</ul>
-</li>
-<li><p>在template里使用组件，推荐使用-命名转换将大写字母转成小写，因为html标签对大小写不敏感，应该小写</p>
-<ul>
-<li>注意，任何往组件里传递的标签、组件属性也不支持大写，需要用-转换</li>
-</ul>
-</li>
-<li>模板引入，也可以通过is标签来引入，好处：可以使用动态组件、模板引入。</li>
-</ul>
-<h2 id="Vue父子组件之间的通信"><a href="#Vue父子组件之间的通信" class="headerlink" title="Vue父子组件之间的通信"></a>Vue父子组件之间的通信</h2><ul>
-<li><p>父子组件遵循怎样的模式呢？</p>
-<ul>
-<li><p><img src="../images/moshi.png" alt="模式"> </p>
-</li>
-<li><p>父组件向子组件传递信息通过props：在子组件必须声明props接收的数据，接收到的数据自动变为属性</p>
-</li>
-<li>props接受两种类型的值：1.数组（接受数组里列出的所有属性）2.对象：可以指定传值类型 </li>
-<li>子组件向父组件传递信息用$emit</li>
-</ul>
-</li>
-<li>动态属性的传递<ul>
-<li>使用v-bind就可以成就一个可以动态向子组件传递的属性，同时属性需要在子组件中声明一下，之后便实现了动态属性的传递</li>
-<li>子组件可以设要置接受的数据类型，假若父组件传过来的属性数据类型不匹配，则会触发报错</li>
-</ul>
-</li>
-<li><p>子组件如何通过触发事件向父组件传递信息</p>
-<ul>
-<li>子组件中有个button，点击事件可触发myevent事件，同时通过$emit传递了一个字符串参数，在父组件中通过v-on监听一个事件是否被触发，触发时执行相应方法，通过这个方法里接受子组件传过来的的字符串参数。</li>
-<li><p>子组件：</p>
-<ul>
-<li><img src="../images/zichuan.png" alt="子传"></li>
-</ul>
-</li>
-<li><p>父组件</p>
-<ul>
-<li><img src="../images/fujie.png" alt="父接"></li>
-</ul>
-</li>
-<li><p>注意，事件也需要-转换大写</p>
-</li>
-</ul>
-</li>
-<li><p>插槽功能</p>
-<ul>
-<li>其实也是父组件向子组件传递信息的一个方式，传递的信息是：模板</li>
-<li>在子组件中通过slot标签实现功能，</li>
-<li>可以为插槽设置默认值，当插槽没有内容，没有接受到要插进来的信息时，就显示默认值</li>
-<li>slot也接受具名slot，可以给slot添加name属性，并添加默认值，如果没接收到对应的信息，则显示默认值。</li>
-<li><p>父组件：</p>
-<ul>
-<li><img src="../images/fuchuan.png" alt="父传"></li>
-</ul>
-</li>
-<li><p>子组件</p>
-<ul>
-<li><img src="../images/zijie.png" alt="子接"></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="组件之间的通信-动态组件"><a href="#组件之间的通信-动态组件" class="headerlink" title="组件之间的通信-动态组件"></a>组件之间的通信-动态组件</h2><ul>
-<li>用v-bind is绑定变量，通过变量来指定不同的组件，就是动态组件</li>
-<li>动态组件类似于路由，也支持<keep-alive>内置标签，当有好几种组件时，当有<keep-alive>标签，则可以缓存，提高加载速度</keep-alive></keep-alive></li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>无论多大的项目，组件间进行交互的就是三种方式：通过属性向内传递props、子组件触发$emit事件，父组件通过监听事件来获取信息，插槽功能，写在组件里的模板可以通过插槽展现在子组件的相应位置。</li>
-<li>使用组件树设计项目，配置文件链接各个组件-命名转换，动态组件</li>
-<li>父组件向内传递属性-动态属性</li>
-<li>子组件向外发布事件</li>
-<li>slot插槽传递模板-具名slot</li>
-</ul>
+          等待面试的过程中真是很焦虑，感觉任何时刻都有可能打电话过来开始面试，最难受的是感觉还有很多没有准备好，所以继续加油。共勉
+深入了解Vue组件
 
-          
+一个项目通常只有一个根组件，通过实例化一个Vue对象及里面的render方法去渲染根组件。
+一个项目里只有一个实例化对象，就是入口文件，中间的所有传递其实都
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/26/Vue学习第四弹/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -857,89 +740,18 @@
       
         
           
-            <p>刚刚发现自己挺进了阿里的二面，心情有些复杂。。听说阿里的面试14号之前就完事了，留给自己的准备时间应该就明天一天了把，可能还没有一天，感觉自己不会的东西还有很多。</p>
-<p>算法、项目、基础……</p>
-<p>总之，虽然很方，但还是先静下心来，捋一捋Vue的基础，熟悉一下自己的项目吧。莫问前程，但行好事。</p>
-<h2 id="Vue的基本概念"><a href="#Vue的基本概念" class="headerlink" title="Vue的基本概念"></a>Vue的基本概念</h2><ul>
-<li>全局api：Vue实例对象提供的全局方法<ul>
-<li>如Vue.component\Vue.use等</li>
-</ul>
-</li>
-<li>实例选项：<ul>
-<li>如el、data、生命周期的钩子、子组件选项等，在官方文档里可以看到。就是在创建一个Vue实例时可以使用的功能项目。</li>
-</ul>
-</li>
-<li>实例属性和方法<ul>
-<li>以$开头，并且直接从实例对象进行调用的的方法、属性</li>
-</ul>
-</li>
-<li>指令<ul>
-<li>指令有时还会包含指令的参数，如：‘ : ’、‘ . ’这样的冒号参数/修改器</li>
-</ul>
-</li>
-<li>内置组件<ul>
-<li>如<component></component>、<keep-alive><router-link></router-link></keep-alive></li>
-</ul>
-</li>
-</ul>
-<h2 id="文本渲染v-html、v-text"><a href="#文本渲染v-html、v-text" class="headerlink" title="文本渲染v-html、v-text"></a>文本渲染v-html、v-text</h2><ul>
-<li>v-html<ul>
-<li>标签本身以html的方式解析显示在页面里</li>
-</ul>
-</li>
-<li>v-text<ul>
-<li>会将所有标签转译成字符串来进行页面的展现</li>
-</ul>
-</li>
-</ul>
-<h2 id="列表渲染-v-for数组，对象，子组件"><a href="#列表渲染-v-for数组，对象，子组件" class="headerlink" title="列表渲染 v-for数组，对象，子组件"></a>列表渲染 v-for数组，对象，子组件</h2><ul>
-<li><p>用v-for对数组进行渲染</p>
-<ul>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li v-for=&quot;(item,index) in List&quot;&gt; &#123;&#123; item.name &#125;&#125; - &#123;&#123; item.price &#125;&#125; - &#123;&#123; index &#125;&#125;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>序号index需要声明：（item,index）</p>
-</li>
-<li><p>假若渲染的是一个对象，里面有name，price等属性</p>
-<ul>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li v-for=&quot;(value, key) in objList&quot;&gt; &#123;&#123; key + value &#125;&#125; &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>假若渲染的是一个组件，组件的循环渲染 </p>
-<ul>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;componentA v-for=&quot;(value, key) in objList&quot; :key=&quot;key&quot;&gt;&lt;/componentA&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="列表数组的同步更新方法"><a href="#列表数组的同步更新方法" class="headerlink" title="列表数组的同步更新方法"></a>列表数组的同步更新方法</h2><ul>
-<li>在methods方法中： <ul>
-<li>push(),pop(),shift(),unshift(),splice(),sort(),reverse()数组方法会触发数组列表更新</li>
-<li>直接为数组某一项赋值、改变数组长度不会触发数组列表更新<ul>
-<li>一定要实现，则使用Vue.set()全局方法来进行赋值即可</li>
-</ul>
-</li>
-<li>filter(),concat(),slice()不会出发数组列表更新</li>
-</ul>
-</li>
-</ul>
-<h2 id="Vue标签属性和条件渲染"><a href="#Vue标签属性和条件渲染" class="headerlink" title="Vue标签属性和条件渲染"></a>Vue标签属性和条件渲染</h2><ul>
-<li>v-bind，缩写：‘ ： ’<ul>
-<li>所谓动态绑定，即在其他地方修改了绑定的属性，在原点也会做相应的改变</li>
-<li>v-bind常用用法：绑定class，绑定的class与本身的class不冲突，会同时共存。除了classname，也可以绑定对象，也可以绑定数组，也可以混用。也可以绑定style，在data中定义绑定的css样式。</li>
-</ul>
-</li>
-<li>条件渲染<ul>
-<li>v-if: 直接从文档流中被删除，不在页面中展现</li>
-<li>v-show: 标签依旧存在于文档流中，只不过通过css样式隐藏</li>
-<li>v-else：配合v-if和v-show使用</li>
-</ul>
-</li>
-</ul>
-
-          
+          刚刚发现自己挺进了阿里的二面，心情有些复杂。。听说阿里的面试14号之前就完事了，留给自己的准备时间应该就明天一天了把，可能还没有一天，感觉自己不会的东西还有很多。
+算法、项目、基础……
+总之，虽然很方，但还是先静下心来，捋一捋Vue的基础，熟悉一下自己的项目吧。莫问前程，但行好事。
+Vue的基本概念
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/26/Vue学习第二弹/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1057,68 +869,27 @@
       
         
           
-            <p>依旧等待面试中。。今学习Vue动画过渡相关知识，之前学习过，但是有些地方不是很懂，没有很好的串起来，今天再来一次。</p>
-<h2 id="Vue的高级功能"><a href="#Vue的高级功能" class="headerlink" title="Vue的高级功能"></a>Vue的高级功能</h2><blockquote>
-<ul>
-<li>过渡</li>
-<li>自定义指令</li>
-<li>mixins</li>
-<li>插件</li>
-</ul>
-</blockquote>
-<h2 id="Vue：过渡、动画"><a href="#Vue：过渡、动画" class="headerlink" title="Vue：过渡、动画"></a>Vue：过渡、动画</h2><blockquote>
-<ul>
-<li>通过v-show来控制dom元素的展示，过渡就是在切换展示的过程中加一些动画</li>
-<li><code>&lt;transition&gt;</code>是vue提供的内置组件，但必须配合一些特定条件才能用，如v-show。它本身需要命名，之后才可以根据它的名字实现过渡效果</li>
-<li>实现过渡的两种方法：CSS实现过渡、JS实现过渡</li>
-</ul>
-</blockquote>
-<h2 id="Vue：CSS实现过渡"><a href="#Vue：CSS实现过渡" class="headerlink" title="Vue：CSS实现过渡"></a>Vue：CSS实现过渡</h2><p><img src="../images/class.png" alt="CSS阶段类名"></p>
-<blockquote>
-<ul>
-<li>在接受过渡效果元素的时候，vue的<code>&lt;transition&gt;</code>组件会给这个元素不同阶段赋予不同的类名，我们通过控制CSS就可以实现过渡、动画</li>
-<li>类名主要分两个阶段：</li>
-<li>进入阶段–从无到有。比如v-show从不显示到显示阶段，有两个过程：完全不显示的时候，得到v-enter类名。进入显示过程中，类名为：v-enter-avtive</li>
-<li>离开阶段–完全有的时候：v-leave，当进入到完全不展示的过程中：v-leave-active类名</li>
-<li>enter-active和leave-avtive在css3的动画里，可以通过<strong>transition</strong>属性指定当前元素过渡效果.<strong>transition</strong>接受的两个参数，一个指哪些属性要接受过渡（all,opacityd等），另一个是过渡时长，还可以在第三个参数指定过渡曲线</li>
-<li><img src="../images/style.png" alt="动画过渡样式"></li>
-<li>由于opacity的默认值是1，所以如果需要完全不显示的两个状态v-enter、v-leave-avtive:得把opacity需要设置值为0.</li>
-<li>transition的参数，设置left等属性是无效的。所以假如说想做从上下左右进来出去的效果，只能通过transfrom：translateY(-500px);等</li>
-</ul>
-</blockquote>
-<h3 id="Vue过渡的其他知识"><a href="#Vue过渡的其他知识" class="headerlink" title="Vue过渡的其他知识"></a>Vue过渡的其他知识</h3><blockquote>
-<ul>
-<li>什么样的属性接受过渡状态</li>
-<li>多元素过渡</li>
-<li>多元素过渡 模式</li>
-</ul>
-</blockquote>
-<p>####什么样的属性接受过渡状态</p>
-<blockquote>
-<ul>
-<li>除了v-show可以接受过渡，v-if也可以，只是v-if会把元素从dom节点中删除  </li>
-<li>动态组件接受transition：先用v-bind is实现动态组件 ；将挂载点放在transition里。</li>
-<li>transition默认的模式：mode=”in-out”:新的先进，旧的后再出去</li>
-<li>还可以使用v-if，v-else来实现多元素过渡</li>
-<li>多元素显示有一点要注意，当标签名相同时，由于Vue不能区别这两个元素，所以动画可能会失效，所以可以指定一个key来让Vue区别这两个元素</li>
-</ul>
-</blockquote>
-<hr>
-<h2 id="Vue：JS实现过渡"><a href="#Vue：JS实现过渡" class="headerlink" title="Vue：JS实现过渡"></a>Vue：JS实现过渡</h2><blockquote>
-<ul>
-<li>JS过渡类似CSS过渡，也会分阶段。与CSS不同的是，用JS实现时，所控制的阶段，是通过事件(transition组件中的v-on)来监听事件钩子、方法，会在过渡进行到特定的阶段去调用，动画就通过JS写到方法里面。</li>
-<li>进入时有：</li>
-<li><img src="../images/jsguodu.png" alt="JS过渡"></li>
-<li>离开时有：</li>
-<li><img src="../images/jsguodu1.png" alt="JS过渡"><br>要注意的是：</li>
-<li>v-bind：css=”false”,这样可以避免Vue去检查css中指定的选项，可以避免过渡过程中CSS的影响</li>
-<li>方法里带有参数，主要的控制是通过方法传进来的el来实现的。el指当前transition体内的DOM元素，可以设定el的位置、颜色来控制动画</li>
-<li>有两个方法比较特殊，有第二个参数done，一个是enter，一个是leave。done是做什么的呢？当进入完毕后会调用done方法来进行下一步的操iffrent1.png)</li>
-<li>如果要引入一些公用库，如jQuery，可以在index.html文件里面引入，因为这个文件不会被打包或处理，只会作为一个入口的页面往里面加东西<br><img src="../images/diffrent2.png" alt="两个特殊的方法"></li>
-</ul>
-</blockquote>
+          依旧等待面试中。。今学习Vue动画过渡相关知识，之前学习过，但是有些地方不是很懂，没有很好的串起来，今天再来一次。
+Vue的高级功能
 
-          
+过渡
+自定义指令
+mixins
+插件
+
+
+Vue：过渡、动画
+
+通过v-show来控制dom元素的展示，过渡就是在切换展示的过程中加一些动画
+&lt;transit
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/26/Vue学习第五弹/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1236,53 +1007,18 @@
       
         
           
-            <p>路途依旧遥远。我去到了杭州，住在西溪湿地，去看了阿里巴巴总部，很帅，下好大的雨，我站在外边撑着伞看着。</p>
-<h2 id="Vue事件绑定"><a href="#Vue事件绑定" class="headerlink" title="Vue事件绑定"></a>Vue事件绑定</h2><ul>
-<li>用v-on标签实现事件绑定，提供一些修改器，如keydown.enter</li>
-<li>自定义事件：针对子组件向外触发，在子组件中使用$emit来触发事件，还可传参数给父组件，让父组件在方法里接受那个参数</li>
-</ul>
-<p>##表单事件绑定</p>
-<ul>
-<li>input的数据绑定：v-model实现数据模型，如：v-model:myval<ul>
-<li>首先同步到myval属性上，再同步渲染到页面上，每一次输入都会进行双向的绑定</li>
-</ul>
-</li>
-<li>v-model的修饰符：<ul>
-<li>.lazy：在输入完之后才会进行更新，当数据很大时用.lazy是不错的选择</li>
-<li>.number:一般把myval当作string来处理，可用typeof查看，用.number修饰符可改类型为number</li>
-<li>.trim：一个裁剪的修饰符，空格会被剪切掉。<h2 id="Vue中单选多选控件如何实现"><a href="#Vue中单选多选控件如何实现" class="headerlink" title="Vue中单选多选控件如何实现"></a>Vue中单选多选控件如何实现</h2></li>
-</ul>
-</li>
-<li>checkbox的实现<ul>
-<li>给input设置type=checkbox，设置value属性的值，通过v-model把所有选项绑定在myval属性上（myval需要是一个数组），如果勾选了input选项则会被添加到myval中，实际上是添加了value属性的值</li>
-</ul>
-</li>
-<li>单选框radio  <ul>
-<li>给input设置type=radio，设置value属性的值，通过v-model把所有选项绑定在myval属性上（myval是一个字符串），如果勾选了input选项则会被添加到myval中，实际上是添加了value属性的值</li>
-</ul>
-</li>
-<li>select，<ul>
-<li>用v-model给select绑定myval属性，而options可以作为一个数组放在data中，用v-for来渲染到页面里</li>
-</ul>
-</li>
-</ul>
-<h2 id="计算属性和数据监听"><a href="#计算属性和数据监听" class="headerlink" title="计算属性和数据监听"></a>计算属性和数据监听</h2><ul>
-<li>计算属性时做什么的呢？<ul>
-<li>通过computed会根据其他属性的变化同步实现computed中的属性的动态更新</li>
-</ul>
-</li>
-<li>计算属性computed与方法method有什么不同呢？<ul>
-<li>computed的计算属性会被缓存，计算属性的更新只会根据另一个值如myval进行更新，如果那个值没有更新，那么计算值也不会更新</li>
-<li>用method调用值时，每一次都会重新获取再进行相应的操作</li>
-</ul>
-</li>
-<li>数据监听 watch<ul>
-<li>Vue用来提供，监听属性变化的选项</li>
-</ul>
-</li>
-</ul>
-
-          
+          路途依旧遥远。我去到了杭州，住在西溪湿地，去看了阿里巴巴总部，很帅，下好大的雨，我站在外边撑着伞看着。
+Vue事件绑定
+用v-on标签实现事件绑定，提供一些修改器，如keydown.enter
+自定义事件：针对子组件向外触发，在子组件中使用$emit来触发事件，还可传参数给父组件，让父组件在方法里接
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/26/Vue学习第三弹/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1400,38 +1136,21 @@
       
         
           
-            <p>依旧等待面试中。。过两天状态不会变成已回绝了吧。。又期待又害怕的感觉</p>
-<h2 id="Vue的自定义指令"><a href="#Vue的自定义指令" class="headerlink" title="Vue的自定义指令"></a>Vue的自定义指令</h2><blockquote>
-<ul>
-<li>自定义仍采用v-指令名的方式来命名 </li>
-<li>实现自定义指令的方式有两种</li>
-<li>在组件里以directives这样的一个选项来设定自定义组件，这个自定义指令是一个局部的指令，只有在这个组件里才能使用</li>
-<li>在main.js里对Vue全局对象来进行一个扩展，使用Vue.directive方法两个参数，第一个是指令名，第二个是对指令的描述（insrted），这个是可以全局使用的指令。</li>
-<li><img src="../images/zhilin.png" alt="全局实现自定义指令"></li>
-<li><img src="../images/zhilin1.png" alt="局部实现自定义指令"></li>
-</ul>
-</blockquote>
-<h2 id="Vue：插件"><a href="#Vue：插件" class="headerlink" title="Vue：插件"></a>Vue：插件</h2><blockquote>
-<ul>
-<li>vue-resource是用来发送http请求的一个插件，vue-router是前端路由的一个功能</li>
-<li>引入之后还需要用Vue.use()注册一下</li>
-</ul>
-</blockquote>
-<h2 id="Vue：单文件组件和vue-cli"><a href="#Vue：单文件组件和vue-cli" class="headerlink" title="Vue：单文件组件和vue-cli"></a>Vue：单文件组件和vue-cli</h2><blockquote>
-<ul>
-<li>单文件组件的实现是vue-loader配合webpack来实现的</li>
-<li>Vue-cli的优势</li>
-<li>成熟的Vue项目架构设计</li>
-<li>本地测试服务器</li>
-<li>集成打包上线方案</li>
-<li>使用vue-cli的系统要求</li>
-<li>node.js(&gt;=4.x)</li>
-<li>Git</li>
-<li><img src="../images/vue-cli.png" alt="Vue-cli的安装过程"></li>
-</ul>
-</blockquote>
+          依旧等待面试中。。过两天状态不会变成已回绝了吧。。又期待又害怕的感觉
+Vue的自定义指令
 
-          
+自定义仍采用v-指令名的方式来命名 
+实现自定义指令的方式有两种
+在组件里以directives这样的一个选项来设定自定义组件，这个自定义指令是一个局部的指令，只有在这个组件里才能使用
+在main.js里对V
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/26/Vue学习第六弹/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1549,130 +1268,16 @@
       
         
           
-            <p>这篇文章是我读了掘金上一篇非常好的博客，总结的一些知识要点。主要讲事件循环的诞生背景(解决什么问题), 处理异步执行问题的思路(怎样解决的问题)以及javascript语言层面对于异步逻辑编写的封装。<br>掘金大佬多多，一篇博客开阔眼界，希望我能消化这些知识点吧，感觉偏原理了些。</p>
-<h2 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h2><h3 id="为什么要有事件循环"><a href="#为什么要有事件循环" class="headerlink" title="为什么要有事件循环"></a>为什么要有事件循环</h3><blockquote>
-<ul>
-<li>归根究底，是因为JavaScript是一门单线程语言，也就是说，一次只能响应一个操做。那么对于一些比较耗费时间的操作，比如复杂的图片运算或等待服务返回数据，响应的时间就很长，可能造成页面假死。我们想要有一种机制，来实现，用户的操作无阻碍的进行，而这个时候，事件循环便产生了。</li>
-<li>事件循环主要是监控调用栈和回调队列，调用栈负责处理，JavaScript线程中的任务，当有ajax或settimeout这样的异步逻辑任务时，调用栈会执行他们，但并不会阻塞后续的操作，执行完后会把他们从调用栈中删除并且将相应的回掉函数放入回调队列中，等到调用栈中没有其他任务时，就将回掉队列中的函数加入调用栈中继续执行。</li>
-</ul>
-</blockquote>
-<h3 id="事件循环机制"><a href="#事件循环机制" class="headerlink" title="事件循环机制"></a>事件循环机制</h3><blockquote>
-<ul>
-<li>以下面这段代码为例：</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function cb1() &#123; </span><br><span class="line">    console.log(&apos;cb1&apos;);</span><br><span class="line">&#125;, 5000);</span><br><span class="line">console.log(&apos;Bye&apos;);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>执行这段代码，我们来看看发生了什么</li>
-</ul>
-<ol>
-<li></li>
-<li>添加console.log(‘Hi’)至调用栈</li>
-<li></li>
-<li>console.log(‘Hi’)被执行</li>
-<li></li>
-<li>console.log(‘Hi’)被移除出调用栈</li>
-<li></li>
-<li>添加setTimeout(function cb1() { … })至调用栈</li>
-<li></li>
-<li>setTimeout(function cb1() { … })被执行，浏览器会根据web API创建一个定时器</li>
-<li></li>
-<li>setTimeout(function cb1() { … })执行完成并被移除出调用栈</li>
-<li></li>
-<li>添加console.log(‘Bye’)到调用栈</li>
-<li></li>
-<li>执行console.log(‘Bye’)</li>
-<li></li>
-<li>console.log(‘Bye’)被移除出调用栈，调用栈再度为空。</li>
-<li><a href="https://user-gold-cdn.xitu.io/2017/12/2/16015434824d2066?imageslim" target="_blank" rel="noopener">https://user-gold-cdn.xitu.io/2017/12/2/16015434824d2066?imageslim</a></li>
-<li>至少5000ms后，定时器执行完成，此时它会将cb1回调函数加入到回调队列中</li>
-<li></li>
-<li>事件循环检测到此时调用栈为空，将cb1取出压入到调用栈中</li>
-<li></li>
-<li>cb1被执行,console.log(‘cb1’)被压入调用栈</li>
-<li></li>
-<li>console.log(‘cb1’)被执行</li>
-<li></li>
-<li>console.log(‘cb1’)被移除出调用栈</li>
-<li></li>
-<li>cb1被移除出调用栈</li>
-</ol>
-<ul>
-<li>动态图为：</li>
-<li><img src="https://user-gold-cdn.xitu.io/2017/12/2/16015434824d2066?imageslim" alt="事件循环机制"></li>
-</ul>
-</blockquote>
-<h3 id="事件循环机制总结"><a href="#事件循环机制总结" class="headerlink" title="事件循环机制总结"></a>事件循环机制总结</h3><blockquote>
-<ul>
-<li>通过上面的例子我们可以清楚的了解到代码在执行过程中，事件循环、调用栈、回调任务队列的合作机制。同时也了解到，我们常见的setTimeout这类方法并不是我们认为的按照特定的时刻执行，而是在该时刻它会被加入到回调队列中，等待调用栈没有在执行中的任务的时候，才会由事件循环去读取它，将其放到调用栈中执行，如果调用栈一直有任务在执行，那么该回调函数会一直被阻塞，即使传给setTimeOut方法的时间参数0ms也是一样。由此可见，异步任务的执行时机是不可预测的，可是我们要如何让不同的异步回调任务按照我们想要的顺序去执行呢，这就需要用到异步流程控制的解决方案了。</li>
-</ul>
-</blockquote>
-<h2 id="异步控制流程"><a href="#异步控制流程" class="headerlink" title="异步控制流程"></a>异步控制流程</h2><h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><blockquote>
-<ul>
-<li>JavaScript在发展，对异步流程的控制也有了越来越多的解决方案。以时间线来看，主要有四种。</li>
-<li>回调函数，假设我们希望xx2的请求发生在xx1的请求完成之后，那么来看下面这段代码：</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><figcaption><span>以jquery中的请求为例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  url: &apos;xx1&apos;,</span><br><span class="line">  success: function () &#123;</span><br><span class="line">    console.log(&apos;1&apos;);</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">      url: &apos;xx2&apos;,</span><br><span class="line">      success: function () &#123;</span><br><span class="line">        console.log(&apos;2&apos;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>上面这段代码，我们通过在xxx1请求完成后的回调函数中发起xxx2请求的这种回调嵌套的方式来实现两个异步任务的执行顺序控制。这种回调函数的方式在ES6出现之前是应用最广泛的实现方案，但是有一个问题，当需要执行的异步任务特别多的时候，会出现多级嵌套，最后可能会导致回调地狱的产生，降低代码的可读性。</li>
-</ul>
-</blockquote>
-<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><blockquote>
-<ul>
-<li>es6中提供了promise的语法糖对异步流程做了更好的封装处理，它提供了更加优雅的方式管理异步任务的执行，可以让我们以一种接近同步的方式来编写异步代码。依旧以上述的两个请求处理作为示例：</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><figcaption><span>ajax1 </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  return new Promise(function (resolve, reject) &#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">      url: &apos;xx1&apos;,</span><br><span class="line">      success: function () &#123;</span><br><span class="line">        console.log(&apos;1&apos;)</span><br><span class="line">        resolve()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;) </span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">ajax1().then(() =&gt; &#123;</span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">    url: &apos;xx1&apos;,</span><br><span class="line">    success: function () &#123;</span><br><span class="line">      console.log(&apos;2&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li><strong>Promise</strong>以<strong>then</strong>方法的链式调用将需要按顺序执行的异步任务串起来在哪个位置、在代码可读性方面有很大的提升。</li>
-<li>究其实现原理，<strong>Promise</strong>是一个构造函数，他有三个状态，分别为：pending，fullfilled,rejected。构造函数接受一个回调作为参数，在该回调函数中执行异步任务，后通过resolve或者reject将promise的状态由pending置为fullfilled或者rejected。</li>
-<li><strong>Promise</strong>的原型对象上定义了then方法，该方法的作用是将传递给它的函数压入到resolve或者reject状态对应的数组中，当<strong>Promise</strong>的状态发生改变时，依次执行与状态相对应的数组中的回调函数，此外，promise在其原型上还提供了catch方法来处理执行过程中遇到的异常。</li>
-<li><strong>Promise</strong>函数本身也有两个熟悉race，all。race和all都接受一个<strong>Promise</strong>实例数组作为参数，两者的区别在于前者只要数组中的某个<strong>Promis</strong>任务先执行完成就会直接调用回调函数中的函数，后者需要等待全部的promise任务执行完成。</li>
-<li>一个mini的promise代码实现如下图所示：</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><figcaption><span>Promise (fn) &#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">  this.status = &apos;pending&apos;;</span><br><span class="line">  this.resolveCallbacks = [];</span><br><span class="line">  this.rejectCallbacks = [];</span><br><span class="line">  let _this = this</span><br><span class="line">  function resolve (data) &#123;</span><br><span class="line">    _this.status = &apos;fullfilled&apos;</span><br><span class="line">    _this.resolveCallbacks.forEach((item) =&gt; &#123;</span><br><span class="line">      if (typeof item === &apos;function&apos;) &#123;</span><br><span class="line">        item.call(this, data)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  function reject (error) &#123;</span><br><span class="line">    _this.status = &apos;rejected&apos;</span><br><span class="line">    _this.rejectCallbacks.forEach((item) =&gt; &#123;</span><br><span class="line">      if (typeof item === &apos;function&apos;) &#123;</span><br><span class="line">        item.call(this, error)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  fn.call(this, resolve, reject)</span><br><span class="line">&#125;</span><br><span class="line">Promise.prototype.then = function (resolveCb, rejectCb) &#123;</span><br><span class="line">  this.resolveCallbacks.push(resolveCb)</span><br><span class="line">  this.rejectCallbacks.push(rejectCb)</span><br><span class="line">&#125;</span><br><span class="line">Promise.prototype.catch = function (rejectCb) &#123;</span><br><span class="line">  this.rejectCallbacks.push(rejectCb)</span><br><span class="line">&#125;</span><br><span class="line">Promise.race = function (promiseArrays) &#123;</span><br><span class="line">  let cbs = [], theIndex</span><br><span class="line">  if (promiseArrays.some((item, index) =&gt; &#123;</span><br><span class="line">    return theIndex = index &amp;&amp; item.status === &apos;fullfilled&apos;</span><br><span class="line">  &#125;))&#123;</span><br><span class="line">    cbs.forEach((item) =&gt; &#123;</span><br><span class="line">      item.call(this, promiseArrays[theIndex])</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  return &#123;</span><br><span class="line">    then (fn) &#123;</span><br><span class="line">      cbs.push(fn)</span><br><span class="line">      return this</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">Promise.all = function (promiseArrays) &#123;</span><br><span class="line">  let cbs = []</span><br><span class="line">  if (promiseArrays.every((item) =&gt; &#123;</span><br><span class="line">    return item.status === &apos;fullfilled&apos;</span><br><span class="line">  &#125;)) &#123;</span><br><span class="line">    cbs.forEach((item) =&gt; &#123;</span><br><span class="line">      item.call(this)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  return  &#123;</span><br><span class="line">    then (fn) &#123;</span><br><span class="line">      cbs.push(fn)</span><br><span class="line">      return this</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>以上是对<strong>promise</strong>的一个非常简短的实现 ，主要是为了说明<strong>promise</strong>的封装运行原理，他对异步的任务的管理是如何实现的。</li>
-</ul>
-</blockquote>
-<h3 id="Generator函数"><a href="#Generator函数" class="headerlink" title="Generator函数"></a>Generator函数</h3><blockquote>
-<ul>
-<li>generator也是es6中新增的一种语法糖，它是一种特殊的函数，可以被用来做异步流程管理。依旧以之前的ajax请求作为示例, 来看看用generator函数如何做到流程控制:</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><figcaption><span>ajaxManage () &#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  yield $.ajax(&#123;</span><br><span class="line">    url: &apos;xx1&apos;,</span><br><span class="line">    success: function () &#123;</span><br><span class="line">      console.log(&apos;1&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  yield $.ajax(&#123;</span><br><span class="line">    url: &apos;xx2&apos;,</span><br><span class="line">    success: function () &#123;</span><br><span class="line">      console.log(&apos;2&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  return &apos;ending&apos;</span><br><span class="line">&#125;</span><br><span class="line">var manage = ajaxManage()</span><br><span class="line">manage.next()</span><br><span class="line">manage.next()</span><br><span class="line">manage.next()  // return &#123;value: &apos;ending&apos;, done: true&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>在上述示例中我们定义了ajaxManage这个generator函数，但是当我们调用该函数时他并没有真正的执行其内部逻辑，而是会返回一个迭代器对象，generator函数的执行与普通函数不同，只有调用迭代器对象的next方法时才会去真正执行我们在函数体内编写的业务逻辑，且next方法的调用只会执行单个通过yield或return关键字所定义的状态，该方法的返回值是一个含有value以及done这两个属性的对象，value属性值为当前状态值，done属性值为false表示当前不是最终状态。<br>我们可以通过将异步任务定义为多个状态的方式，用generator函数的迭代器机制去管理这些异步任务的执行。这种方式虽然也是一种异步流程控制的解决方案，但是其缺陷在于我们需要手动管理generator函数的迭代器执行，如果我们需要控制的异步任务数量众多，那么我们就需要多次调用next方法，这显然也是一种不太好的开发体验。<br>为了解决这个问题，也有很多开发者写过一些generator函数的自动执行器，其中比较广为人知的就是著名程序员TJ Holowaychuk开发的co 模块，有兴趣的同学可以多了解下。</li>
-</ul>
-</blockquote>
-<h3 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h3><blockquote>
-<ul>
-<li>async/await是es8中引入的一种处理异步流程控制的方案，它是generator函数的语法糖，可以使异步操作更加简洁方便，还是用之前的示例来演示下async/await这种方式是如何使用的：</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><figcaption><span>function ajaxManage () &#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  await $.ajax(&#123;</span><br><span class="line">    url: &apos;xx1&apos;,</span><br><span class="line">    success: function () &#123;</span><br><span class="line">      console.log(&apos;1&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  await $.ajax(&#123;</span><br><span class="line">    url: &apos;xx2&apos;,</span><br><span class="line">    success: function () &#123;</span><br><span class="line">      console.log(&apos;2&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">ajaxManage()</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>通过代码示例可以看出，async/await在写法上与generator函数是极为相近的，仅仅只是将*号替换为async，将yield替换为await，但是async/await相比generator，它自带执行器，像普通函数那样调用即可。另一方面它更加语义化，可读性更高，它也已经得到大多数主流浏览器的支持。<br><img src="https://user-gold-cdn.xitu.io/2017/12/2/16015434c93e1b49?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="async/await"></li>
-<li>async/await相比promise可以在很多方面优化我们的代码，比如：</li>
-<li>代码更精简清晰，比如多个异步任务执行时，使用promise需要写很多的then调用，且每个then方法中都要用一个function包裹异步任务。而async/await就不会有这个烦恼。此外，在异常处理，异步条件判断方面，async/await都可以节省很多代码。</li>
-<li>报错定位更加准确</li>
-<li>debug调试问题 : 如果你在promise中使用过断点调试你就会知道这是件多么痛苦的事，当你在then方法中设置了一个断点，然后debug执行时此时如果你想使用step over跳过这段代码，你会发现在promise中无法做到这点, 因为debugger 只能跳过同步代码。而在async/await中就不会有这个问题，await的调用可以像同步逻辑那样被跳过。</li>
-</ul>
-</blockquote>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><blockquote>
-<p>事件循环是宿主环境处理<strong>JavaScript</strong>单线程带来的执行阻塞问题的解决方案，所谓异步，就是当事件发生时将指定的回调加入到任务队列中，等待调用栈空闲时将事件循环将其取出压入到调用栈中执行，从而达到不阻塞主线程的目的。因为异步回调的执行时机是不可预测的，所以我们需要一种解决方案可以帮助我们实现异步执行流程控制。</p>
-</blockquote>
-<h2 id="引用来源"><a href="#引用来源" class="headerlink" title="引用来源"></a>引用来源</h2><h3 id="最后一定要注重版权，尊重他人劳动成果，这是我文章引用内容的来源："><a href="#最后一定要注重版权，尊重他人劳动成果，这是我文章引用内容的来源：" class="headerlink" title="最后一定要注重版权，尊重他人劳动成果，这是我文章引用内容的来源："></a>最后一定要注重版权，尊重他人劳动成果，这是我文章引用内容的来源：</h3><p>作者：墨筝<br>链接：<a href="https://juejin.im/post/5a2e21486fb9a0450407d370" target="_blank" rel="noopener">https://juejin.im/post/5a2e21486fb9a0450407d370</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-
-          
+          这篇文章是我读了掘金上一篇非常好的博客，总结的一些知识要点。主要讲事件循环的诞生背景(解决什么问题), 处理异步执行问题的思路(怎样解决的问题)以及javascript语言层面对于异步逻辑编写的封装。掘金大佬多多，一篇博客开阔眼界，希望我能消化这些知识点吧，感觉偏原理了些。
+事件循环为什么要有事件循
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/26/原理深究之事件循环和异步流程控制/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1790,43 +1395,22 @@
       
         
           
-            <p>今天经历了一场面试，表现不是很好，主要原因还是对VUE的基础知识掌握不扎实，所以重新梳理VUE知识点，加深自己对VUE的了解。</p>
-<h2 id="Vue是什么"><a href="#Vue是什么" class="headerlink" title="Vue是什么"></a>Vue是什么</h2><p>轻量级的前端界面框架<br>最新发布的2.0版本，功能更强大</p>
-<h2 id="Vue有什么特点、功能"><a href="#Vue有什么特点、功能" class="headerlink" title="Vue有什么特点、功能"></a>Vue有什么特点、功能</h2><ul>
-<li>实现了数据渲染/数据同步<ul>
-<li>响应式-双向绑定：v-model</li>
-</ul>
-</li>
-<li>实现了项目的组件化/模块化<ul>
-<li>引入-&gt;注册-&gt;使用</li>
-</ul>
-</li>
-<li>单文件组件-js,css.html在同一个文件内<ul>
-<li>style标签的scoped属性可以防止组件中的样式污染别的组件</li>
-<li>很多预加载器，如定义使用的语言</li>
-<li>使用了webpack打包工具 </li>
-</ul>
-</li>
-<li>其他功能:路由，ajax，数据流</li>
-</ul>
-<h2 id="Vue的学习资源"><a href="#Vue的学习资源" class="headerlink" title="Vue的学习资源"></a>Vue的学习资源</h2><ul>
-<li>vuejs中文官网</li>
-<li>vuejs源码</li>
-<li>vuejs官方工具</li>
-<li>vuejs官方论坛</li>
-</ul>
-<h2 id="Vue的实例对象"><a href="#Vue的实例对象" class="headerlink" title="Vue的实例对象"></a>Vue的实例对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,//对象装载的位置,比如是body，接下来的实例对象就挂载到body里</span><br><span class="line">  template: &apos;&lt;div&gt;&lt;other-compont&gt;&lt;/div&gt;&apos;//将要使用的模板</span><br><span class="line">  data: &#123;</span><br><span class="line">		fruit:&apos;apple&apos;</span><br><span class="line">	&#125;,</span><br><span class="line">  components: &#123; Layout &#125;,</span><br><span class="line">  template: &apos;&lt;Layout/&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="Vue2-0相对Vue1-0取消的钩子"><a href="#Vue2-0相对Vue1-0取消的钩子" class="headerlink" title="Vue2.0相对Vue1.0取消的钩子"></a>Vue2.0相对Vue1.0取消的钩子</h2><ul>
-<li>ready钩子</li>
-</ul>
-<h2 id="Vue的根组件实现及组件间的关系"><a href="#Vue的根组件实现及组件间的关系" class="headerlink" title="Vue的根组件实现及组件间的关系"></a>Vue的根组件实现及组件间的关系</h2><figure class="highlight plain"><figcaption><span>Vue from 'vue'</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var myHeaderChild = &#123;</span><br><span class="line">	template: &apos;&lt;p&gt;I am &#123;&#123;&#125;&#125;  my header child&lt;/p&gt;&apos;,</span><br><span class="line">&#125;</span><br><span class="line">var myHeader = &#123;</span><br><span class="line">	template: &apos;&lt;p&gt;&lt;my-header-child&gt;&lt;/my-header-child&gt;this  &#123;&#123;&#125;&#125; is my header&lt;/p&gt;&apos;,</span><br><span class="line">	component: &#123;</span><br><span class="line">		&apos;my-header-child&apos;: myHeaderChild</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">	new Vue(&#123;</span><br><span class="line">		el: &apos;#app&apos;,</span><br><span class="line">		template: &apos;&#123;&#123; word &#125;&#125;&apos;,</span><br><span class="line">		data: &#123;</span><br><span class="line">			word: &apos;hello word!&apos;</span><br><span class="line">&#125;，</span><br><span class="line">	component: &#123;</span><br><span class="line">		&apos;my-header&apos;: myHeader</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>在挂载点上使用使用组件myheader即可<br>根节点引入myheader，myheader本身引入myheader-child,通过局部注册、全局注册实现组件树。<br>在实际项目中，每一个组件会放到一个文件里，方便后面开发的清晰。</p>
-<h3 id="需要注意的一点，data里的数据避免引用赋值"><a href="#需要注意的一点，data里的数据避免引用赋值" class="headerlink" title="需要注意的一点，data里的数据避免引用赋值"></a>需要注意的一点，data里的数据避免引用赋值</h3><ul>
-<li>原因：data的双向绑定，避免在其他地方重复引用赋值造成数据错乱</li>
-<li>解决方法：用return</li>
-</ul>
+          今天经历了一场面试，表现不是很好，主要原因还是对VUE的基础知识掌握不扎实，所以重新梳理VUE知识点，加深自己对VUE的了解。
+Vue是什么轻量级的前端界面框架最新发布的2.0版本，功能更强大
+Vue有什么特点、功能
+实现了数据渲染/数据同步
+响应式-双向绑定：v-model
 
-          
+
+实现了项目的组件化
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/26/Vue学习第一弹/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1944,17 +1528,15 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/26/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
