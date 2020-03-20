@@ -357,36 +357,6 @@
 </ul>
 </li>
 </ul>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2018/06/26/Vue学习第六弹/">Vue学习第六弹</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-06-26</time><div class="content"><p>依旧等待面试中。。过两天状态不会变成已回绝了吧。。又期待又害怕的感觉</p>
-<h2 id="Vue的自定义指令"><a href="#Vue的自定义指令" class="headerlink" title="Vue的自定义指令"></a>Vue的自定义指令</h2><blockquote>
-<ul>
-<li>自定义仍采用v-指令名的方式来命名 </li>
-<li>实现自定义指令的方式有两种</li>
-<li>在组件里以directives这样的一个选项来设定自定义组件，这个自定义指令是一个局部的指令，只有在这个组件里才能使用</li>
-<li>在main.js里对Vue全局对象来进行一个扩展，使用Vue.directive方法两个参数，第一个是指令名，第二个是对指令的描述（insrted），这个是可以全局使用的指令。</li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcziad76h4j30fc0b5my0.jpg" alt="全局实现自定义指令"></li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcziadouanj30gy0b0gmb.jpg" alt="局部实现自定义指令"></li>
-</ul>
-</blockquote>
-<h2 id="Vue：插件"><a href="#Vue：插件" class="headerlink" title="Vue：插件"></a>Vue：插件</h2><blockquote>
-<ul>
-<li>vue-resource是用来发送http请求的一个插件，vue-router是前端路由的一个功能</li>
-<li>引入之后还需要用Vue.use()注册一下</li>
-</ul>
-</blockquote>
-<h2 id="Vue：单文件组件和vue-cli"><a href="#Vue：单文件组件和vue-cli" class="headerlink" title="Vue：单文件组件和vue-cli"></a>Vue：单文件组件和vue-cli</h2><blockquote>
-<ul>
-<li>单文件组件的实现是vue-loader配合webpack来实现的</li>
-<li>Vue-cli的优势</li>
-<li>成熟的Vue项目架构设计</li>
-<li>本地测试服务器</li>
-<li>集成打包上线方案</li>
-<li>使用vue-cli的系统要求</li>
-<li>node.js(&gt;=4.x)</li>
-<li>Git</li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcziae4nucj30ns0eit9u.jpg" alt="Vue-cli的安装过程"></li>
-</ul>
-</blockquote>
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2018/06/26/Vue学习第五弹/">Vue学习第五弹</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-06-26</time><div class="content"><p>依旧等待面试中。。今学习Vue动画过渡相关知识，之前学习过，但是有些地方不是很懂，没有很好的串起来，今天再来一次。</p>
 <h2 id="Vue的高级功能"><a href="#Vue的高级功能" class="headerlink" title="Vue的高级功能"></a>Vue的高级功能</h2><blockquote>
 <ul>
@@ -445,6 +415,36 @@
 <li>方法里带有参数，主要的控制是通过方法传进来的el来实现的。el指当前transition体内的DOM元素，可以设定el的位置、颜色来控制动画</li>
 <li>有两个方法比较特殊，有第二个参数done，一个是enter，一个是leave。done是做什么的呢？当进入完毕后会调用done方法来进行下一步的操iffrent1.png)</li>
 <li>如果要引入一些公用库，如jQuery，可以在index.html文件里面引入，因为这个文件不会被打包或处理，只会作为一个入口的页面往里面加东西<br><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9k4upfj30f3035gli.jpg" alt="两个特殊的方法"></li>
+</ul>
+</blockquote>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2018/06/26/Vue学习第六弹/">Vue学习第六弹</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-06-26</time><div class="content"><p>依旧等待面试中。。过两天状态不会变成已回绝了吧。。又期待又害怕的感觉</p>
+<h2 id="Vue的自定义指令"><a href="#Vue的自定义指令" class="headerlink" title="Vue的自定义指令"></a>Vue的自定义指令</h2><blockquote>
+<ul>
+<li>自定义仍采用v-指令名的方式来命名 </li>
+<li>实现自定义指令的方式有两种</li>
+<li>在组件里以directives这样的一个选项来设定自定义组件，这个自定义指令是一个局部的指令，只有在这个组件里才能使用</li>
+<li>在main.js里对Vue全局对象来进行一个扩展，使用Vue.directive方法两个参数，第一个是指令名，第二个是对指令的描述（insrted），这个是可以全局使用的指令。</li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcziad76h4j30fc0b5my0.jpg" alt="全局实现自定义指令"></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcziadouanj30gy0b0gmb.jpg" alt="局部实现自定义指令"></li>
+</ul>
+</blockquote>
+<h2 id="Vue：插件"><a href="#Vue：插件" class="headerlink" title="Vue：插件"></a>Vue：插件</h2><blockquote>
+<ul>
+<li>vue-resource是用来发送http请求的一个插件，vue-router是前端路由的一个功能</li>
+<li>引入之后还需要用Vue.use()注册一下</li>
+</ul>
+</blockquote>
+<h2 id="Vue：单文件组件和vue-cli"><a href="#Vue：单文件组件和vue-cli" class="headerlink" title="Vue：单文件组件和vue-cli"></a>Vue：单文件组件和vue-cli</h2><blockquote>
+<ul>
+<li>单文件组件的实现是vue-loader配合webpack来实现的</li>
+<li>Vue-cli的优势</li>
+<li>成熟的Vue项目架构设计</li>
+<li>本地测试服务器</li>
+<li>集成打包上线方案</li>
+<li>使用vue-cli的系统要求</li>
+<li>node.js(&gt;=4.x)</li>
+<li>Git</li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcziae4nucj30ns0eit9u.jpg" alt="Vue-cli的安装过程"></li>
 </ul>
 </blockquote>
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2018/06/26/Vue学习第四弹/">Vue学习第四弹</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-06-26</time><div class="content"><p>等待面试的过程中真是很焦虑，感觉任何时刻都有可能打电话过来开始面试，最难受的是感觉还有很多没有准备好，所以继续加油。<br>共勉</p>
@@ -533,107 +533,338 @@
 <li>子组件向外发布事件</li>
 <li>slot插槽传递模板-具名slot</li>
 </ul>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2018/06/26/Vue学习第七弹/">Vue学习第七弹</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-06-26</time><div class="content"><p>这一章是对前端路由知识点的一个总结。</p>
-<h2 id="Vue-router"><a href="#Vue-router" class="headerlink" title="Vue-router"></a>Vue-router</h2><h3 id="什么是路由？"><a href="#什么是路由？" class="headerlink" title="什么是路由？"></a>什么是路由？</h3><blockquote>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2018/06/26/Vue学习第三弹/">Vue学习第三弹</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-06-26</time><div class="content"><p>路途依旧遥远。我去到了杭州，住在西溪湿地，去看了阿里巴巴总部，很帅，下好大的雨，我站在外边撑着伞看着。</p>
+<h2 id="Vue事件绑定"><a href="#Vue事件绑定" class="headerlink" title="Vue事件绑定"></a>Vue事件绑定</h2><ul>
+<li>用v-on标签实现事件绑定，提供一些修改器，如keydown.enter</li>
+<li>自定义事件：针对子组件向外触发，在子组件中使用$emit来触发事件，还可传参数给父组件，让父组件在方法里接受那个参数</li>
+</ul>
+<p>##表单事件绑定</p>
 <ul>
-<li>路由就是根据不同的地址跳到不同的页面</li>
-<li>应用场景：单页面应用</li>
+<li>input的数据绑定：v-model实现数据模型，如：v-model:myval<ul>
+<li>首先同步到myval属性上，再同步渲染到页面上，每一次输入都会进行双向的绑定</li>
+</ul>
+</li>
+<li>v-model的修饰符：<ul>
+<li>.lazy：在输入完之后才会进行更新，当数据很大时用.lazy是不错的选择</li>
+<li>.number:一般把myval当作string来处理，可用typeof查看，用.number修饰符可改类型为number</li>
+<li>.trim：一个裁剪的修饰符，空格会被剪切掉。<h2 id="Vue中单选多选控件如何实现"><a href="#Vue中单选多选控件如何实现" class="headerlink" title="Vue中单选多选控件如何实现"></a>Vue中单选多选控件如何实现</h2></li>
+</ul>
+</li>
+<li>checkbox的实现<ul>
+<li>给input设置type=checkbox，设置value属性的值，通过v-model把所有选项绑定在myval属性上（myval需要是一个数组），如果勾选了input选项则会被添加到myval中，实际上是添加了value属性的值</li>
+</ul>
+</li>
+<li>单选框radio  <ul>
+<li>给input设置type=radio，设置value属性的值，通过v-model把所有选项绑定在myval属性上（myval是一个字符串），如果勾选了input选项则会被添加到myval中，实际上是添加了value属性的值</li>
+</ul>
+</li>
+<li>select，<ul>
+<li>用v-model给select绑定myval属性，而options可以作为一个数组放在data中，用v-for来渲染到页面里</li>
+</ul>
+</li>
+</ul>
+<h2 id="计算属性和数据监听"><a href="#计算属性和数据监听" class="headerlink" title="计算属性和数据监听"></a>计算属性和数据监听</h2><ul>
+<li>计算属性时做什么的呢？<ul>
+<li>通过computed会根据其他属性的变化同步实现computed中的属性的动态更新</li>
+</ul>
+</li>
+<li>计算属性computed与方法method有什么不同呢？<ul>
+<li>computed的计算属性会被缓存，计算属性的更新只会根据另一个值如myval进行更新，如果那个值没有更新，那么计算值也不会更新</li>
+<li>用method调用值时，每一次都会重新获取再进行相应的操作</li>
+</ul>
+</li>
+<li>数据监听 watch<ul>
+<li>Vue用来提供，监听属性变化的选项</li>
+</ul>
+</li>
+</ul>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2018/06/26/跨域/">跨域</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-06-26</time><div class="content"><p>美好的前端学习在五一这天又一次开始！这次来看看跨域如何实现。<br>这一天依旧是继续加油的马大侠~</p>
+<h2 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h2><p>浏览器出于安全方面的考虑，不允许js跨域调用其他页面，于是出现了同源策略。在这里我们把域想成域名，比如有一个域名为china.net，另一个为china.com，这两者属于不同的域名，所以它们之间的页面也是不能相互调用的，这属于同源策略的一种。我们来看看同源策略具体分为几类：</p>
+<blockquote>
+<ul>
+<li>不同域名</li>
+<li>相同域名不同端口号</li>
+<li>同一个域名不同协议</li>
+<li>域名和域名对应的IP</li>
+<li>主域和子域</li>
+<li>子域和子域<br>以上情况只要出现了，那么就会产生跨域问题。如何解决跨域的问题：</li>
 </ul>
 </blockquote>
-<h3 id="前端路由与传统路由的比较"><a href="#前端路由与传统路由的比较" class="headerlink" title="前端路由与传统路由的比较"></a>前端路由与传统路由的比较</h3><blockquote>
+<h2 id="跨域解决方案"><a href="#跨域解决方案" class="headerlink" title="跨域解决方案"></a>跨域解决方案</h2><h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>对于JSONP，有个易懂的解释:JSONP是数据格式json的一种“使用方式”，可以让网页从别的网页要数据。</p>
+<p>由于同源策略，页面之间的相互调用具有限制，但是HTML中的 <code>&lt;script&gt;</code> 标签并不遵书同源策略，我们可以利用这个特性，让网页可以得到从其他来源动态产生的JSONP数据，这种使用模式就是所谓的JSONP。用JSONP抓到的数据并不是JSON，而是任意的JavaScript，用JavaScript解释器运行而不是用JSON解析器解析。我们来看个例子：</p>
+<blockquote>
+<p>前端浏览器页面</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+function jsonpCallBack (res, req) {
+  console.log(res, req);
+}
+&lt;/script&gt;
+&lt;script type=&quot;text/JavaScript&quot; src=&quot;http://localhost/test/jsonp.php?callback=jsonpCallBack&amp;data=getJsonpData&quot;&gt;&lt;/script&gt;
+
+};
+</code></pre><blockquote>
+<p>另一个域名服务器请求接口</p>
+</blockquote>
+<pre><code>&lt;?php
+  /*后端获取请求字段数据，并生成返回内容*/
+  $data = $_GET[&quot;data&quot;];
+  $callback = $_GET[&quot;callback&quot;];
+  echo $callback.&quot;(&apos;success&apos;, &apos;&quot;.$data.&quot;&apos;)&quot;;
+?&gt;
+</code></pre><blockquote>
+<p>测试结果如下：<br><img src="https://pic3.zhimg.com/80/v2-28f425ac5e66aebf6c461bc34527b715_hd.jpg" alt="JSONP"><br>这种方案要注意的是，它只支持GET这一种HTTP请求类型，还有尤为重要的是其他域要有可靠性，保证安全。当然有时我们还可以通过一个方法来动态生成需要的JSONP.</p>
+</blockquote>
+<h3 id="跨域资源共享CORS"><a href="#跨域资源共享CORS" class="headerlink" title="跨域资源共享CORS"></a>跨域资源共享CORS</h3><p>CORS，是JSONP模式的现代升级版，不同的是，他除了GET这种HTTP请求方式，还支持其它的HTTP请求。浏览器CORS请求分成两种：</p>
+<blockquote>
 <ul>
-<li>传统路由切换的时候，所有资源都需要重新请求一次</li>
-<li>前端路由，单页面公用一些资源，只需要请求需要请求的页面</li>
+<li>简单请求</li>
+<li>非简单请求（协商模型/预检请求）</li>
 </ul>
 </blockquote>
-<h2 id="使用前端路由"><a href="#使用前端路由" class="headerlink" title="使用前端路由"></a>使用前端路由</h2><blockquote>
+<p>如何区分请求具体属于哪一种呢？看下面的总结：</p>
+<blockquote>
 <ul>
-<li>安装：npm install vue-router –save</li>
-<li>在入口文件里引入，注册</li>
+<li>请求方式<br>GET<br>HEAD<br>POST</li>
+<li>HTTP的头信息字段<br>Accept<br>Accept-Language<br>Cntent-Language<br>Last-Event-ID<br>Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain，其中’text/plain’默认支持，其他两种则需要预检请求和服务器协商。</li>
 </ul>
 </blockquote>
-<h3 id="vue-router的关键点"><a href="#vue-router的关键点" class="headerlink" title="vue-router的关键点"></a>vue-router的关键点</h3><blockquote>
+<p>满足以上两大点的即为简单请求，否则为非简单请求。具体请求处理的不同 大家可以去查阅下MDN HTTP访问控制(CORS) ，那里有详细的解析及用法。</p>
+<h3 id="document-domain-iframe-适用于主域名相同的情况"><a href="#document-domain-iframe-适用于主域名相同的情况" class="headerlink" title="document.domain+iframe(适用于主域名相同的情况)"></a>document.domain+iframe(适用于主域名相同的情况)</h3><p>从同源策略可知，浏览器认为主域和子域，子域和子域，它们属于不同的域，那么如果我们需要让主域和子域之间可以进行通信，我们需要修改document.domain，把它们改成相同的domain</p>
+<p>我们来看一个例子：<br>在域名为<a href="http://server.example.com中的a.html：" target="_blank" rel="noopener">http://server.example.com中的a.html：</a></p>
+<pre><code>document.domain = &apos;example.com&apos;;
+var $iframe = document.createElement(&apos;iframe&apos;);
+$iframe.src = &apos;server.child.example.com/b.html&apos;;
+$iframe.style.display = &apos;none&apos;;
+document.body.appendChild($iframe);
+$iframe.onload = function(){
+    var doc = $iframe.contentDocument || $iframe.contentWindow.document;
+    //在这里操作doc，也就是操作b.html
+    $iframe.onload = null;
+};
+</code></pre><p>在域名为<a href="http://server.child.example.com中的b.html：" target="_blank" rel="noopener">http://server.child.example.com中的b.html：</a></p>
+<pre><code>document.domain = &apos;example.com&apos;
+</code></pre><p>这种形式方便贵方便但是也有其他方面带来的隐患：</p>
+<blockquote>
 <ul>
-<li>规定要有要有一份Map，规定什么地址访问什么页面/组件</li>
-<li><strong><router-view></router-view></strong>在哪个位置、区域显示</li>
-<li><strong><router-link></router-link></strong>在页面上如何跳转到下一个页面</li>
+<li>当一个站点受到攻击后，另一个站点会引起安全漏洞</li>
+<li>若页面同时引入多个Iframe，想要操作所有iframe，domain需要全部设置成一样的。</li>
 </ul>
 </blockquote>
-<h3 id="实例化路由类，插到项目的根的Vue实例里"><a href="#实例化路由类，插到项目的根的Vue实例里" class="headerlink" title="实例化路由类，插到项目的根的Vue实例里"></a>实例化路由类，插到项目的根的Vue实例里</h3><blockquote>
+<h3 id="window-name-iframe"><a href="#window-name-iframe" class="headerlink" title="window.name + iframe"></a>window.name + iframe</h3><blockquote>
 <ul>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9yt4s9j30j20etmym.jpg" alt="vue-router实例化"></li>
-<li>实例化router的时候，通过routes选项来进行设定，做一份映射表</li>
-<li>引入组件，在routes中有path和component两个属性，互相对应 </li>
-<li>配置好入口文件后，需要规定在哪里，通过<strong><router-view></router-view></strong>的放置地点来规定</li>
-<li>Vue处理非html5路由采用的方式：采用哈希#，可以接受前后的切换。在默认状态下加了哈希#，也就是说当前路由没有使用html5的history功能，通常是高级浏览器的话，可以在实例化时，routes中添加mode的history属性，来支持前后退的功能</li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9wuhumj30k80dzmyi.jpg" alt="vue-router配置映射表"></li>
-<li>在页面里的跳转：通过<strong><router-link :to="{path:'apple'}"></router-link></strong>来跳转到相应的地址</li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9za0clj30pz0aemyf.jpg" alt="vue-router实现页面内的跳转"></li>
+<li>window对象的name属性是一个很特别的属性，它可以在不同页面甚至不同域名加载后依旧存在。使用步骤如下：</li>
+<li>首先在A页面中利用iframe加载其他域的B页面</li>
+<li>如有需要传给A页面的数据，在B页面中赋给window.name</li>
+<li>在A页面中修改iframe的地址，把地址变成同一个域下的地址</li>
+<li>现在，就可以获取到iframe中页面B的window.name属性</li>
 </ul>
 </blockquote>
-<h3 id="路由的参数"><a href="#路由的参数" class="headerlink" title="路由的参数"></a>路由的参数</h3><blockquote>
+<p>我们来看一个示例：</p>
+<blockquote>
 <ul>
-<li>前端路由允许传参，在实例化时设置参数</li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia1ia52j30ko0e1jsm.jpg" alt="CSS阶段类名"></li>
-<li>设定参数后，如何在组件内部获取参数呢？</li>
-<li>路由接受了参数以后，会往每个组件的全局route对象里插入当前页面的参数params，所以可以通过<strong>this.$route.params</strong>来获取当前路由的参数</li>
-<li>需要注意的，由于在路由里设定了有参数的路由，所以这是一个特定的匹配，加入输入的路由后面没有参数的话，就不会到想去的那个路由页面</li>
-<li>由于<strong>this.$route.params</strong>已经被注入了，所以自动成为组件的一个属性，可以在模板里直接访问<strong>$route.params.color</strong></li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia12nruj30nm0hmjsv.jpg" alt="路由参数注入"></li>
-<li>路由参数的灵活使用：带冒号的都是参数，不带的会进行字符串匹配</li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia1y1yyj30oc0f3q4d.jpg" alt="路由参数匹配"></li>
+<li>首先我们在域名为<a href="http://127.0.0.1下建好页面B，在B页面的" target="_blank" rel="noopener">http://127.0.0.1下建好页面B，在B页面的</a> <code>&lt;script&gt;</code> 标签中将需要传递的数据赋给window.name</li>
 </ul>
 </blockquote>
-<h3 id="路由嵌套"><a href="#路由嵌套" class="headerlink" title="路由嵌套"></a>路由嵌套</h3><blockquote>
+<pre><code>window.name = &apos;页面B中传递给页面A的数据&apos;;
+</code></pre><blockquote>
 <ul>
-<li>就是自路由，同样配置映射表，只是在父级路由下配置children映射表</li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia3zonjj30og0esgmx.jpg" alt="子路由映射配置"></li>
-<li>子路由组件渲染在哪里呢？它只会渲染到父级路由组件里面，不会插在根的<strong><router-view></router-view></strong>的位置。因为它只能找到父组件的那一层，所以我们需要在父组件相应位置放一个<strong><router-view></router-view></strong>,用以放置子路由组件。<strong><router-view></router-view></strong>所在地</li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9xftenj30pk08d3zd.jpg" alt="子路由父级内的view位置"></li>
+<li>然后回到域名为<a href="http://127.0.0.1:9000的A页面，在这里我们需要做的一件事情就是，利用iframe加载页面B，并且将其域名进行修改，变成和A一样的域名。" target="_blank" rel="noopener">http://127.0.0.1:9000的A页面，在这里我们需要做的一件事情就是，利用iframe加载页面B，并且将其域名进行修改，变成和A一样的域名。</a></li>
 </ul>
 </blockquote>
-<h3 id="命名的路由视图、路由重定向"><a href="#命名的路由视图、路由重定向" class="headerlink" title="命名的路由视图、路由重定向"></a>命名的路由视图、路由重定向</h3><blockquote>
+<pre><code>function proxy (url, callback) {
+    var flag = true,
+        $iframe = document.createElement(&apos;iframe&apos;),
+        loadCallBack = function () {
+            if (flag) {
+                // 这里我们还得在域名为 http://127.0.0.1:9000 建立一个tmp.html文件当做缓存界面
+                $iframe.contentWindow.location = &apos;http://127.0.0.1:9000/tmp.html&apos;;
+                flag = false;
+            }
+            // 修改localtion后，每次触发onload事件会重置src，相当于重新载入页面，然后继续触发onload。
+            // 这里是针对该问题做的处理
+            else {
+                callback($iframe.contentWindow.name);
+                $iframe.contentWindow.close();
+                document.body.removeChild($iframe);
+                $iframe.src = &apos;&apos;;
+                $iframe = null;
+            }
+        };
+
+    $iframe.src = url;
+    $iframe.style.display = &apos;none&apos;;
+    // 事件绑定兼容简单处理
+    // IE 支持iframe的onload事件，不过是隐形的，需要通过attachEvent来注册
+    if ($iframe.attachEvent) {
+        $iframe.attachEvent(&apos;onload&apos;, loadCallBack);
+    }
+    else {
+        $iframe.onload = loadCallBack;
+    }
+
+    document.body.appendChild($iframe);
+}
+proxy(&apos;http://127.0.0.1/bop/test.html&apos;, function(data){
+    console.log(data);
+});
+</code></pre><blockquote>
 <ul>
-<li><strong><router-link></router-link></strong>如果只是一个简单的跳转，我们可以采用<strong>to</strong>+地址，不需要用<strong>v-bind</strong>来绑定，类似于<strong>href</strong>，基于当前路径跳到指定路径</li>
-<li><strong>to</strong>可以将自定义的参数直接传过去。</li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia03esnj30pd0b6ta4.jpg" alt="通过to传参数"></li>
-<li>具名路由：在设定路由的时候，设定name属性，在访问的时候，也通过name属性来访问。</li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia4sspij30pl0a70u0.jpg" alt="具名路由"></li>
-<li>如何让将<strong><router-link></router-link></strong>变成<strong>li</strong>的样式呢？可以通过<strong>tag=”li”</strong>来指定</li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia3dto9j30q30cr0u6.jpg" alt="将link标签化为li标签格式"></li>
-<li>通过<strong>v-bind</strong>动态的将路径作为组建的一个属性来进行绑定。</li>
+<li>测试结果如图：<br><img src="https://pic3.zhimg.com/80/v2-bdfd1ffe8e2f3f57a86f3034daa8d205_hd.jpg" alt="window.name+iframe"></li>
 </ul>
 </blockquote>
-<h3 id="声明式导航和编程式导航"><a href="#声明式导航和编程式导航" class="headerlink" title="声明式导航和编程式导航"></a>声明式导航和编程式导航</h3><blockquote>
+<h3 id="HTML5中的postMessage（适用于两个iframe或两个页面之间）"><a href="#HTML5中的postMessage（适用于两个iframe或两个页面之间）" class="headerlink" title="HTML5中的postMessage（适用于两个iframe或两个页面之间）"></a>HTML5中的postMessage（适用于两个iframe或两个页面之间）</h3><blockquote>
+<p>postMessage隶属于html5，但是它支持IE8+和其他的浏览器，即可以实现同域传递，也可以实现跨域传递。它包括发送消息postMessage和接受消息message功能</p>
+</blockquote>
+<blockquote>
 <ul>
-<li>在组件<strong><template></template></strong>里通过<strong><router-link></router-link></strong>导航叫做声明式导航，实在模板里进行声明来导航</li>
-<li>我们在main.js里也可以进行编程式的导航，采用的最基本的方法是通过<strong>router.push()</strong>方法，指定到特殊页面。</li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia2zuhvj30gj01n3yh.jpg" alt="编程式导航的示例"></li>
+<li>postMessage的调用语法如下：<br>  otherWindow.postMessage(message, targetOrigin, [transfer]);</li>
+<li>otherWindow:其他窗口的一个引用，比如iframe的contentWindow属性、执行window.open返回的窗口对象、或者是命名过或数值索引的window.frames</li>
+<li>message：将要发送到其他window的数据，类型为string或者Object</li>
+<li>targetOrign： 通过窗口的origin属性来指定哪些窗口能接受到消息事件，其值可以是字符串”*”（表示无限制）或者一个URL。</li>
+<li>transfer(可选):一串和message同时传递的Transferable对象。</li>
 </ul>
 </blockquote>
-<h3 id="命名的路由和命名的视图"><a href="#命名的路由和命名的视图" class="headerlink" title="命名的路由和命名的视图"></a>命名的路由和命名的视图</h3><blockquote>
+<blockquote>
 <ul>
-<li>命名路由</li>
-<li>命名视图</li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczia0njduj30nw04m3z0.jpg" alt="命名视图1"></li>
-<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9y6sqdj30m60a0t9j.jpg" alt="命名视图2"></li>
+<li>接收message的属性有：</li>
+<li>data:从其他window中传递过来的数据</li>
+<li>origin：调用postMessage时消息发送方窗口的origin</li>
+<li>source：对发送消息的窗口对象的引用</li>
+<li>示例如下：域名<a href="http://127.0.0.1:9000页面A通过iframe嵌入了http://127.0.0.1页面B，接下来页面A将通过postMessage对页面B进行数据传递，页面B将通过message属性接收页面A的数据" target="_blank" rel="noopener">http://127.0.0.1:9000页面A通过iframe嵌入了http://127.0.0.1页面B，接下来页面A将通过postMessage对页面B进行数据传递，页面B将通过message属性接收页面A的数据</a></li>
 </ul>
 </blockquote>
-<h3 id="路由重定向"><a href="#路由重定向" class="headerlink" title="路由重定向"></a>路由重定向</h3><blockquote>
+<blockquote>
 <ul>
-<li>当访问某个路径时，重定向到指定的路径</li>
-<li><img src="../images/chongdx.png" alt="路由重定向"></li>
+<li>页面A发送消息代码 </li>
 </ul>
 </blockquote>
-<h3 id="使用过渡制作路由跳转动画"><a href="#使用过渡制作路由跳转动画" class="headerlink" title="使用过渡制作路由跳转动画"></a>使用过渡制作路由跳转动画</h3></div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2018/06/26/hello-world/">Hello World</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-06-26</time><div class="content"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;页面A&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;hello jsonp&lt;/h1&gt;
+    &lt;iframe src=&quot;http://127.0.0.1/b.html&quot; id=&quot;iframe&quot;&gt;&lt;/iframe&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script&gt;
+window.onload = function() {  
+    var $iframe = document.getElementById(&apos;iframe&apos;);  
+    var targetOrigin = &quot;http://127.0.0.1&quot;;  
+    $iframe.contentWindow.postMessage(&apos;postMessage发送消息&apos;, targetOrigin);  
+}; 
+&lt;/script&gt;
+</code></pre><blockquote>
+<ul>
+<li>页面B接收消息代码</li>
+</ul>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;页面B&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;hello jsonp&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script&gt;
+var onmessage = function (event) {
+  var data = event.data;     //消息
+  var origin = event.origin; //消息来源地址
+  var source = event.source; //源Window对象
+  if(origin === &quot;http://127.0.0.1:9000&quot;){
+    console.log(data, origin, source);
+  }
+};
+// 事件兼容简单处理
+if (window.addEventListener) {
+  window.addEventListener(&apos;message&apos;, onmessage, false);
+}
+else if (window.attachEvent) {
+  window.attachEvent(&apos;onmessage&apos;, onmessage);
+}
+else {
+  window.onmessage = onmessage;
+}
+&lt;/script&gt;
+</code></pre><blockquote>
+<ul>
+<li>运行结果如下：<br><img src="https://pic3.zhimg.com/80/v2-db4263dd2f672673ce263bcc0b9a7172_hd.jpg" alt="postMessage"></li>
+</ul>
+</blockquote>
+<h3 id="location-hash-iframe-适用于两个iframe之间"><a href="#location-hash-iframe-适用于两个iframe之间" class="headerlink" title="location.hash + iframe(适用于两个iframe之间)"></a>location.hash + iframe(适用于两个iframe之间)</h3><blockquote>
+<ul>
+<li>对于location.hash，先看一张图：<br><img src="https://pic4.zhimg.com/80/v2-b1e1dc8f24eac06b6c6b489c0ff6c62a_hd.jpg" alt="location.hash+iframe"></li>
+<li>location.hash可以用来获取或者设置页面的标签值，如127.0.0.1:9000/#…,它的<strong>location.hash</strong>值则为“#hello”。它一般用于浏览器锚点定位，HTTP请求中却不会携带hash，所以这部分的修改不会产生HTTP请求，但是会产生浏览器历史记录，这对我们进行跨域通信给予了帮助。我们可以通过修改URL的hash部分来进行双向通信。<br>示例如下：域名<a href="http://127.0.0.1:9000页面A通过iframe嵌入了http://127.0.0.1页面B，接下来页面A和页面B将通过location.hash进行双向通信。" target="_blank" rel="noopener">http://127.0.0.1:9000页面A通过iframe嵌入了http://127.0.0.1页面B，接下来页面A和页面B将通过location.hash进行双向通信。</a></li>
+<li>页面A代码</li>
+</ul>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;页面A&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;iframe src=&quot;http://127.0.0.1/bop/test.html#locationHash&quot; id=&quot;ifr&quot;&gt;&lt;/iframe&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><blockquote>
+<ul>
+<li>页面B代码</li>
+</ul>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;页面B&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;hello localtionHash&lt;/h2&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script&gt;
+try {
+    parent.location.hash = &apos;data&apos;;
+} catch (e) {
+    // ie、chrome的安全机制无法修改parent.location.hash，所以要借助于父窗口域名下的一个代理iframe
+    var $ifrproxy = document.createElement(&apos;iframe&apos;);
+    $ifrproxy.style.display = &apos;none&apos;;
+    // 注意proxy.html必须是域名为 http://127.0.0.1:9000 下的页面
+    $ifrproxy.src = &quot;http://127.0.0.1:9000/proxy.html#locationHashChange&quot;;
+    document.body.appendChild($ifrproxy);
+}
+&lt;/script&gt;
+</code></pre><blockquote>
+<ul>
+<li>代理页代码</li>
+</ul>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Proxy页面&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;script&gt;
+// 因为parent.parent和自身属于同一个域，所以可以改变其location.hash的值
+parent.parent.location.hash = self.location.hash.substring(1);
+&lt;/script&gt;
+&lt;/html&gt;
+</code></pre><blockquote>
+<ul>
+<li>运行结果如图<br><img src="https://pic4.zhimg.com/80/v2-a698eba837394fc45a256b424e64345e_hd.jpg" alt="lacation.hash+iframe"></li>
+</ul>
+</blockquote>
 </div><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By 马慧荣</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
