@@ -481,293 +481,92 @@
 <li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcziae4nucj30ns0eit9u.jpg" alt="Vue-cli的安装过程"></li>
 </ul>
 </blockquote>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2018/06/26/跨域/">跨域</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-06-26</time><div class="content"><p>美好的前端学习在五一这天又一次开始！这次来看看跨域如何实现。<br>这一天依旧是继续加油的马大侠~</p>
-<h2 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h2><p>浏览器出于安全方面的考虑，不允许js跨域调用其他页面，于是出现了同源策略。在这里我们把域想成域名，比如有一个域名为china.net，另一个为china.com，这两者属于不同的域名，所以它们之间的页面也是不能相互调用的，这属于同源策略的一种。我们来看看同源策略具体分为几类：</p>
-<blockquote>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2018/06/26/Vue学习第四弹/">Vue学习第四弹</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-06-26</time><div class="content"><p>等待面试的过程中真是很焦虑，感觉任何时刻都有可能打电话过来开始面试，最难受的是感觉还有很多没有准备好，所以继续加油。<br>共勉</p>
+<h2 id="深入了解Vue组件"><a href="#深入了解Vue组件" class="headerlink" title="深入了解Vue组件"></a>深入了解Vue组件</h2><p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi93vqruj30uv0glt9q.jpg" alt="组件树"></p>
 <ul>
-<li>不同域名</li>
-<li>相同域名不同端口号</li>
-<li>同一个域名不同协议</li>
-<li>域名和域名对应的IP</li>
-<li>主域和子域</li>
-<li>子域和子域<br>以上情况只要出现了，那么就会产生跨域问题。如何解决跨域的问题：</li>
+<li>一个项目通常只有一个根组件，通过实例化一个Vue对象及里面的render方法去渲染根组件。</li>
+<li>一个项目里只有一个实例化对象，就是入口文件，中间的所有传递其实都是一份配置文件。Vue的所有子组件，包括子组件的子组件都是配置文件。我们用这种方式配合单文件组件，实现Vue的组件树结构。</li>
 </ul>
-</blockquote>
-<h2 id="跨域解决方案"><a href="#跨域解决方案" class="headerlink" title="跨域解决方案"></a>跨域解决方案</h2><h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>对于JSONP，有个易懂的解释:JSONP是数据格式json的一种“使用方式”，可以让网页从别的网页要数据。</p>
-<p>由于同源策略，页面之间的相互调用具有限制，但是HTML中的 <code>&lt;script&gt;</code> 标签并不遵书同源策略，我们可以利用这个特性，让网页可以得到从其他来源动态产生的JSONP数据，这种使用模式就是所谓的JSONP。用JSONP抓到的数据并不是JSON，而是任意的JavaScript，用JavaScript解释器运行而不是用JSON解析器解析。我们来看个例子：</p>
-<blockquote>
-<p>前端浏览器页面</p>
-</blockquote>
-<pre><code>&lt;script&gt;
-function jsonpCallBack (res, req) {
-  console.log(res, req);
-}
-&lt;/script&gt;
-&lt;script type=&quot;text/JavaScript&quot; src=&quot;http://localhost/test/jsonp.php?callback=jsonpCallBack&amp;data=getJsonpData&quot;&gt;&lt;/script&gt;
-
-};
-</code></pre><blockquote>
-<p>另一个域名服务器请求接口</p>
-</blockquote>
-<pre><code>&lt;?php
-  /*后端获取请求字段数据，并生成返回内容*/
-  $data = $_GET[&quot;data&quot;];
-  $callback = $_GET[&quot;callback&quot;];
-  echo $callback.&quot;(&apos;success&apos;, &apos;&quot;.$data.&quot;&apos;)&quot;;
-?&gt;
-</code></pre><blockquote>
-<p>测试结果如下：<br><img src="https://pic3.zhimg.com/80/v2-28f425ac5e66aebf6c461bc34527b715_hd.jpg" alt="JSONP"><br>这种方案要注意的是，它只支持GET这一种HTTP请求类型，还有尤为重要的是其他域要有可靠性，保证安全。当然有时我们还可以通过一个方法来动态生成需要的JSONP.</p>
-</blockquote>
-<h3 id="跨域资源共享CORS"><a href="#跨域资源共享CORS" class="headerlink" title="跨域资源共享CORS"></a>跨域资源共享CORS</h3><p>CORS，是JSONP模式的现代升级版，不同的是，他除了GET这种HTTP请求方式，还支持其它的HTTP请求。浏览器CORS请求分成两种：</p>
-<blockquote>
+<h2 id="如何在父组件里渲染子组件内容"><a href="#如何在父组件里渲染子组件内容" class="headerlink" title="如何在父组件里渲染子组件内容"></a>如何在父组件里渲染子组件内容</h2><ul>
+<li>用import模式将子组件的配置载入到父组件的JS里面<ul>
+<li>响应式-双向绑定：v-model</li>
+</ul>
+</li>
+<li><p>在父组件里注册子组件，通过components注册</p>
 <ul>
-<li>简单请求</li>
-<li>非简单请求（协商模型/预检请求）</li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi956fouj30im08ogm0.jpg" alt="父组件中注册子组件"></li>
 </ul>
-</blockquote>
-<p>如何区分请求具体属于哪一种呢？看下面的总结：</p>
-<blockquote>
+</li>
+<li><p>在template里使用组件，推荐使用-命名转换将大写字母转成小写，因为html标签对大小写不敏感，应该小写</p>
 <ul>
-<li>请求方式<br>GET<br>HEAD<br>POST</li>
-<li>HTTP的头信息字段<br>Accept<br>Accept-Language<br>Cntent-Language<br>Last-Event-ID<br>Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain，其中’text/plain’默认支持，其他两种则需要预检请求和服务器协商。</li>
+<li>注意，任何往组件里传递的标签、组件属性也不支持大写，需要用-转换</li>
 </ul>
-</blockquote>
-<p>满足以上两大点的即为简单请求，否则为非简单请求。具体请求处理的不同 大家可以去查阅下MDN HTTP访问控制(CORS) ，那里有详细的解析及用法。</p>
-<h3 id="document-domain-iframe-适用于主域名相同的情况"><a href="#document-domain-iframe-适用于主域名相同的情况" class="headerlink" title="document.domain+iframe(适用于主域名相同的情况)"></a>document.domain+iframe(适用于主域名相同的情况)</h3><p>从同源策略可知，浏览器认为主域和子域，子域和子域，它们属于不同的域，那么如果我们需要让主域和子域之间可以进行通信，我们需要修改document.domain，把它们改成相同的domain</p>
-<p>我们来看一个例子：<br>在域名为<a href="http://server.example.com中的a.html：" target="_blank" rel="noopener">http://server.example.com中的a.html：</a></p>
-<pre><code>document.domain = &apos;example.com&apos;;
-var $iframe = document.createElement(&apos;iframe&apos;);
-$iframe.src = &apos;server.child.example.com/b.html&apos;;
-$iframe.style.display = &apos;none&apos;;
-document.body.appendChild($iframe);
-$iframe.onload = function(){
-    var doc = $iframe.contentDocument || $iframe.contentWindow.document;
-    //在这里操作doc，也就是操作b.html
-    $iframe.onload = null;
-};
-</code></pre><p>在域名为<a href="http://server.child.example.com中的b.html：" target="_blank" rel="noopener">http://server.child.example.com中的b.html：</a></p>
-<pre><code>document.domain = &apos;example.com&apos;
-</code></pre><p>这种形式方便贵方便但是也有其他方面带来的隐患：</p>
-<blockquote>
+</li>
+<li>模板引入，也可以通过is标签来引入，好处：可以使用动态组件、模板引入。</li>
+</ul>
+<h2 id="Vue父子组件之间的通信"><a href="#Vue父子组件之间的通信" class="headerlink" title="Vue父子组件之间的通信"></a>Vue父子组件之间的通信</h2><ul>
+<li><p>父子组件遵循怎样的模式呢？</p>
 <ul>
-<li>当一个站点受到攻击后，另一个站点会引起安全漏洞</li>
-<li>若页面同时引入多个Iframe，想要操作所有iframe，domain需要全部设置成一样的。</li>
+<li><p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi95muynj30f40dmt8y.jpg" alt="模式"> </p>
+</li>
+<li><p>父组件向子组件传递信息通过props：在子组件必须声明props接收的数据，接收到的数据自动变为属性</p>
+</li>
+<li>props接受两种类型的值：1.数组（接受数组里列出的所有属性）2.对象：可以指定传值类型 </li>
+<li>子组件向父组件传递信息用$emit</li>
 </ul>
-</blockquote>
-<h3 id="window-name-iframe"><a href="#window-name-iframe" class="headerlink" title="window.name + iframe"></a>window.name + iframe</h3><blockquote>
+</li>
+<li>动态属性的传递<ul>
+<li>使用v-bind就可以成就一个可以动态向子组件传递的属性，同时属性需要在子组件中声明一下，之后便实现了动态属性的传递</li>
+<li>子组件可以设要置接受的数据类型，假若父组件传过来的属性数据类型不匹配，则会触发报错</li>
+</ul>
+</li>
+<li><p>子组件如何通过触发事件向父组件传递信息</p>
 <ul>
-<li>window对象的name属性是一个很特别的属性，它可以在不同页面甚至不同域名加载后依旧存在。使用步骤如下：</li>
-<li>首先在A页面中利用iframe加载其他域的B页面</li>
-<li>如有需要传给A页面的数据，在B页面中赋给window.name</li>
-<li>在A页面中修改iframe的地址，把地址变成同一个域下的地址</li>
-<li>现在，就可以获取到iframe中页面B的window.name属性</li>
-</ul>
-</blockquote>
-<p>我们来看一个示例：</p>
-<blockquote>
+<li>子组件中有个button，点击事件可触发myevent事件，同时通过$emit传递了一个字符串参数，在父组件中通过v-on监听一个事件是否被触发，触发时执行相应方法，通过这个方法里接受子组件传过来的的字符串参数。</li>
+<li><p>子组件：</p>
 <ul>
-<li>首先我们在域名为<a href="http://127.0.0.1下建好页面B，在B页面的" target="_blank" rel="noopener">http://127.0.0.1下建好页面B，在B页面的</a> <code>&lt;script&gt;</code> 标签中将需要传递的数据赋给window.name</li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi93f4lxj30kv04f3yo.jpg" alt="子传"></li>
 </ul>
-</blockquote>
-<pre><code>window.name = &apos;页面B中传递给页面A的数据&apos;;
-</code></pre><blockquote>
+</li>
+<li><p>父组件</p>
 <ul>
-<li>然后回到域名为<a href="http://127.0.0.1:9000的A页面，在这里我们需要做的一件事情就是，利用iframe加载页面B，并且将其域名进行修改，变成和A一样的域名。" target="_blank" rel="noopener">http://127.0.0.1:9000的A页面，在这里我们需要做的一件事情就是，利用iframe加载页面B，并且将其域名进行修改，变成和A一样的域名。</a></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi96ovh5j30pc065dgb.jpg" alt="父接"></li>
 </ul>
-</blockquote>
-<pre><code>function proxy (url, callback) {
-    var flag = true,
-        $iframe = document.createElement(&apos;iframe&apos;),
-        loadCallBack = function () {
-            if (flag) {
-                // 这里我们还得在域名为 http://127.0.0.1:9000 建立一个tmp.html文件当做缓存界面
-                $iframe.contentWindow.location = &apos;http://127.0.0.1:9000/tmp.html&apos;;
-                flag = false;
-            }
-            // 修改localtion后，每次触发onload事件会重置src，相当于重新载入页面，然后继续触发onload。
-            // 这里是针对该问题做的处理
-            else {
-                callback($iframe.contentWindow.name);
-                $iframe.contentWindow.close();
-                document.body.removeChild($iframe);
-                $iframe.src = &apos;&apos;;
-                $iframe = null;
-            }
-        };
-
-    $iframe.src = url;
-    $iframe.style.display = &apos;none&apos;;
-    // 事件绑定兼容简单处理
-    // IE 支持iframe的onload事件，不过是隐形的，需要通过attachEvent来注册
-    if ($iframe.attachEvent) {
-        $iframe.attachEvent(&apos;onload&apos;, loadCallBack);
-    }
-    else {
-        $iframe.onload = loadCallBack;
-    }
-
-    document.body.appendChild($iframe);
-}
-proxy(&apos;http://127.0.0.1/bop/test.html&apos;, function(data){
-    console.log(data);
-});
-</code></pre><blockquote>
+</li>
+<li><p>注意，事件也需要-转换大写</p>
+</li>
+</ul>
+</li>
+<li><p>插槽功能</p>
 <ul>
-<li>测试结果如图：<br><img src="https://pic3.zhimg.com/80/v2-bdfd1ffe8e2f3f57a86f3034daa8d205_hd.jpg" alt="window.name+iframe"></li>
-</ul>
-</blockquote>
-<h3 id="HTML5中的postMessage（适用于两个iframe或两个页面之间）"><a href="#HTML5中的postMessage（适用于两个iframe或两个页面之间）" class="headerlink" title="HTML5中的postMessage（适用于两个iframe或两个页面之间）"></a>HTML5中的postMessage（适用于两个iframe或两个页面之间）</h3><blockquote>
-<p>postMessage隶属于html5，但是它支持IE8+和其他的浏览器，即可以实现同域传递，也可以实现跨域传递。它包括发送消息postMessage和接受消息message功能</p>
-</blockquote>
-<blockquote>
+<li>其实也是父组件向子组件传递信息的一个方式，传递的信息是：模板</li>
+<li>在子组件中通过slot标签实现功能，</li>
+<li>可以为插槽设置默认值，当插槽没有内容，没有接受到要插进来的信息时，就显示默认值</li>
+<li>slot也接受具名slot，可以给slot添加name属性，并添加默认值，如果没接收到对应的信息，则显示默认值。</li>
+<li><p>父组件：</p>
 <ul>
-<li>postMessage的调用语法如下：<br>  otherWindow.postMessage(message, targetOrigin, [transfer]);</li>
-<li>otherWindow:其他窗口的一个引用，比如iframe的contentWindow属性、执行window.open返回的窗口对象、或者是命名过或数值索引的window.frames</li>
-<li>message：将要发送到其他window的数据，类型为string或者Object</li>
-<li>targetOrign： 通过窗口的origin属性来指定哪些窗口能接受到消息事件，其值可以是字符串”*”（表示无限制）或者一个URL。</li>
-<li>transfer(可选):一串和message同时传递的Transferable对象。</li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi9737z6j30nq08saau.jpg" alt="父传"></li>
 </ul>
-</blockquote>
-<blockquote>
+</li>
+<li><p>子组件</p>
 <ul>
-<li>接收message的属性有：</li>
-<li>data:从其他window中传递过来的数据</li>
-<li>origin：调用postMessage时消息发送方窗口的origin</li>
-<li>source：对发送消息的窗口对象的引用</li>
-<li>示例如下：域名<a href="http://127.0.0.1:9000页面A通过iframe嵌入了http://127.0.0.1页面B，接下来页面A将通过postMessage对页面B进行数据传递，页面B将通过message属性接收页面A的数据" target="_blank" rel="noopener">http://127.0.0.1:9000页面A通过iframe嵌入了http://127.0.0.1页面B，接下来页面A将通过postMessage对页面B进行数据传递，页面B将通过message属性接收页面A的数据</a></li>
+<li><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gczi94dsb1j30o909bdgr.jpg" alt="子接"></li>
 </ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>页面A发送消息代码 </li>
+</li>
 </ul>
-</blockquote>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;页面A&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;hello jsonp&lt;/h1&gt;
-    &lt;iframe src=&quot;http://127.0.0.1/b.html&quot; id=&quot;iframe&quot;&gt;&lt;/iframe&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-&lt;script&gt;
-window.onload = function() {  
-    var $iframe = document.getElementById(&apos;iframe&apos;);  
-    var targetOrigin = &quot;http://127.0.0.1&quot;;  
-    $iframe.contentWindow.postMessage(&apos;postMessage发送消息&apos;, targetOrigin);  
-}; 
-&lt;/script&gt;
-</code></pre><blockquote>
-<ul>
-<li>页面B接收消息代码</li>
+</li>
 </ul>
-</blockquote>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;页面B&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;hello jsonp&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-&lt;script&gt;
-var onmessage = function (event) {
-  var data = event.data;     //消息
-  var origin = event.origin; //消息来源地址
-  var source = event.source; //源Window对象
-  if(origin === &quot;http://127.0.0.1:9000&quot;){
-    console.log(data, origin, source);
-  }
-};
-// 事件兼容简单处理
-if (window.addEventListener) {
-  window.addEventListener(&apos;message&apos;, onmessage, false);
-}
-else if (window.attachEvent) {
-  window.attachEvent(&apos;onmessage&apos;, onmessage);
-}
-else {
-  window.onmessage = onmessage;
-}
-&lt;/script&gt;
-</code></pre><blockquote>
-<ul>
-<li>运行结果如下：<br><img src="https://pic3.zhimg.com/80/v2-db4263dd2f672673ce263bcc0b9a7172_hd.jpg" alt="postMessage"></li>
+<h2 id="组件之间的通信-动态组件"><a href="#组件之间的通信-动态组件" class="headerlink" title="组件之间的通信-动态组件"></a>组件之间的通信-动态组件</h2><ul>
+<li>用v-bind is绑定变量，通过变量来指定不同的组件，就是动态组件</li>
+<li>动态组件类似于路由，也支持<keep-alive>内置标签，当有好几种组件时，当有<keep-alive>标签，则可以缓存，提高加载速度</keep-alive></keep-alive></li>
 </ul>
-</blockquote>
-<h3 id="location-hash-iframe-适用于两个iframe之间"><a href="#location-hash-iframe-适用于两个iframe之间" class="headerlink" title="location.hash + iframe(适用于两个iframe之间)"></a>location.hash + iframe(适用于两个iframe之间)</h3><blockquote>
-<ul>
-<li>对于location.hash，先看一张图：<br><img src="https://pic4.zhimg.com/80/v2-b1e1dc8f24eac06b6c6b489c0ff6c62a_hd.jpg" alt="location.hash+iframe"></li>
-<li>location.hash可以用来获取或者设置页面的标签值，如127.0.0.1:9000/#…,它的<strong>location.hash</strong>值则为“#hello”。它一般用于浏览器锚点定位，HTTP请求中却不会携带hash，所以这部分的修改不会产生HTTP请求，但是会产生浏览器历史记录，这对我们进行跨域通信给予了帮助。我们可以通过修改URL的hash部分来进行双向通信。<br>示例如下：域名<a href="http://127.0.0.1:9000页面A通过iframe嵌入了http://127.0.0.1页面B，接下来页面A和页面B将通过location.hash进行双向通信。" target="_blank" rel="noopener">http://127.0.0.1:9000页面A通过iframe嵌入了http://127.0.0.1页面B，接下来页面A和页面B将通过location.hash进行双向通信。</a></li>
-<li>页面A代码</li>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>无论多大的项目，组件间进行交互的就是三种方式：通过属性向内传递props、子组件触发$emit事件，父组件通过监听事件来获取信息，插槽功能，写在组件里的模板可以通过插槽展现在子组件的相应位置。</li>
+<li>使用组件树设计项目，配置文件链接各个组件-命名转换，动态组件</li>
+<li>父组件向内传递属性-动态属性</li>
+<li>子组件向外发布事件</li>
+<li>slot插槽传递模板-具名slot</li>
 </ul>
-</blockquote>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;页面A&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;iframe src=&quot;http://127.0.0.1/bop/test.html#locationHash&quot; id=&quot;ifr&quot;&gt;&lt;/iframe&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><blockquote>
-<ul>
-<li>页面B代码</li>
-</ul>
-</blockquote>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;页面B&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;hello localtionHash&lt;/h2&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-&lt;script&gt;
-try {
-    parent.location.hash = &apos;data&apos;;
-} catch (e) {
-    // ie、chrome的安全机制无法修改parent.location.hash，所以要借助于父窗口域名下的一个代理iframe
-    var $ifrproxy = document.createElement(&apos;iframe&apos;);
-    $ifrproxy.style.display = &apos;none&apos;;
-    // 注意proxy.html必须是域名为 http://127.0.0.1:9000 下的页面
-    $ifrproxy.src = &quot;http://127.0.0.1:9000/proxy.html#locationHashChange&quot;;
-    document.body.appendChild($ifrproxy);
-}
-&lt;/script&gt;
-</code></pre><blockquote>
-<ul>
-<li>代理页代码</li>
-</ul>
-</blockquote>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Proxy页面&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;/body&gt;
-&lt;script&gt;
-// 因为parent.parent和自身属于同一个域，所以可以改变其location.hash的值
-parent.parent.location.hash = self.location.hash.substring(1);
-&lt;/script&gt;
-&lt;/html&gt;
-</code></pre><blockquote>
-<ul>
-<li>运行结果如图<br><img src="https://pic4.zhimg.com/80/v2-a698eba837394fc45a256b424e64345e_hd.jpg" alt="lacation.hash+iframe"></li>
-</ul>
-</blockquote>
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2018/06/26/DNS劫持插入广告的原理及解决方法/">DNS劫持插入广告的原理及解决方法</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-06-26</time><div class="content"><p>很多站长都遇见过，自己的网页莫名奇妙的多了些垃圾广告的现象。这样的情况，既流失了访问量，又没有什么好处，让人觉得好郁闷呀，那么那些无良的商家是如何做到强行插入广告的呢？他们是通过劫持DNS来实现的！什么是DNS？什么是DNS劫持呀？你肯定会有许多疑惑，就让我们来看看吧！<br>让我们来看看吧！</p>
 <h2 id="DNS是什么"><a href="#DNS是什么" class="headerlink" title="DNS是什么"></a>DNS是什么</h2><p>DNS 是洋文“Domain Name System”的缩写，直译过来就是“域名系统”。</p>
 <h2 id="DNS有什么用呢？"><a href="#DNS有什么用呢？" class="headerlink" title="DNS有什么用呢？"></a>DNS有什么用呢？</h2><p>简而言之，DNS的作用就是将域名解析成相对应的IP的一套系统。为什么要解析域名成相对应的IP呢？因为IP太复杂人记不住~这个解析的过程，用术语叫做：“域名解析/DNS解析”</p>
