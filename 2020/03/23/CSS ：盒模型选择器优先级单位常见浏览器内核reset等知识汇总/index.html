@@ -7,7 +7,7 @@
     error: '复制错误',
     noSupport: '浏览器不支持'
   }
-} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-：盒模型-选择器优先级-单位-常见浏览器内核-reset等知识汇总"><span class="toc-number">1.</span> <span class="toc-text">CSS ：盒模型/选择器优先级/单位/常见浏览器内核/reset等知识汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#盒模型"><span class="toc-number">1.1.</span> <span class="toc-text">盒模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择器及其优先级"><span class="toc-number">1.2.</span> <span class="toc-text">选择器及其优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-reset"><span class="toc-number">1.3.</span> <span class="toc-text">CSS reset</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://avatars2.githubusercontent.com/u/37861703?s=460&amp;u=c0f2cb613538c8d3822122fd83e4fc5acb44fea3&amp;v=4"></div><div class="author-info__name text-center">马慧荣</div><div class="author-info__description text-center">引而不发，一击必中</div><div class="follow-button"><a href="https://github.com/HuirongWow">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">20</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">1</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://tva1.sinaimg.cn/large/00831rSTgy1gd0bzc1mz4j30u0190kjl.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">jsRongのBlog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">CSS 之盒模型/选择器优先级/单位/常见浏览器内核/reset等知识汇总</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-23</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="CSS-：盒模型-选择器优先级-单位-常见浏览器内核-reset等知识汇总"><a href="#CSS-：盒模型-选择器优先级-单位-常见浏览器内核-reset等知识汇总" class="headerlink" title="CSS ：盒模型/选择器优先级/单位/常见浏览器内核/reset等知识汇总"></a>CSS ：盒模型/选择器优先级/单位/常见浏览器内核/reset等知识汇总</h1><p>CSS相关的知识比较繁杂，但却是一个前端每天都要用到的，需要好好掌握。比如题目中提到的盒模型，选择器优先级，单位，常见的浏览器内核以及reset，是每个项目必备的。其实有时候最需要深入学习的是那些我们经常使用，理所当然接受它们存在且扮演重要角色的东西，对应JS中的闭包/原型链/事件循环，关于JS相关的知识在其他文章做总结。</p>
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-：盒模型-选择器优先级-单位-常见浏览器内核-reset等知识汇总"><span class="toc-number">1.</span> <span class="toc-text">CSS ：盒模型/选择器优先级/单位/常见浏览器内核/reset等知识汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#盒模型"><span class="toc-number">1.1.</span> <span class="toc-text">盒模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择器及其优先级"><span class="toc-number">1.2.</span> <span class="toc-text">选择器及其优先级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优先级的特殊情况"><span class="toc-number">1.2.1.</span> <span class="toc-text">优先级的特殊情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器单位"><span class="toc-number">1.3.</span> <span class="toc-text">浏览器单位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见浏览器及其内核"><span class="toc-number">1.4.</span> <span class="toc-text">常见浏览器及其内核</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-reset"><span class="toc-number">1.5.</span> <span class="toc-text">CSS reset</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://avatars2.githubusercontent.com/u/37861703?s=460&amp;u=c0f2cb613538c8d3822122fd83e4fc5acb44fea3&amp;v=4"></div><div class="author-info__name text-center">马慧荣</div><div class="author-info__description text-center">引而不发，一击必中</div><div class="follow-button"><a href="https://github.com/HuirongWow">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">20</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">1</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://tva1.sinaimg.cn/large/00831rSTgy1gd0bzc1mz4j30u0190kjl.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">jsRongのBlog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">CSS 之盒模型/选择器优先级/单位/常见浏览器内核/reset等知识汇总</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-23</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="CSS-：盒模型-选择器优先级-单位-常见浏览器内核-reset等知识汇总"><a href="#CSS-：盒模型-选择器优先级-单位-常见浏览器内核-reset等知识汇总" class="headerlink" title="CSS ：盒模型/选择器优先级/单位/常见浏览器内核/reset等知识汇总"></a>CSS ：盒模型/选择器优先级/单位/常见浏览器内核/reset等知识汇总</h1><p>CSS相关的知识比较繁杂，但却是一个前端每天都要用到的，需要好好掌握。比如题目中提到的盒模型，选择器优先级，单位，常见的浏览器内核以及reset，是每个项目必备的。其实有时候最需要深入学习的是那些我们经常使用，理所当然接受它们存在且扮演重要角色的东西，对应JS中的闭包/原型链/事件循环，关于JS相关的知识在其他文章做总结。</p>
 <ul>
 <li>盒模型</li>
 <li>选择器优先级（计算规则）</li>
@@ -61,11 +61,107 @@
 <li><code>D</code>的值等于<code>标签选择器</code>和<code>伪元素</code>出现的总次数</li>
 </ol>
 <p>这样看好像也不是很明白，就直接上个例子：</p>
-<figure class="highlight plain"><figcaption><span>ul > li > a.nav_link```</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">套用上面的算法，依次求出：``A、B、C、D``的值：</span><br><span class="line"></span><br><span class="line">1. 因为没有内联样式，所以``A = 0``;</span><br><span class="line">2. ID选择器总共出现了1次，``B=1``;</span><br><span class="line">3. 类选择器出现了1次，属性选择器出现了0次，伪类选择器出现0次，所以``C = (1+0+0) = 1``</span><br><span class="line">4. 标签选择器出现了3次，伪元素出现了0次，所以``D = (3+0)=3``</span><br><span class="line"></span><br><span class="line">现在大致懂得优先级是怎么算的了，但是还有一个问题是，怎么比较两个优先级的高低？**比较规则是：从左往右依次进行比较，较大者胜出，如果相等，则继续向右移动一位进行比较。如果4位全部相等，则后面的覆盖前面的。**</span><br><span class="line"></span><br><span class="line">再来看一下例子：</span><br><span class="line"></span><br><span class="line">* HTML</span><br><span class="line"></span><br><span class="line">  ```html</span><br><span class="line">  &lt;div class=&quot;nav-list&quot; id=&quot;nav-list&quot;&gt;</span><br><span class="line">  	&lt;div class=&quot;item&quot;&gt;nav1&lt;/div&gt;</span><br><span class="line">  	&lt;div class=&quot;item&quot;&gt;nav2&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gd45hqbpbuj30d604emx5.jpg" alt="image-20200323204855386" style="zoom:80%;"><img src="https://tva1.sinaimg.cn/large/00831rSTly1gd45i7nt0bj30ni03y3yo.jpg" alt="image-20200323204923094"></p>
+<p>套用上面的算法，依次求出：<code>A、B、C、D</code>的值：</p>
+<ol>
+<li>因为没有内联样式，所以<code>A = 0</code>;</li>
+<li>ID选择器总共出现了1次，<code>B=1</code>;</li>
+<li>类选择器出现了1次，属性选择器出现了0次，伪类选择器出现0次，所以<code>C = (1+0+0) = 1</code></li>
+<li>标签选择器出现了3次，伪元素出现了0次，所以<code>D = (3+0)=3</code></li>
+</ol>
+<p>现在大致懂得优先级是怎么算的了，但是还有一个问题是，怎么比较两个优先级的高低？<strong>比较规则是：从左往右依次进行比较，较大者胜出，如果相等，则继续向右移动一位进行比较。如果4位全部相等，则后面的覆盖前面的。</strong></p>
+<p>再来看一下例子：</p>
 <ul>
-<li>CSS:</li>
+<li><p>HTML</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav-list"</span> <span class="attr">id</span>=<span class="string">"nav-list"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>nav1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>nav2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CSS:</p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gd45hqbpbuj30d604emx5.jpg" alt="image-20200323204855386" style="zoom:80%;"><img src="https://tva1.sinaimg.cn/large/00831rSTly1gd45i7nt0bj30ni03y3yo.jpg" alt="image-20200323204923094"></p>
+</li>
 </ul>
-  <figure class="highlight plain"><figcaption><span>&#123; color: #f00; &#125; .nav-list .item &#123; color: #0f0; &#125;```</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  算出``#nav-list .item``的优先级是``(0,1,1,0)``,``.nav-list .item``的优先级是``(0,0,2,0)``.左边第一位都是0，再看第二位，前者是1，后者是0，所以(0,1,1,0)的优先级大于(0,0,2,0)，即#nva-list .item 大于 .nav-list .item,所以字体会是红色。</span><br><span class="line"></span><br><span class="line">  ### 优先级的特殊情况</span><br><span class="line">  </span><br><span class="line">  !important</span><br><span class="line">  </span><br><span class="line">  如果不是为了覆盖内联样式，尽量不要用!important</span><br><span class="line"></span><br><span class="line">## 浏览器单位</span><br><span class="line"></span><br><span class="line">在CSS中，除了我们常用的``px``，还有其他的单位，用一张表格做总结</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">| 单位 | 描述 |</span><br><span class="line">| :------- | :---- |</span><br><span class="line">| % | 百分比 |</span><br><span class="line">| px  | 像素。计算机屏幕上的一个点为1px。 |</span><br><span class="line">| em   | 相对单位。相对父元素计算，假如某个p元素为``font-size:12px``,在它内部有个span标签，设置``font-size:2em``，那么，这时候的span字体大小为：``12*2 = 24px`` |</span><br><span class="line">| rem | 相对单位。相对于根元素html的``font-size``，假如html为``font-size:12px``,那么，在其当中的div设置为``font-size:2rem``，就是当中的div为``24px``. |</span><br><span class="line">| rpx | 微信小程序相对单位。1rpx = 屏幕宽度/750px 。在750px的设计稿上，1rpx=1px |</span><br><span class="line"></span><br><span class="line">看到上面的表格感觉很明了吧？是不是觉得自己的CSS单位马上就get啦？</span><br><span class="line"></span><br><span class="line">too young too simple</span><br><span class="line"></span><br><span class="line">我问你，em里嵌套em再嵌套em怎么算？</span><br><span class="line"></span><br><span class="line">rem里嵌套em怎么算？</span><br><span class="line"></span><br><span class="line">em和rem同时依附在根元素上怎么算？</span><br><span class="line"></span><br><span class="line">微信相对单位为什么时屏幕宽度/750px？怎么不是/749px？</span><br><span class="line"></span><br><span class="line">所以在学习的时候，还要举一反三，想象自己在工作可能会遇到什么样的问题</span><br><span class="line"></span><br><span class="line">所以除了学习它们的定义，还要查阅各种博客资料来了解他们之间是否有作用关系，如果有，是什么样的关系？</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 常见浏览器及其内核</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">|  | Chrome | Firefox | Safari |IE |</span><br><span class="line">| :------- | :---- | ----- | ----- | ----- |</span><br><span class="line">| 排版引擎 | 百分比 | 百分比 | Webkit |Trident|</span><br><span class="line">| JS引擎 | 像素。计算机屏幕上的一个点为1px。 | 百分比 | Nitro |Chakra|</span><br><span class="line"></span><br><span class="line">&gt; 国内一些浏览器使用较多的是Webkit内核</span><br><span class="line"></span><br><span class="line">* 针对不同浏览器内核，HTML辨别：</span><br><span class="line"></span><br><span class="line">  1. IE内核浏览器识别：``&lt;!-- [if IE]&gt;&lt;![endif]``</span><br><span class="line">  2. 非IE内核浏览器识别：``&lt;!--[if !IE]&gt;&lt;![endif]``</span><br><span class="line"></span><br><span class="line">* 针对不同浏览器内核，CSS辨别：</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  ```css</span><br><span class="line">  /* 设置文字不可选取*/</span><br><span class="line">  * &#123;</span><br><span class="line">    -moz-user-select: none; /* 火狐 浏览器 */</span><br><span class="line">    -webkit-user-select: none; /* Webkit 浏览器 */</span><br><span class="line">    -o-user-select: none; /* Opera 浏览器 */</span><br><span class="line">    -ms-user-select: none; /* IE10 浏览器 */</span><br><span class="line">    -khtml-user-select: none; /* 早期浏览器 */</span><br><span class="line">    user-select: none; /* 默认 */</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>  算出<code>#nav-list .item</code>的优先级是<code>(0,1,1,0)</code>,<code>.nav-list .item</code>的优先级是<code>(0,0,2,0)</code>.左边第一位都是0，再看第二位，前者是1，后者是0，所以(0,1,1,0)的优先级大于(0,0,2,0)，即#nva-list .item 大于 .nav-list .item,所以字体会是红色。</p>
+<h3 id="优先级的特殊情况"><a href="#优先级的特殊情况" class="headerlink" title="优先级的特殊情况"></a>优先级的特殊情况</h3><p>  !important</p>
+<p>  如果不是为了覆盖内联样式，尽量不要用!important</p>
+<h2 id="浏览器单位"><a href="#浏览器单位" class="headerlink" title="浏览器单位"></a>浏览器单位</h2><p>在CSS中，除了我们常用的<code>px</code>，还有其他的单位，用一张表格做总结</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">单位</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">%</td>
+<td style="text-align:left">百分比</td>
+</tr>
+<tr>
+<td style="text-align:left">px</td>
+<td style="text-align:left">像素。计算机屏幕上的一个点为1px。</td>
+</tr>
+<tr>
+<td style="text-align:left">em</td>
+<td style="text-align:left">相对单位。相对父元素计算，假如某个p元素为<code>font-size:12px</code>,在它内部有个span标签，设置<code>font-size:2em</code>，那么，这时候的span字体大小为：<code>12*2 = 24px</code></td>
+</tr>
+<tr>
+<td style="text-align:left">rem</td>
+<td style="text-align:left">相对单位。相对于根元素html的<code>font-size</code>，假如html为<code>font-size:12px</code>,那么，在其当中的div设置为<code>font-size:2rem</code>，就是当中的div为<code>24px</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">rpx</td>
+<td style="text-align:left">微信小程序相对单位。1rpx = 屏幕宽度/750px 。在750px的设计稿上，1rpx=1px</td>
+</tr>
+</tbody>
+</table>
+<p>看到上面的表格感觉很明了吧？是不是觉得自己的CSS单位马上就get啦？</p>
+<p>too young too simple</p>
+<p>我问你，em里嵌套em再嵌套em怎么算？</p>
+<p>rem里嵌套em怎么算？</p>
+<p>em和rem同时依附在根元素上怎么算？</p>
+<p>微信相对单位为什么时屏幕宽度/750px？怎么不是/749px？</p>
+<p>所以在学习的时候，还要举一反三，想象自己在工作可能会遇到什么样的问题</p>
+<p>所以除了学习它们的定义，还要查阅各种博客资料来了解他们之间是否有作用关系，如果有，是什么样的关系？</p>
+<h2 id="常见浏览器及其内核"><a href="#常见浏览器及其内核" class="headerlink" title="常见浏览器及其内核"></a>常见浏览器及其内核</h2><table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">Chrome</th>
+<th>Firefox</th>
+<th>Safari</th>
+<th>IE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">排版引擎</td>
+<td style="text-align:left">百分比</td>
+<td>百分比</td>
+<td>Webkit</td>
+<td>Trident</td>
+</tr>
+<tr>
+<td style="text-align:left">JS引擎</td>
+<td style="text-align:left">像素。计算机屏幕上的一个点为1px。</td>
+<td>百分比</td>
+<td>Nitro</td>
+<td>Chakra</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>国内一些浏览器使用较多的是Webkit内核</p>
+</blockquote>
+<ul>
+<li><p>针对不同浏览器内核，HTML辨别：</p>
+<ol>
+<li>IE内核浏览器识别：<code>&lt;!-- [if IE]&gt;&lt;![endif]</code></li>
+<li>非IE内核浏览器识别：<code>&lt;!--[if !IE]&gt;&lt;![endif]</code></li>
+</ol>
+</li>
+<li><p>针对不同浏览器内核，CSS辨别：</p>
+</li>
+</ul>
+  <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 设置文字不可选取*/</span></span><br><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">-moz-user-select</span>: none; <span class="comment">/* 火狐 浏览器 */</span></span><br><span class="line">  <span class="attribute">-webkit-user-select</span>: none; <span class="comment">/* Webkit 浏览器 */</span></span><br><span class="line">  <span class="attribute">-o-user-select</span>: none; <span class="comment">/* Opera 浏览器 */</span></span><br><span class="line">  <span class="attribute">-ms-user-select</span>: none; <span class="comment">/* IE10 浏览器 */</span></span><br><span class="line">  <span class="attribute">-khtml-user-select</span>: none; <span class="comment">/* 早期浏览器 */</span></span><br><span class="line">  <span class="attribute">user-select</span>: none; <span class="comment">/* 默认 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="CSS-reset"><a href="#CSS-reset" class="headerlink" title="CSS reset"></a>CSS reset</h2><p>在工作的过程中，会发现各式各样的浏览器对某个标签有自己独特的样式。</p>
 <p>但是在前端开发中如果不采用统一标准，那么会产生千奇百怪的bug。所以为了减少后期bug的出现，前端开发人员会重置一遍CSS样式，尽可能的使开发的网页在各个浏览器相差不大。</p>
 <p>百度上有各种的reset版本，可以在网上查一下。这里就不提供啦。</p>
