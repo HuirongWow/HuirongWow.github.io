@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: jsRongのBlog
 subtitle:
 description: 引而不发，一击必中
 keywords:
-author: 马慧荣
+author: Rong
 language: zh-Hans
 timezone:
 
@@ -26,7 +26,10 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render: README.md
+skip_render:
+#  - love-ppt/img
+#  - love-ppt/fonts
+  - README.md
  
 
 # Writing
@@ -39,9 +42,10 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
+code_word_wrap: true
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: false
   tab_replace:
   
@@ -74,7 +78,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-next-master
+theme: melody
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
