@@ -85,7 +85,7 @@ theme: melody
 deploy:
   type: git
   repo: https://github.com/HuirongWow/HuirongWow.github.io.git
-  branch: hexo
+  branch: main
 
 # Extensions
 ## Plugins: http://hexo.io/plugins/
