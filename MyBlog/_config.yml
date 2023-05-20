@@ -30,7 +30,7 @@ skip_render:
 #  - love-ppt/img
 #  - love-ppt/fonts
   - README.md
- 
+
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -85,7 +85,7 @@ theme: melody
 deploy:
   type: git
   repo: https://github.com/HuirongWow/HuirongWow.github.io.git
-  branch: master
+  branch: hexo
 
 # Extensions
 ## Plugins: http://hexo.io/plugins/
