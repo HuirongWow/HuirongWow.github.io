@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Vue学习第五弹"><meta name="keywords" content><meta name="author" content="Rong"><meta name="copyright" content="Rong"><title>Vue学习第五弹 | jsRongのBlog</title><link rel="shortcut icon" href="/hexo-theme-melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '3.9.0'
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue的高级功能"><span class="toc-number">1.</span> <span class="toc-text">Vue的高级功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue：过渡、动画"><span class="toc-number">2.</span> <span class="toc-text">Vue：过渡、动画</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue：CSS实现过渡"><span class="toc-number">3.</span> <span class="toc-text">Vue：CSS实现过渡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue过渡的其他知识"><span class="toc-number">3.1.</span> <span class="toc-text">Vue过渡的其他知识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue：JS实现过渡"><span class="toc-number">4.</span> <span class="toc-text">Vue：JS实现过渡</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://avatars2.githubusercontent.com/u/37861703?s=460&amp;u=c0f2cb613538c8d3822122fd83e4fc5acb44fea3&amp;v=4"></div><div class="author-info__name text-center">Rong</div><div class="author-info__description text-center">引而不发，一击必中</div><div class="follow-button"><a href="https://github.com/HuirongWow">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">15</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">jsRongのBlog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">Vue学习第五弹</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-05-20</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>依旧等待面试中。。今学习Vue动画过渡相关知识，之前学习过，但是有些地方不是很懂，没有很好的串起来，今天再来一次。</p>
+<h2 id="Vue的高级功能"><a href="#Vue的高级功能" class="headerlink" title="Vue的高级功能"></a>Vue的高级功能</h2><blockquote>
+<ul>
+<li>过渡</li>
+<li>自定义指令</li>
+<li>mixins</li>
+<li>插件</li>
+</ul>
+</blockquote>
+<h2 id="Vue：过渡、动画"><a href="#Vue：过渡、动画" class="headerlink" title="Vue：过渡、动画"></a>Vue：过渡、动画</h2><blockquote>
+<ul>
+<li>通过v-show来控制dom元素的展示，过渡就是在切换展示的过程中加一些动画</li>
+<li><code>&lt;transition&gt;</code>是vue提供的内置组件，但必须配合一些特定条件才能用，如v-show。它本身需要命名，之后才可以根据它的名字实现过渡效果</li>
+<li>实现过渡的两种方法：CSS实现过渡、JS实现过渡</li>
+</ul>
+</blockquote>
+<h2 id="Vue：CSS实现过渡"><a href="#Vue：CSS实现过渡" class="headerlink" title="Vue：CSS实现过渡"></a>Vue：CSS实现过渡</h2><p><img src="../images/class.png" alt="CSS阶段类名"></p>
+<blockquote>
+<ul>
+<li>在接受过渡效果元素的时候，vue的<code>&lt;transition&gt;</code>组件会给这个元素不同阶段赋予不同的类名，我们通过控制CSS就可以实现过渡、动画</li>
+<li>类名主要分两个阶段：</li>
+<li>进入阶段–从无到有。比如v-show从不显示到显示阶段，有两个过程：完全不显示的时候，得到v-enter类名。进入显示过程中，类名为：v-enter-avtive</li>
+<li>离开阶段–完全有的时候：v-leave，当进入到完全不展示的过程中：v-leave-active类名</li>
+<li>enter-active和leave-avtive在css3的动画里，可以通过<strong>transition</strong>属性指定当前元素过渡效果.<strong>transition</strong>接受的两个参数，一个指哪些属性要接受过渡（all,opacityd等），另一个是过渡时长，还可以在第三个参数指定过渡曲线</li>
+<li><img src="../images/style.png" alt="动画过渡样式"></li>
+<li>由于opacity的默认值是1，所以如果需要完全不显示的两个状态v-enter、v-leave-avtive:得把opacity需要设置值为0.</li>
+<li>transition的参数，设置left等属性是无效的。所以假如说想做从上下左右进来出去的效果，只能通过transfrom：translateY(-500px);等</li>
+</ul>
+</blockquote>
+<h3 id="Vue过渡的其他知识"><a href="#Vue过渡的其他知识" class="headerlink" title="Vue过渡的其他知识"></a>Vue过渡的其他知识</h3><blockquote>
+<ul>
+<li>什么样的属性接受过渡状态</li>
+<li>多元素过渡</li>
+<li>多元素过渡 模式</li>
+</ul>
+</blockquote>
+<p>####什么样的属性接受过渡状态</p>
+<blockquote>
+<ul>
+<li>除了v-show可以接受过渡，v-if也可以，只是v-if会把元素从dom节点中删除  </li>
+<li>动态组件接受transition：先用v-bind is实现动态组件 ；将挂载点放在transition里。</li>
+<li>transition默认的模式：mode=”in-out”:新的先进，旧的后再出去</li>
+<li>还可以使用v-if，v-else来实现多元素过渡</li>
+<li>多元素显示有一点要注意，当标签名相同时，由于Vue不能区别这两个元素，所以动画可能会失效，所以可以指定一个key来让Vue区别这两个元素</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="Vue：JS实现过渡"><a href="#Vue：JS实现过渡" class="headerlink" title="Vue：JS实现过渡"></a>Vue：JS实现过渡</h2><blockquote>
+<ul>
+<li>JS过渡类似CSS过渡，也会分阶段。与CSS不同的是，用JS实现时，所控制的阶段，是通过事件(transition组件中的v-on)来监听事件钩子、方法，会在过渡进行到特定的阶段去调用，动画就通过JS写到方法里面。</li>
+<li>进入时有：</li>
+<li><img src="../images/jsguodu.png" alt="JS过渡"></li>
+<li>离开时有：</li>
+<li><img src="../images/jsguodu1.png" alt="JS过渡"><br>要注意的是：</li>
+<li>v-bind：css=”false”,这样可以避免Vue去检查css中指定的选项，可以避免过渡过程中CSS的影响</li>
+<li>方法里带有参数，主要的控制是通过方法传进来的el来实现的。el指当前transition体内的DOM元素，可以设定el的位置、颜色来控制动画</li>
+<li>有两个方法比较特殊，有第二个参数done，一个是enter，一个是leave。done是做什么的呢？当进入完毕后会调用done方法来进行下一步的操iffrent1.png)</li>
+<li>如果要引入一些公用库，如jQuery，可以在index.html文件里面引入，因为这个文件不会被打包或处理，只会作为一个入口的页面往里面加东西<br><img src="../images/diffrent2.png" alt="两个特殊的方法"></li>
+</ul>
+</blockquote>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Rong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2023/05/20/Vue学习第五弹/">http://yoursite.com/2023/05/20/Vue学习第五弹/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com">jsRongのBlog</a>！</span></div></div><div class="post-meta__tag-list"></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2023/05/20/Vue学习第六弹/"><i class="fa fa-chevron-left">  </i><span>Vue学习第六弹</span></a></div><div class="next-post pull-right"><a href="/2023/05/20/markdown基础语法/"><span>markdown基本使用介绍：以MaHua为例</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2023 By Rong</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://huirongma.top/">blog</a>!</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

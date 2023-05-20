@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Vue学习第七弹"><meta name="keywords" content><meta name="author" content="Rong"><meta name="copyright" content="Rong"><title>Vue学习第七弹 | jsRongのBlog</title><link rel="shortcut icon" href="/hexo-theme-melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '3.9.0'
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-router"><span class="toc-number">1.</span> <span class="toc-text">Vue-router</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是路由？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是路由？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端路由与传统路由的比较"><span class="toc-number">1.2.</span> <span class="toc-text">前端路由与传统路由的比较</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用前端路由"><span class="toc-number">2.</span> <span class="toc-text">使用前端路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-router的关键点"><span class="toc-number">2.1.</span> <span class="toc-text">vue-router的关键点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例化路由类，插到项目的根的Vue实例里"><span class="toc-number">2.2.</span> <span class="toc-text">实例化路由类，插到项目的根的Vue实例里</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由的参数"><span class="toc-number">2.3.</span> <span class="toc-text">路由的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由嵌套"><span class="toc-number">2.4.</span> <span class="toc-text">路由嵌套</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命名的路由视图、路由重定向"><span class="toc-number">2.5.</span> <span class="toc-text">命名的路由视图、路由重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#声明式导航和编程式导航"><span class="toc-number">2.6.</span> <span class="toc-text">声明式导航和编程式导航</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命名的路由和命名的视图"><span class="toc-number">2.7.</span> <span class="toc-text">命名的路由和命名的视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由重定向"><span class="toc-number">2.8.</span> <span class="toc-text">路由重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用过渡制作路由跳转动画"><span class="toc-number">2.9.</span> <span class="toc-text">使用过渡制作路由跳转动画</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://avatars2.githubusercontent.com/u/37861703?s=460&amp;u=c0f2cb613538c8d3822122fd83e4fc5acb44fea3&amp;v=4"></div><div class="author-info__name text-center">Rong</div><div class="author-info__description text-center">引而不发，一击必中</div><div class="follow-button"><a href="https://github.com/HuirongWow">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">15</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">jsRongのBlog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">Vue学习第七弹</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-05-20</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>这一章是对前端路由知识点的一个总结。</p>
+<h2 id="Vue-router"><a href="#Vue-router" class="headerlink" title="Vue-router"></a>Vue-router</h2><h3 id="什么是路由？"><a href="#什么是路由？" class="headerlink" title="什么是路由？"></a>什么是路由？</h3><blockquote>
+<ul>
+<li>路由就是根据不同的地址跳到不同的页面</li>
+<li>应用场景：单页面应用</li>
+</ul>
+</blockquote>
+<h3 id="前端路由与传统路由的比较"><a href="#前端路由与传统路由的比较" class="headerlink" title="前端路由与传统路由的比较"></a>前端路由与传统路由的比较</h3><blockquote>
+<ul>
+<li>传统路由切换的时候，所有资源都需要重新请求一次</li>
+<li>前端路由，单页面公用一些资源，只需要请求需要请求的页面</li>
+</ul>
+</blockquote>
+<h2 id="使用前端路由"><a href="#使用前端路由" class="headerlink" title="使用前端路由"></a>使用前端路由</h2><blockquote>
+<ul>
+<li>安装：npm install vue-router –save</li>
+<li>在入口文件里引入，注册</li>
+</ul>
+</blockquote>
+<h3 id="vue-router的关键点"><a href="#vue-router的关键点" class="headerlink" title="vue-router的关键点"></a>vue-router的关键点</h3><blockquote>
+<ul>
+<li>规定要有要有一份Map，规定什么地址访问什么页面/组件</li>
+<li><strong><router-view></router-view></strong>在哪个位置、区域显示</li>
+<li><strong><router-link></router-link></strong>在页面上如何跳转到下一个页面</li>
+</ul>
+</blockquote>
+<h3 id="实例化路由类，插到项目的根的Vue实例里"><a href="#实例化路由类，插到项目的根的Vue实例里" class="headerlink" title="实例化路由类，插到项目的根的Vue实例里"></a>实例化路由类，插到项目的根的Vue实例里</h3><blockquote>
+<ul>
+<li><img src="../images/router.png" alt="vue-router实例化"></li>
+<li>实例化router的时候，通过routes选项来进行设定，做一份映射表</li>
+<li>引入组件，在routes中有path和component两个属性，互相对应 </li>
+<li>配置好入口文件后，需要规定在哪里，通过<strong><router-view></router-view></strong>的放置地点来规定</li>
+<li>Vue处理非html5路由采用的方式：采用哈希#，可以接受前后的切换。在默认状态下加了哈希#，也就是说当前路由没有使用html5的history功能，通常是高级浏览器的话，可以在实例化时，routes中添加mode的history属性，来支持前后退的功能</li>
+<li><img src="../images/map.png" alt="vue-router配置映射表"></li>
+<li>在页面里的跳转：通过<strong><router-link :to="{path:'apple'}"></router-link></strong>来跳转到相应的地址</li>
+<li><img src="../images/router-link.png" alt="vue-router实现页面内的跳转"></li>
+</ul>
+</blockquote>
+<h3 id="路由的参数"><a href="#路由的参数" class="headerlink" title="路由的参数"></a>路由的参数</h3><blockquote>
+<ul>
+<li>前端路由允许传参，在实例化时设置参数</li>
+<li><img src="../images/canshu.png" alt="CSS阶段类名"></li>
+<li>设定参数后，如何在组件内部获取参数呢？</li>
+<li>路由接受了参数以后，会往每个组件的全局route对象里插入当前页面的参数params，所以可以通过<strong>this.$route.params</strong>来获取当前路由的参数</li>
+<li>需要注意的，由于在路由里设定了有参数的路由，所以这是一个特定的匹配，加入输入的路由后面没有参数的话，就不会到想去的那个路由页面</li>
+<li>由于<strong>this.$route.params</strong>已经被注入了，所以自动成为组件的一个属性，可以在模板里直接访问<strong>$route.params.color</strong></li>
+<li><img src="../images/zhuru.png" alt="路由参数注入"></li>
+<li>路由参数的灵活使用：带冒号的都是参数，不带的会进行字符串匹配</li>
+<li><img src="../images/canshupipei.png" alt="路由参数匹配"></li>
+</ul>
+</blockquote>
+<h3 id="路由嵌套"><a href="#路由嵌套" class="headerlink" title="路由嵌套"></a>路由嵌套</h3><blockquote>
+<ul>
+<li>就是自路由，同样配置映射表，只是在父级路由下配置children映射表</li>
+<li><img src="../images/ziluyou.png" alt="子路由映射配置"></li>
+<li>子路由组件渲染在哪里呢？它只会渲染到父级路由组件里面，不会插在根的<strong><router-view></router-view></strong>的位置。因为它只能找到父组件的那一层，所以我们需要在父组件相应位置放一个<strong><router-view></router-view></strong>,用以放置子路由组件。<strong><router-view></router-view></strong>所在地</li>
+<li><img src="../images/ziluyou1.png" alt="子路由父级内的view位置"></li>
+</ul>
+</blockquote>
+<h3 id="命名的路由视图、路由重定向"><a href="#命名的路由视图、路由重定向" class="headerlink" title="命名的路由视图、路由重定向"></a>命名的路由视图、路由重定向</h3><blockquote>
+<ul>
+<li><strong><router-link></router-link></strong>如果只是一个简单的跳转，我们可以采用<strong>to</strong>+地址，不需要用<strong>v-bind</strong>来绑定，类似于<strong>href</strong>，基于当前路径跳到指定路径</li>
+<li><strong>to</strong>可以将自定义的参数直接传过去。</li>
+<li><img src="../images/chuancan.png" alt="通过to传参数"></li>
+<li>具名路由：在设定路由的时候，设定name属性，在访问的时候，也通过name属性来访问。</li>
+<li><img src="../images/namelink.png" alt="具名路由"></li>
+<li>如何让将<strong><router-link></router-link></strong>变成<strong>li</strong>的样式呢？可以通过<strong>tag=”li”</strong>来指定</li>
+<li><img src="../images/linktoli.png" alt="将link标签化为li标签格式"></li>
+<li>通过<strong>v-bind</strong>动态的将路径作为组建的一个属性来进行绑定。</li>
+</ul>
+</blockquote>
+<h3 id="声明式导航和编程式导航"><a href="#声明式导航和编程式导航" class="headerlink" title="声明式导航和编程式导航"></a>声明式导航和编程式导航</h3><blockquote>
+<ul>
+<li>在组件<strong><template></template></strong>里通过<strong><router-link></router-link></strong>导航叫做声明式导航，实在模板里进行声明来导航</li>
+<li>我们在main.js里也可以进行编程式的导航，采用的最基本的方法是通过<strong>router.push()</strong>方法，指定到特殊页面。</li>
+<li><img src="../images/bianchen.png" alt="编程式导航的示例"></li>
+</ul>
+</blockquote>
+<h3 id="命名的路由和命名的视图"><a href="#命名的路由和命名的视图" class="headerlink" title="命名的路由和命名的视图"></a>命名的路由和命名的视图</h3><blockquote>
+<ul>
+<li>命名路由</li>
+<li>命名视图</li>
+<li><img src="../images/shitu1.png" alt="命名视图1"></li>
+<li><img src="../images/shitu2.png" alt="命名视图2"></li>
+</ul>
+</blockquote>
+<h3 id="路由重定向"><a href="#路由重定向" class="headerlink" title="路由重定向"></a>路由重定向</h3><blockquote>
+<ul>
+<li>当访问某个路径时，重定向到指定的路径</li>
+<li><img src="../images/chongdx.png" alt="路由重定向"></li>
+</ul>
+</blockquote>
+<h3 id="使用过渡制作路由跳转动画"><a href="#使用过渡制作路由跳转动画" class="headerlink" title="使用过渡制作路由跳转动画"></a>使用过渡制作路由跳转动画</h3></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Rong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2023/05/20/Vue学习第七弹/">http://yoursite.com/2023/05/20/Vue学习第七弹/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com">jsRongのBlog</a>！</span></div></div><div class="post-meta__tag-list"></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2023/05/20/Vue学习第三弹/"><i class="fa fa-chevron-left">  </i><span>Vue学习第三弹</span></a></div><div class="next-post pull-right"><a href="/2023/05/20/DNS劫持插入广告的原理及解决方法/"><span>DNS劫持插入广告的原理及解决方法</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2023 By Rong</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://huirongma.top/">blog</a>!</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

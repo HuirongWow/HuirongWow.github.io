@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="DNS劫持插入广告的原理及解决方法"><meta name="keywords" content><meta name="author" content="Rong"><meta name="copyright" content="Rong"><title>DNS劫持插入广告的原理及解决方法 | jsRongのBlog</title><link rel="shortcut icon" href="/hexo-theme-melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '3.9.0'
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS是什么"><span class="toc-number">1.</span> <span class="toc-text">DNS是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS有什么用呢？"><span class="toc-number">2.</span> <span class="toc-text">DNS有什么用呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名的结构是什么样的？"><span class="toc-number">3.</span> <span class="toc-text">域名的结构是什么样的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“域名解析”是咋实现"><span class="toc-number">4.</span> <span class="toc-text">“域名解析”是咋实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是域名劫持"><span class="toc-number">5.</span> <span class="toc-text">什么是域名劫持</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#我们来找个例子看一下吧。"><span class="toc-number">5.1.</span> <span class="toc-text">我们来找个例子看一下吧。</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://avatars2.githubusercontent.com/u/37861703?s=460&amp;u=c0f2cb613538c8d3822122fd83e4fc5acb44fea3&amp;v=4"></div><div class="author-info__name text-center">Rong</div><div class="author-info__description text-center">引而不发，一击必中</div><div class="follow-button"><a href="https://github.com/HuirongWow">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">15</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">jsRongのBlog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">DNS劫持插入广告的原理及解决方法</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-05-20</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>很多站长都遇见过，自己的网页莫名奇妙的多了些垃圾广告的现象。这样的情况，既流失了访问量，又没有什么好处，让人觉得好郁闷呀，那么那些无良的商家是如何做到强行插入广告的呢？他们是通过劫持DNS来实现的！什么是DNS？什么是DNS劫持呀？你肯定会有许多疑惑，就让我们来看看吧！<br>让我们来看看吧！</p>
+<h2 id="DNS是什么"><a href="#DNS是什么" class="headerlink" title="DNS是什么"></a>DNS是什么</h2><p>DNS 是洋文“Domain Name System”的缩写，直译过来就是“域名系统”。</p>
+<h2 id="DNS有什么用呢？"><a href="#DNS有什么用呢？" class="headerlink" title="DNS有什么用呢？"></a>DNS有什么用呢？</h2><p>简而言之，DNS的作用就是将域名解析成相对应的IP的一套系统。为什么要解析域名成相对应的IP呢？因为IP太复杂人记不住~这个解析的过程，用术语叫做：“域名解析/DNS解析”</p>
+<h2 id="域名的结构是什么样的？"><a href="#域名的结构是什么样的？" class="headerlink" title="域名的结构是什么样的？"></a>域名的结构是什么样的？</h2><p>我们先来了解一些基础知识，看一看域名的结构。域名是按照“树形结构”组织的。我们知道域名，由’ . ‘来划分，那么它的级别，由右到左降低（上级在右，下级在左）。举个例子：</p>
+<blockquote>
+<ul>
+<li>3g.163.com的上级域名是.163.com</li>
+<li>163.com的上级域名是.com<br>这里的.com就被称为顶级域名，与.com类似的.net/.top/.gov也是顶级域名</li>
+</ul>
+</blockquote>
+<h2 id="“域名解析”是咋实现"><a href="#“域名解析”是咋实现" class="headerlink" title="“域名解析”是咋实现"></a>“域名解析”是咋实现</h2><p>我们可以把“DNS服务器”想象成114查号台，当每台电脑需要翻译某个域名，就找这个域名服务器查询，然后域名服务器会告诉你的电脑，要查询的域名对应的IP地址是啥。</p>
+<p><strong>下面简单看一下，电脑进行域名解析的过程</strong><br>以域名<a href="http://www.163.com为例，当在地址栏输入它后，敲击回车，电脑会进行如下的事情：" target="_blank" rel="noopener">www.163.com为例，当在地址栏输入它后，敲击回车，电脑会进行如下的事情：</a></p>
+<blockquote>
+<ul>
+<li>你的DNS会发出一个DNS请求到本地DNS服务器。本地DNS服务器一般都是网络接入服务商提供，比如中国电信，中国移动之类的。</li>
+<li>查询<a href="http://www.163.com的DNS请求到达本地DNS服务器之后，本地DNS服务器会首先查询它的缓存记录，如果缓存里有这个记录的话，可以直接返回结果，解析结束。如果没有这个结果的话，本地DNS服务器会向**根DNS服务器**进行查询。" target="_blank" rel="noopener">www.163.com的DNS请求到达本地DNS服务器之后，本地DNS服务器会首先查询它的缓存记录，如果缓存里有这个记录的话，可以直接返回结果，解析结束。如果没有这个结果的话，本地DNS服务器会向**根DNS服务器**进行查询。</a></li>
+<li>查询什么呢？其实<strong>根DNS服务器</strong>里，没有记录具体的域名和IP地址的对应关系，而是告诉本地DNS服务器，你可以到域服务器上去查询，比如.com/.net等，并给出相应的域服务器的地址。</li>
+<li>这个时候本地DNS继续向域服务器发出请求，这个例子中，请求的是<strong>.com域服务器。</strong>而.com域服务器收到请求之后也不会立即返回域名和IP对应关系给本地DNS服务器，本地DNS服务器，你的域名的解析服务器的地址，比如这个例子是163.com主区域的地址</li>
+<li>最后，本地DNS服务器向域名的解析服务器发出请求，这时就能收到IP和域名的对应关系表。本地的DNS不仅要把IP地址返回给用户电脑，还要把这个对应关系保存在缓存中，以备下次别的用户查询时，可以直接返回结果，加快网络访问。</li>
+<li>我们可以用一张图来清楚明了的看懂这个过程：<img src="http://www.maixj.net/wp-content/uploads/2015/10/dns.jpg" alt="dns解析过程"></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>关于DNS解析的TTL参数：<br>配置DNS解析的时候，有一个参数总是很容易忽略。就是DNS解析的TTL参数。这个参数是告诉本地的服务器域名缓存的最长时间。 用阿里云解析来举例，阿里云解析默认的TTL是10分钟，10分钟的含义是，本地DNS服务器对于域名的缓存时间是10分钟，10分钟之后，本地DNS服务器就会删除这条记录，删除之后，如果有用户访问这个域名，就要重复一遍上述复杂的流程。</p>
+</blockquote>
+<blockquote>
+<p>其实如果网站已进入稳定发展的状态，不会轻易更改IP地址，完全可以将TTL协议设置到最导致24h。</p>
+</blockquote>
+<blockquote>
+<p>阿里云之所以只将TTL设置成10分钟，是为了让域名解析更快生效而已。因为之前的解析会在最长10分钟之后失效（本地DNS服务器将对应的解析条目删除），然后新的解析生效。如果是24小时，这个生效的时间最长就是24小时，甚至更长（本地DNS服务器要有用户请求，才会发起查询）</p>
+</blockquote>
+<h2 id="什么是域名劫持"><a href="#什么是域名劫持" class="headerlink" title="什么是域名劫持"></a>什么是域名劫持</h2><blockquote>
+<ul>
+<li>从上面的内容了解到，本地DNS服务器会有很多域名记录，每条记录包含域名和IP。当收到域名查询的时候，本地DNS服务器会从这些记录中找到对方想要的，然后回应给对方。</li>
+<li>但如果，本地DNS服务器上的某条记录被人认人为修改了，那么一旦要查询这条记录，得到的就是错误的结果。这样的情况就被称为“域名劫持”</li>
+<li>什么样的人会做域名劫持这样的事情呢？一般都是一些宽带商(联通宽带、电信宽带、移动宽带、长城宽带、方正宽带等)会在用户使用他们的宽带服务浏览网页时，在这些网页的页面上强行嵌入自己的广告服务。</li>
+</ul>
+</blockquote>
+<h3 id="我们来找个例子看一下吧。"><a href="#我们来找个例子看一下吧。" class="headerlink" title="我们来找个例子看一下吧。"></a>我们来找个例子看一下吧。</h3><blockquote>
+<ul>
+<li>这是一个被强行嵌入了广告的页面：<br><img src="http://www.webhek.com/wordpress/wp-content/uploads/2014/12/ad2.jpg" alt="html"></li>
+<li>使用浏览器调试工具，发现在页面尾部无端多出来一段iframe和嵌入有广告代码的div，。它是宽带商捕捉用户浏览的网页，擅自非法的这些页面上添加自己的广告服务代码。这些代码能给宽带商带来一笔额外的收入。<br><img src="http://www.webhek.com/wordpress/wp-content/uploads/2014/12/ad1.jpg" alt="pyc"></li>
+<li>我们如何阻止他们呢？其实我们发现，宽带商非法嵌入广告的方式通常是两种：<br>在页面尾部加入数个iframe，iframe里的内容是宽带商承揽的广告；<br>直接嵌入div</li>
+<li>无论是iframe还是div，这些HTML广告代码都有相同的特征。首先来看iframe格式，这些iframe在页面文档中的位置一定都是 body 元素的直接子元素，用CSS 选择器可以这样表示：</li>
+</ul>
+</blockquote>
+<pre><code>body &gt; iframe{....}
+</code></pre><blockquote>
+<p>以我个人的经验，一般正常的页面里很少有使用iframe的，即使有，也很少有将iframe直接放到body元素下的。所以，对于这些流氓宽带商非法嵌入的iframe，我们可以通过下面的CSS进行屏蔽：</p>
+</blockquote>
+<pre><code>body &gt; iframe{
+    opacity:0;
+    display:none;
+}
+</code></pre><blockquote>
+<p>把这段代码放入页面里，这非法嵌入的广告iframe，虽然存在，但完全看不见。</p>
+<ul>
+<li>第二种情况，就是div形式广告，这些div通常会被放在页面的最后，也就是页面里正常HTML元素的最后一个的后面，只要我能捕捉目标，就能消灭他们，隐藏就好：</li>
+</ul>
+</blockquote>
+<pre><code>div#last-div ~ div {
+    display: none; 
+    opacity:0;
+}
+</code></pre><blockquote>
+<ul>
+<li>还有一种方式，就是弃用http用https啦，不过代价有点大，有兴趣的可以看一下http和https的区别~</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>就是这样，今天也是努力的马大侠！</strong></p>
+</blockquote>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Rong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2023/05/20/DNS劫持插入广告的原理及解决方法/">http://yoursite.com/2023/05/20/DNS劫持插入广告的原理及解决方法/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com">jsRongのBlog</a>！</span></div></div><div class="post-meta__tag-list"></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2023/05/20/Vue学习第七弹/"><i class="fa fa-chevron-left">  </i><span>Vue学习第七弹</span></a></div><div class="next-post pull-right"><a href="/2018/03/28/article-title/"><span>article title</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2023 By Rong</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://huirongma.top/">blog</a>!</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

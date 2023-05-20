@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Vue学习第四弹"><meta name="keywords" content><meta name="author" content="Rong"><meta name="copyright" content="Rong"><title>Vue学习第四弹 | jsRongのBlog</title><link rel="shortcut icon" href="/hexo-theme-melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '3.9.0'
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#深入了解Vue组件"><span class="toc-number">1.</span> <span class="toc-text">深入了解Vue组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何在父组件里渲染子组件内容"><span class="toc-number">2.</span> <span class="toc-text">如何在父组件里渲染子组件内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue父子组件之间的通信"><span class="toc-number">3.</span> <span class="toc-text">Vue父子组件之间的通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件之间的通信-动态组件"><span class="toc-number">4.</span> <span class="toc-text">组件之间的通信-动态组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://avatars2.githubusercontent.com/u/37861703?s=460&amp;u=c0f2cb613538c8d3822122fd83e4fc5acb44fea3&amp;v=4"></div><div class="author-info__name text-center">Rong</div><div class="author-info__description text-center">引而不发，一击必中</div><div class="follow-button"><a href="https://github.com/HuirongWow">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">15</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">jsRongのBlog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">Vue学习第四弹</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-05-20</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>等待面试的过程中真是很焦虑，感觉任何时刻都有可能打电话过来开始面试，最难受的是感觉还有很多没有准备好，所以继续加油。<br>共勉</p>
+<h2 id="深入了解Vue组件"><a href="#深入了解Vue组件" class="headerlink" title="深入了解Vue组件"></a>深入了解Vue组件</h2><p><img src="../images/gen.png" alt="组件树"></p>
+<ul>
+<li>一个项目通常只有一个根组件，通过实例化一个Vue对象及里面的render方法去渲染根组件。</li>
+<li>一个项目里只有一个实例化对象，就是入口文件，中间的所有传递其实都是一份配置文件。Vue的所有子组件，包括子组件的子组件都是配置文件。我们用这种方式配合单文件组件，实现Vue的组件树结构。</li>
+</ul>
+<h2 id="如何在父组件里渲染子组件内容"><a href="#如何在父组件里渲染子组件内容" class="headerlink" title="如何在父组件里渲染子组件内容"></a>如何在父组件里渲染子组件内容</h2><ul>
+<li>用import模式将子组件的配置载入到父组件的JS里面<ul>
+<li>响应式-双向绑定：v-model</li>
+</ul>
+</li>
+<li><p>在父组件里注册子组件，通过components注册</p>
+<ul>
+<li><img src="../images/zhuce.png" alt="父组件中注册子组件"></li>
+</ul>
+</li>
+<li><p>在template里使用组件，推荐使用-命名转换将大写字母转成小写，因为html标签对大小写不敏感，应该小写</p>
+<ul>
+<li>注意，任何往组件里传递的标签、组件属性也不支持大写，需要用-转换</li>
+</ul>
+</li>
+<li>模板引入，也可以通过is标签来引入，好处：可以使用动态组件、模板引入。</li>
+</ul>
+<h2 id="Vue父子组件之间的通信"><a href="#Vue父子组件之间的通信" class="headerlink" title="Vue父子组件之间的通信"></a>Vue父子组件之间的通信</h2><ul>
+<li><p>父子组件遵循怎样的模式呢？</p>
+<ul>
+<li><p><img src="../images/moshi.png" alt="模式"> </p>
+</li>
+<li><p>父组件向子组件传递信息通过props：在子组件必须声明props接收的数据，接收到的数据自动变为属性</p>
+</li>
+<li>props接受两种类型的值：1.数组（接受数组里列出的所有属性）2.对象：可以指定传值类型 </li>
+<li>子组件向父组件传递信息用$emit</li>
+</ul>
+</li>
+<li>动态属性的传递<ul>
+<li>使用v-bind就可以成就一个可以动态向子组件传递的属性，同时属性需要在子组件中声明一下，之后便实现了动态属性的传递</li>
+<li>子组件可以设要置接受的数据类型，假若父组件传过来的属性数据类型不匹配，则会触发报错</li>
+</ul>
+</li>
+<li><p>子组件如何通过触发事件向父组件传递信息</p>
+<ul>
+<li>子组件中有个button，点击事件可触发myevent事件，同时通过$emit传递了一个字符串参数，在父组件中通过v-on监听一个事件是否被触发，触发时执行相应方法，通过这个方法里接受子组件传过来的的字符串参数。</li>
+<li><p>子组件：</p>
+<ul>
+<li><img src="../images/zichuan.png" alt="子传"></li>
+</ul>
+</li>
+<li><p>父组件</p>
+<ul>
+<li><img src="../images/fujie.png" alt="父接"></li>
+</ul>
+</li>
+<li><p>注意，事件也需要-转换大写</p>
+</li>
+</ul>
+</li>
+<li><p>插槽功能</p>
+<ul>
+<li>其实也是父组件向子组件传递信息的一个方式，传递的信息是：模板</li>
+<li>在子组件中通过slot标签实现功能，</li>
+<li>可以为插槽设置默认值，当插槽没有内容，没有接受到要插进来的信息时，就显示默认值</li>
+<li>slot也接受具名slot，可以给slot添加name属性，并添加默认值，如果没接收到对应的信息，则显示默认值。</li>
+<li><p>父组件：</p>
+<ul>
+<li><img src="../images/fuchuan.png" alt="父传"></li>
+</ul>
+</li>
+<li><p>子组件</p>
+<ul>
+<li><img src="../images/zijie.png" alt="子接"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="组件之间的通信-动态组件"><a href="#组件之间的通信-动态组件" class="headerlink" title="组件之间的通信-动态组件"></a>组件之间的通信-动态组件</h2><ul>
+<li>用v-bind is绑定变量，通过变量来指定不同的组件，就是动态组件</li>
+<li>动态组件类似于路由，也支持<keep-alive>内置标签，当有好几种组件时，当有<keep-alive>标签，则可以缓存，提高加载速度</keep-alive></keep-alive></li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>无论多大的项目，组件间进行交互的就是三种方式：通过属性向内传递props、子组件触发$emit事件，父组件通过监听事件来获取信息，插槽功能，写在组件里的模板可以通过插槽展现在子组件的相应位置。</li>
+<li>使用组件树设计项目，配置文件链接各个组件-命名转换，动态组件</li>
+<li>父组件向内传递属性-动态属性</li>
+<li>子组件向外发布事件</li>
+<li>slot插槽传递模板-具名slot</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Rong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2023/05/20/Vue学习第四弹/">http://yoursite.com/2023/05/20/Vue学习第四弹/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com">jsRongのBlog</a>！</span></div></div><div class="post-meta__tag-list"></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2023/05/20/markdown基础语法/"><i class="fa fa-chevron-left">  </i><span>markdown基本使用介绍：以MaHua为例</span></a></div><div class="next-post pull-right"><a href="/2023/05/20/hello-world/"><span>Hello World</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2023 By Rong</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://huirongma.top/">blog</a>!</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

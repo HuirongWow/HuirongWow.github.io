@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Vue学习第三弹"><meta name="keywords" content><meta name="author" content="Rong"><meta name="copyright" content="Rong"><title>Vue学习第三弹 | jsRongのBlog</title><link rel="shortcut icon" href="/hexo-theme-melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '3.9.0'
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue事件绑定"><span class="toc-number">1.</span> <span class="toc-text">Vue事件绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue中单选多选控件如何实现"><span class="toc-number">2.</span> <span class="toc-text">Vue中单选多选控件如何实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算属性和数据监听"><span class="toc-number">3.</span> <span class="toc-text">计算属性和数据监听</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://avatars2.githubusercontent.com/u/37861703?s=460&amp;u=c0f2cb613538c8d3822122fd83e4fc5acb44fea3&amp;v=4"></div><div class="author-info__name text-center">Rong</div><div class="author-info__description text-center">引而不发，一击必中</div><div class="follow-button"><a href="https://github.com/HuirongWow">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">15</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">jsRongのBlog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">Vue学习第三弹</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-05-20</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>路途依旧遥远。我去到了杭州，住在西溪湿地，去看了阿里巴巴总部，很帅，下好大的雨，我站在外边撑着伞看着。</p>
+<h2 id="Vue事件绑定"><a href="#Vue事件绑定" class="headerlink" title="Vue事件绑定"></a>Vue事件绑定</h2><ul>
+<li>用v-on标签实现事件绑定，提供一些修改器，如keydown.enter</li>
+<li>自定义事件：针对子组件向外触发，在子组件中使用$emit来触发事件，还可传参数给父组件，让父组件在方法里接受那个参数</li>
+</ul>
+<p>##表单事件绑定</p>
+<ul>
+<li>input的数据绑定：v-model实现数据模型，如：v-model:myval<ul>
+<li>首先同步到myval属性上，再同步渲染到页面上，每一次输入都会进行双向的绑定</li>
+</ul>
+</li>
+<li>v-model的修饰符：<ul>
+<li>.lazy：在输入完之后才会进行更新，当数据很大时用.lazy是不错的选择</li>
+<li>.number:一般把myval当作string来处理，可用typeof查看，用.number修饰符可改类型为number</li>
+<li>.trim：一个裁剪的修饰符，空格会被剪切掉。<h2 id="Vue中单选多选控件如何实现"><a href="#Vue中单选多选控件如何实现" class="headerlink" title="Vue中单选多选控件如何实现"></a>Vue中单选多选控件如何实现</h2></li>
+</ul>
+</li>
+<li>checkbox的实现<ul>
+<li>给input设置type=checkbox，设置value属性的值，通过v-model把所有选项绑定在myval属性上（myval需要是一个数组），如果勾选了input选项则会被添加到myval中，实际上是添加了value属性的值</li>
+</ul>
+</li>
+<li>单选框radio  <ul>
+<li>给input设置type=radio，设置value属性的值，通过v-model把所有选项绑定在myval属性上（myval是一个字符串），如果勾选了input选项则会被添加到myval中，实际上是添加了value属性的值</li>
+</ul>
+</li>
+<li>select，<ul>
+<li>用v-model给select绑定myval属性，而options可以作为一个数组放在data中，用v-for来渲染到页面里</li>
+</ul>
+</li>
+</ul>
+<h2 id="计算属性和数据监听"><a href="#计算属性和数据监听" class="headerlink" title="计算属性和数据监听"></a>计算属性和数据监听</h2><ul>
+<li>计算属性时做什么的呢？<ul>
+<li>通过computed会根据其他属性的变化同步实现computed中的属性的动态更新</li>
+</ul>
+</li>
+<li>计算属性computed与方法method有什么不同呢？<ul>
+<li>computed的计算属性会被缓存，计算属性的更新只会根据另一个值如myval进行更新，如果那个值没有更新，那么计算值也不会更新</li>
+<li>用method调用值时，每一次都会重新获取再进行相应的操作</li>
+</ul>
+</li>
+<li>数据监听 watch<ul>
+<li>Vue用来提供，监听属性变化的选项</li>
+</ul>
+</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Rong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2023/05/20/Vue学习第三弹/">http://yoursite.com/2023/05/20/Vue学习第三弹/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com">jsRongのBlog</a>！</span></div></div><div class="post-meta__tag-list"></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2023/05/20/ES6核心语法/"><i class="fa fa-chevron-left">  </i><span>ES6的一些核心内容（上）</span></a></div><div class="next-post pull-right"><a href="/2023/05/20/Vue学习第七弹/"><span>Vue学习第七弹</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2023 By Rong</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://huirongma.top/">blog</a>!</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
